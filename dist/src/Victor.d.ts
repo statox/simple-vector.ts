@@ -827,14 +827,14 @@ export declare class Victor {
      * Gets the angle θ in the plane (in rads -π < θ < π) between the positive
      * y-axis and the ray from (0, 0) to the point (x, y)
      *
-     * Caution: The direction is not the same as horizontalAngleDeg()
+     * Caution: The direction is not the same as horizontalAngle()
      *
      * @category Angle
      * @example
-     * assert.equal(0,          (new Victor(0, 10)).verticalAngleDeg());
-     * assert.equal(-Math.PI/2, (new Victor(-10, 0)).verticalAngleDeg());
-     * assert.equal(Math.PI/,   (new Victor(0, 10)).verticalAngleDeg());
-     * assert.equal(Math.PI/2,  (new Victor(10, 0)).verticalAngleDeg());
+     * assert.equal(0,          (new Victor(0, 10)).verticalAngle());
+     * assert.equal(-Math.PI/2, (new Victor(-10, 0)).verticalAngle());
+     * assert.equal(Math.PI/,   (new Victor(0, 10)).verticalAngle());
+     * assert.equal(Math.PI/2,  (new Victor(10, 0)).verticalAngle());
      *
      * @return The angle in degrees
      */
