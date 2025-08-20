@@ -10,7 +10,8 @@
     },
     "files": [
         "dist",
-        "README.md"
+        "README.md",
+        "LICENSE"
     ],
     "scripts": {
         "check": "npm run lint && npm run prettier",
