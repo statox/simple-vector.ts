@@ -19,7 +19,7 @@
         "lint": "eslint",
         "lint:fix": "npm run lint --fix",
         "tests": "node --test",
-        "tests:coverage": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=coverage.info ",
+        "tests:coverage": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=coverage.info",
         "build": "rm -fr dist/ && tsc && npm run build-doc",
         "build-doc": "typedoc",
         "watch": "rm -fr dist/ && tsc -w",

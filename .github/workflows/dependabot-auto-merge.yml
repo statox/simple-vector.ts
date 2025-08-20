@@ -101,15 +101,15 @@ jobs:
               if: always()
               run: npx ctrf merge ctrf/
 
-            # - name: Generate tests report
-            #   if: always()
-            #   run: npx github-actions-ctrf ctrf/ctrf-report.json
+            - name: Generate tests report
+              if: always()
+              run: npm run tests:coverage
 
-            # - name: Publish CTRF pull request comment
-            #   run: npx github-actions-ctrf pull-request ctrf/ctrf-report.json
-            #   if: always()
-            #   env:
-            #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Publish CTRF pull request comment
+              run: npx github-actions-ctrf pull-request coverage.info
+              if: always()
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     auto-merge-dependabot:
         needs: [lint-and-format, tests]
@@ -126,4 +126,8 @@ jobs:
               run: gh pr merge --rebase --auto "$PR_URL"
               env:
                   PR_URL: ${{github.event.pull_request.html_url}}
-                  GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  # TODO Try to remove
+                  # This line comes from my template workflow but I didn't setup
+                  # any secret in the repo and a MR was still merged (#2) so I
+                  # can probably remove that and maybe the line above
+                  # GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
