@@ -743,7 +743,6 @@ test('Precision methods', () => {
     });
 });
 
-
 describe('cross', function () {
     let vec1: Victor;
     let vec2: Victor;
