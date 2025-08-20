@@ -10,20 +10,20 @@
 import { describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { DivisionByZeroError, Victor, fromArray, fromObject } from '../src/Victor.ts';
+import { DivisionByZeroError, Vector, fromArray, fromObject } from '../src/Vector.ts';
 import { assertCloseTo } from './helpers.ts';
 
 describe('static methods', function () {
-    describe('new Victor', function () {
-        it('should be an instance of Victor', function () {
-            const v = new Victor(0, 0);
-            assert.ok(v instanceof Victor);
+    describe('new Vector', function () {
+        it('should be an instance of Vector', function () {
+            const v = new Vector(0, 0);
+            assert.ok(v instanceof Vector);
         });
 
         it('should have axis from arguments', function () {
             const x = 10;
             const y = 100;
-            const v = new Victor(x, y);
+            const v = new Vector(x, y);
             assert.strictEqual(v.x, x);
             assert.strictEqual(v.y, y);
         });
@@ -31,15 +31,15 @@ describe('static methods', function () {
 
     describe('#fromArray()', function () {
         let arr: number[];
-        let vec: Victor;
+        let vec: Vector;
 
         before(function () {
             arr = [100, 200];
             vec = fromArray(arr);
         });
 
-        it('should return an instance of Victor', function () {
-            assert.ok(vec instanceof Victor);
+        it('should return an instance of Vector', function () {
+            assert.ok(vec instanceof Vector);
         });
 
         it('should have axis from array', function () {
@@ -50,15 +50,15 @@ describe('static methods', function () {
 
     describe('#fromObject()', function () {
         let obj: { x?: number; y?: number };
-        let vec: Victor;
+        let vec: Vector;
 
         before(function () {
             obj = { x: 100, y: 200 };
             vec = fromObject(obj);
         });
 
-        it('should return an instance of Victor', function () {
-            assert.ok(vec instanceof Victor);
+        it('should return an instance of Vector', function () {
+            assert.ok(vec instanceof Vector);
         });
 
         it('should have axis from object', function () {
@@ -70,13 +70,13 @@ describe('static methods', function () {
 
 describe('chainable instance methods', function () {
     describe('#addX()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(20, 40);
-            vec2 = new Victor(30, 20);
+            vec1 = new Vector(20, 40);
+            vec2 = new Vector(30, 20);
             ret = vec1.addX(vec2);
         });
 
@@ -91,13 +91,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#addY()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(20, 40);
-            vec2 = new Victor(30, 20);
+            vec1 = new Vector(20, 40);
+            vec2 = new Vector(30, 20);
             ret = vec1.addY(vec2);
         });
 
@@ -112,13 +112,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#add()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(20, 40);
-            vec2 = new Victor(30, 20);
+            vec1 = new Vector(20, 40);
+            vec2 = new Vector(30, 20);
             ret = vec1.add(vec2);
         });
 
@@ -133,13 +133,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#subtractX()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(20, 40);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(20, 40);
             ret = vec1.subtractX(vec2);
         });
 
@@ -154,13 +154,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#subtractY()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(20, 40);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(20, 40);
             ret = vec1.subtractY(vec2);
         });
 
@@ -175,13 +175,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#subtract()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(20, 40);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(20, 40);
             ret = vec1.subtract(vec2);
         });
 
@@ -196,13 +196,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#divideX()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(2, 2);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(2, 2);
             ret = vec1.divideX(vec2);
         });
 
@@ -217,13 +217,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#divideY()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(2, 2);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(2, 2);
             ret = vec1.divideY(vec2);
         });
 
@@ -238,13 +238,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#divide()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(2, 2);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(2, 2);
             ret = vec1.divide(vec2);
         });
 
@@ -259,12 +259,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#divideScalar()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 2;
             ret = vec.divideScalar(scal);
         });
@@ -279,19 +279,19 @@ describe('chainable instance methods', function () {
         });
 
         it('should throw when dividing by 0', function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 0;
             assert.throws(() => vec.divideScalar(scal), DivisionByZeroError);
         });
     });
 
     describe('#divideScalarX()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 2;
             ret = vec.divideScalarX(scal);
         });
@@ -306,19 +306,19 @@ describe('chainable instance methods', function () {
         });
 
         it('should return a zero X when dividing by 0', function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 0;
             assert.throws(() => vec.divideScalarX(scal), DivisionByZeroError);
         });
     });
 
     describe('#divideScalarY()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 2;
             ret = vec.divideScalarY(scal);
         });
@@ -333,20 +333,20 @@ describe('chainable instance methods', function () {
         });
 
         it('should return a zero Y when dividing by 0', function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 0;
             assert.throws(() => vec.divideScalarY(scal), DivisionByZeroError);
         });
     });
 
     describe('#multiplyX()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(2, 2);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(2, 2);
             ret = vec1.multiplyX(vec2);
         });
 
@@ -361,13 +361,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#multiplyY()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(2, 2);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(2, 2);
             ret = vec1.multiplyY(vec2);
         });
 
@@ -382,13 +382,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#multiply()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(30, 20);
-            vec2 = new Victor(2, 2);
+            vec1 = new Vector(30, 20);
+            vec2 = new Vector(2, 2);
             ret = vec1.multiply(vec2);
         });
 
@@ -403,12 +403,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#multiplyScalar()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 2;
             ret = vec.multiplyScalar(scal);
         });
@@ -424,12 +424,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#multiplyScalarX()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 2;
             ret = vec.multiplyScalarX(scal);
         });
@@ -445,12 +445,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#multiplyScalarY()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             scal = 2;
             ret = vec.multiplyScalarY(scal);
         });
@@ -466,12 +466,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#addScalar()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(1, 2);
+            vec = new Vector(1, 2);
             scal = 2;
             ret = vec.addScalar(scal);
         });
@@ -487,12 +487,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#addScalarX()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(1, 2);
+            vec = new Vector(1, 2);
             scal = 2;
             ret = vec.addScalarX(scal);
         });
@@ -508,12 +508,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#addScalarY()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(10, 20);
+            vec = new Vector(10, 20);
             scal = 2;
             ret = vec.addScalarY(scal);
         });
@@ -529,12 +529,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#subtractScalar()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(10, 20);
+            vec = new Vector(10, 20);
             scal = 2;
             ret = vec.subtractScalar(scal);
         });
@@ -550,12 +550,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#subtractScalarX()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(10, 20);
+            vec = new Vector(10, 20);
             scal = 2;
             ret = vec.subtractScalarX(scal);
         });
@@ -571,12 +571,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#subtractScalarY()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let scal: number;
-        let ret: Victor;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(10, 20);
+            vec = new Vector(10, 20);
             scal = 2;
             ret = vec.subtractScalarY(scal);
         });
@@ -592,11 +592,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#norm()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(13.37, 42.42);
+            vec = new Vector(13.37, 42.42);
             ret = vec.norm();
         });
 
@@ -606,11 +606,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#limit()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             ret = vec.limit(20, 0.5);
         });
 
@@ -625,12 +625,12 @@ describe('chainable instance methods', function () {
     });
 
     describe('#randomize()', function () {
-        const topLeft = new Victor(-50, 100);
-        const bottomRight = new Victor(300, -500);
-        let vec: Victor;
+        const topLeft = new Vector(-50, 100);
+        const bottomRight = new Vector(300, -500);
+        let vec: Vector;
 
         it('should be chainable', function () {
-            vec = new Victor(30, 20);
+            vec = new Vector(30, 20);
             const ret = vec.randomize(topLeft, bottomRight);
 
             assert.ok(ret === vec);
@@ -638,7 +638,7 @@ describe('chainable instance methods', function () {
 
         it('should randomize both vector axis and respect the boundaries', function () {
             const count = 100;
-            const vec = new Victor(30, 20);
+            const vec = new Vector(30, 20);
 
             const minX = Math.min(topLeft.x, bottomRight.x);
             const maxX = Math.max(topLeft.x, bottomRight.x);
@@ -654,18 +654,18 @@ describe('chainable instance methods', function () {
     });
 
     describe('#randomizeX()', function () {
-        const topLeft = new Victor(-50, 100);
-        const bottomRight = new Victor(300, -500);
+        const topLeft = new Vector(-50, 100);
+        const bottomRight = new Vector(300, -500);
 
         it('should be chainable', function () {
-            const vec = new Victor(30, 20);
+            const vec = new Vector(30, 20);
             const ret = vec.randomizeX(topLeft, bottomRight);
             assert.ok(ret === vec);
         });
 
         it('should randomize only the X axis and respect the boundaries', function () {
             const count = 100;
-            const vec = new Victor(30, 20);
+            const vec = new Vector(30, 20);
 
             const y = vec.y;
             const minX = Math.min(topLeft.x, bottomRight.x);
@@ -681,18 +681,18 @@ describe('chainable instance methods', function () {
     });
 
     describe('#randomizeY()', function () {
-        const topLeft = new Victor(-50, 100);
-        const bottomRight = new Victor(300, -500);
+        const topLeft = new Vector(-50, 100);
+        const bottomRight = new Vector(300, -500);
 
         it('should be chainable', function () {
-            const vec = new Victor(30, 20);
+            const vec = new Vector(30, 20);
             const ret = vec.randomizeY(topLeft, bottomRight);
             assert.ok(ret === vec);
         });
 
         it('should randomize only the X axis and respect the boundaries', function () {
             const count = 100;
-            const vec = new Victor(30, 20);
+            const vec = new Vector(30, 20);
 
             const x = vec.x;
             const minY = Math.min(topLeft.y, bottomRight.y);
@@ -708,11 +708,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#randomizeAny()', function () {
-        const topLeft = new Victor(100, 100);
-        const bottomRight = new Victor(300, 300);
+        const topLeft = new Vector(100, 100);
+        const bottomRight = new Vector(300, 300);
 
         it('should be chainable', function () {
-            const vec = new Victor(30, 20);
+            const vec = new Vector(30, 20);
             const ret = vec.randomizeAny(topLeft, bottomRight);
             assert.ok(ret === vec);
         });
@@ -728,7 +728,7 @@ describe('chainable instance methods', function () {
             const maxY = Math.max(topLeft.y, bottomRight.y);
 
             for (let i = 0; i < count; i++) {
-                const vec = new Victor(originX, originY);
+                const vec = new Vector(originX, originY);
                 vec.randomizeAny(topLeft, bottomRight);
 
                 if (vec.x !== originX) {
@@ -743,11 +743,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#unfloat()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(30.333, 20.666);
+            vec = new Vector(30.333, 20.666);
             ret = vec.unfloat();
         });
 
@@ -762,13 +762,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#mixX()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(100, 100);
-            vec2 = new Victor(200, 200);
+            vec1 = new Vector(100, 100);
+            vec2 = new Vector(200, 200);
             ret = vec1.mixX(vec2, 0.5);
         });
 
@@ -783,13 +783,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#mixY()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(100, 100);
-            vec2 = new Victor(200, 200);
+            vec1 = new Vector(100, 100);
+            vec2 = new Vector(200, 200);
             ret = vec1.mixY(vec2, 0.5);
         });
 
@@ -804,13 +804,13 @@ describe('chainable instance methods', function () {
     });
 
     describe('#mix()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let ret: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec1 = new Victor(100, 100);
-            vec2 = new Victor(200, 200);
+            vec1 = new Vector(100, 100);
+            vec2 = new Vector(200, 200);
             ret = vec1.mix(vec2, 0.5);
         });
 
@@ -825,11 +825,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#zero()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(100, 100);
+            vec = new Vector(100, 100);
             ret = vec.zero();
         });
 
@@ -848,9 +848,9 @@ describe('chainable instance methods', function () {
         let angleY: number;
         let angleXPi: number;
         before(function () {
-            angleX = new Victor(100, 0).horizontalAngle();
-            angleY = new Victor(0, 100).horizontalAngle();
-            angleXPi = new Victor(-100, 0).horizontalAngle();
+            angleX = new Vector(100, 0).horizontalAngle();
+            angleY = new Vector(0, 100).horizontalAngle();
+            angleXPi = new Vector(-100, 0).horizontalAngle();
         });
 
         it('should x directed vector to 0°', function () {
@@ -867,11 +867,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#rotate()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(100, 100);
+            vec = new Vector(100, 100);
             ret = vec.rotate((90 * Math.PI) / 180);
         });
 
@@ -887,11 +887,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#rotateDeg()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(100, 100);
+            vec = new Vector(100, 100);
             ret = vec.rotateDeg(90);
         });
 
@@ -906,14 +906,14 @@ describe('chainable instance methods', function () {
     });
 
     describe('#rotateTo()', function () {
-        let vecX: Victor;
-        let vecY: Victor;
-        let retX: Victor;
-        let retY: Victor;
+        let vecX: Vector;
+        let vecY: Vector;
+        let retX: Vector;
+        let retY: Vector;
 
         before(function () {
-            vecX = new Victor(100, 0);
-            vecY = new Victor(0, 100);
+            vecX = new Vector(100, 0);
+            vecY = new Vector(0, 100);
             retX = vecX.rotateTo((120 * Math.PI) / 180);
             retY = vecY.rotateTo((120 * Math.PI) / 180);
         });
@@ -934,11 +934,11 @@ describe('chainable instance methods', function () {
     });
 
     describe('#rotateToDeg()', function () {
-        let vec: Victor;
-        let ret: Victor;
+        let vec: Vector;
+        let ret: Vector;
 
         before(function () {
-            vec = new Victor(100, 0);
+            vec = new Vector(100, 0);
             ret = vec.rotateToDeg(120);
         });
 
@@ -956,20 +956,20 @@ describe('chainable instance methods', function () {
     });
 
     describe('#projectOnto()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let vec3: Victor;
-        let vec4: Victor;
-        let selfRet: Victor;
-        let perpRet: Victor;
-        let paraRet: Victor;
-        let middleRet: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let vec3: Vector;
+        let vec4: Vector;
+        let selfRet: Vector;
+        let perpRet: Vector;
+        let paraRet: Vector;
+        let middleRet: Vector;
 
         before(function () {
-            vec1 = new Victor(100, 0);
-            vec2 = new Victor(100, 100);
-            vec3 = new Victor(0, 100);
-            vec4 = new Victor(200, 0);
+            vec1 = new Vector(100, 0);
+            vec2 = new Vector(100, 100);
+            vec3 = new Vector(0, 100);
+            vec4 = new Vector(200, 0);
             selfRet = vec1.projectOnto(vec1);
             perpRet = vec1.clone().projectOnto(vec3);
             paraRet = vec1.clone().projectOnto(vec4);
@@ -1004,16 +1004,16 @@ describe('chainable instance methods', function () {
 
 describe('regular instance methods', function () {
     describe('#clone()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
 
         before(function () {
-            vec1 = new Victor(42, 21);
+            vec1 = new Vector(42, 21);
             vec2 = vec1.clone();
         });
 
         it('should return a clone of a vector', function () {
-            assert.ok(vec2 instanceof Victor);
+            assert.ok(vec2 instanceof Vector);
             assert.ok(vec2 !== vec1);
         });
 
@@ -1024,13 +1024,13 @@ describe('regular instance methods', function () {
     });
 
     describe('#dot()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
         let ret: number;
 
         before(function () {
-            vec1 = new Victor(42, 21);
-            vec2 = new Victor(44, 42);
+            vec1 = new Vector(42, 21);
+            vec2 = new Vector(44, 42);
             ret = vec1.dot(vec2);
         });
 
@@ -1040,13 +1040,13 @@ describe('regular instance methods', function () {
     });
 
     describe('#distanceX()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
         let ret: number;
 
         before(function () {
-            vec1 = new Victor(42, 21);
-            vec2 = new Victor(44, 42);
+            vec1 = new Vector(42, 21);
+            vec2 = new Vector(44, 42);
             ret = vec1.distanceX(vec2);
         });
 
@@ -1056,13 +1056,13 @@ describe('regular instance methods', function () {
     });
 
     describe('#distanceY()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
         let ret: number;
 
         before(function () {
-            vec1 = new Victor(42, 21);
-            vec2 = new Victor(44, 42);
+            vec1 = new Vector(42, 21);
+            vec2 = new Vector(44, 42);
             ret = vec1.distanceY(vec2);
         });
 
@@ -1072,13 +1072,13 @@ describe('regular instance methods', function () {
     });
 
     describe.skip('#distance()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
         let ret: number;
 
         before(function () {
-            vec1 = new Victor(100, 100);
-            vec2 = new Victor(200, 100);
+            vec1 = new Vector(100, 100);
+            vec2 = new Vector(200, 100);
             ret = vec1.distance(vec2);
         });
 
@@ -1088,11 +1088,11 @@ describe('regular instance methods', function () {
     });
 
     describe('#length()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let ret: number;
 
         before(function () {
-            vec = new Victor(100, 100);
+            vec = new Vector(100, 100);
             ret = vec.length();
         });
 
@@ -1102,10 +1102,10 @@ describe('regular instance methods', function () {
     });
 
     describe('#isZero()', function () {
-        let vec: Victor;
+        let vec: Vector;
 
         before(function () {
-            vec = new Victor(100, 100);
+            vec = new Vector(100, 100);
             vec.zero();
         });
 
@@ -1115,14 +1115,14 @@ describe('regular instance methods', function () {
     });
 
     describe('#isEqualTo()', function () {
-        let vec1: Victor;
-        let vec2: Victor;
-        let vec3: Victor;
+        let vec1: Vector;
+        let vec2: Vector;
+        let vec3: Vector;
 
         before(function () {
-            vec1 = new Victor(100, 100);
-            vec2 = new Victor(100, 120);
-            vec3 = new Victor(100, 120);
+            vec1 = new Vector(100, 100);
+            vec2 = new Vector(100, 120);
+            vec3 = new Vector(100, 120);
         });
 
         it('should return false if the vectors are not the same', function () {
@@ -1136,11 +1136,11 @@ describe('regular instance methods', function () {
 
 describe('utility methods', function () {
     describe('#toString()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let ret: string;
 
         before(function () {
-            vec = new Victor(100, 200);
+            vec = new Vector(100, 200);
             ret = vec.toString();
         });
 
@@ -1150,11 +1150,11 @@ describe('utility methods', function () {
     });
 
     describe('#toArray()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let ret: number[];
 
         before(function () {
-            vec = new Victor(100, 200);
+            vec = new Vector(100, 200);
             ret = vec.toArray();
         });
 
@@ -1166,11 +1166,11 @@ describe('utility methods', function () {
     });
 
     describe('#toObject()', function () {
-        let vec: Victor;
+        let vec: Vector;
         let ret: { x?: number; y?: number };
 
         before(function () {
-            vec = new Victor(100, 200);
+            vec = new Vector(100, 200);
             ret = vec.toObject();
         });
 

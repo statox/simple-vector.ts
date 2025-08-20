@@ -1,1 +1,1 @@
-export * from "./src/Victor.js";
+export * from "./src/Vector.js";
