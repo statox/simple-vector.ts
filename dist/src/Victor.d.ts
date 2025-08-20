@@ -1228,10 +1228,17 @@ export declare class Victor {
      *
      * @return an object representation of the vector
      */
-    toObject(): {
-        x: number;
-        y: number;
-    };
+    toObject(): VectorLike;
+}
+/**
+ * An object returned by {@link Victor.toObject}
+ *
+ * @property x The value of the x axis
+ * @property y The value of the y axis
+ */
+export interface VectorLike {
+    x: number;
+    y: number;
 }
 /**
  * Creates a new instance from an array
