@@ -1467,7 +1467,7 @@ export class Victor {
      * @return A string representing the vector's axes
      */
     toString() {
-        return `x: ${this.x}, y: ${this.y}`;
+        return `x:${this.x}, y:${this.y}`;
     }
 
     /**
@@ -1520,7 +1520,7 @@ export class Victor {
  * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
  * @return A new instance of the object
  */
-export const fromArray = (arr: [number, number]) => {
+export const fromArray = (arr: number[]) => {
     return new Victor(arr[0] || 0, arr[1] || 0);
 };
 

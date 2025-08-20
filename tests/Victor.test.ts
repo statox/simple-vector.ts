@@ -2,11 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert';
 
 import { DivisionByZeroError, Victor } from '../src/Victor.ts';
-
-const assertCloseTo = (actual: number, expected: number, margin: number = 0.000002) => {
-    const isInMargin = actual >= expected - margin && actual <= expected + margin;
-    assert.strictEqual(isInMargin, true, `Expected ${actual} to be close to ${expected}`);
-};
+import { assertCloseTo } from './helpers.ts';
 
 test('Addition methods', () => {
     test('addX', () => {
@@ -688,7 +684,7 @@ test('Mix methods', () => {
 });
 
 test('toString', () => {
-    assert.strictEqual(new Victor(0, 0).toString(), 'x: 0, y: 0');
+    assert.strictEqual(new Victor(0, 0).toString(), 'x:0, y:0');
 });
 
 test('unfloat', () => {
