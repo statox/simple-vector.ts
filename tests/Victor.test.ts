@@ -1,4 +1,4 @@
-import { test } from 'node:test';
+import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
 import { DivisionByZeroError, Victor } from '../src/Victor.ts';
@@ -683,6 +683,44 @@ test('Mix methods', () => {
     });
 });
 
+test('Copy methods', () => {
+    test('copyX', () => {
+        const vec1 = new Victor(10, 10);
+        const vec2 = new Victor(0, 0);
+        vec1.copyX(vec2);
+
+        assert.strictEqual(vec1.x, 0);
+        assert.strictEqual(vec1.y, 10);
+
+        assert.strictEqual(vec2.x, 0);
+        assert.strictEqual(vec2.y, 0);
+    });
+
+    test('copyY', () => {
+        const vec1 = new Victor(10, 10);
+        const vec2 = new Victor(0, 0);
+        vec1.copyY(vec2);
+
+        assert.strictEqual(vec1.x, 10);
+        assert.strictEqual(vec1.y, 0);
+
+        assert.strictEqual(vec2.x, 0);
+        assert.strictEqual(vec2.y, 0);
+    });
+
+    test('copyY', () => {
+        const vec1 = new Victor(10, 10);
+        const vec2 = new Victor(0, 0);
+        vec1.copy(vec2);
+
+        assert.strictEqual(vec1.x, 0);
+        assert.strictEqual(vec1.y, 0);
+
+        assert.strictEqual(vec2.x, 0);
+        assert.strictEqual(vec2.y, 0);
+    });
+});
+
 test('toString', () => {
     assert.strictEqual(new Victor(0, 0).toString(), 'x:0, y:0');
 });
@@ -702,5 +740,22 @@ test('Precision methods', () => {
         vec.toFixed(2);
         assert.strictEqual(vec.x, 100.23);
         assert.strictEqual(vec.y, 50.99);
+    });
+});
+
+
+describe('cross', function () {
+    let vec1: Victor;
+    let vec2: Victor;
+    let ret: number;
+
+    before(function () {
+        vec1 = new Victor(42, 21);
+        vec2 = new Victor(44, 42);
+        ret = vec1.cross(vec2);
+    });
+
+    it('should return the cross product of 2 vectors', function () {
+        assert.strictEqual(ret, 840);
     });
 });
