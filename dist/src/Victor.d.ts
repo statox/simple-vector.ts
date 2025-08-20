@@ -668,7 +668,6 @@ export declare class Victor {
     /**
      * Creates a clone of this vector
      *
-     * @category Copy
      * @example
      * const vec1 = new Victor(10, 10);
      * const vec2 = vec1.clone();
@@ -1212,9 +1211,9 @@ export declare class Victor {
      * const vec = new Victor(10, 20);
      *
      * vec.toArray();
-     * // => [10, 20]
+     * // [10, 20]
      *
-     * @return an array representation of the vector
+     * @return An array representation of the vector
      */
     toArray(): number[];
     /**
@@ -1224,9 +1223,9 @@ export declare class Victor {
      * const vec = new Victor(10, 20);
      *
      * vec.toObject();
-     * // => { x: 10, y: 20 }
+     * // { x: 10, y: 20 }
      *
-     * @return an object representation of the vector
+     * @return An object representation of the vector
      */
     toObject(): VectorLike;
 }
@@ -1247,7 +1246,7 @@ export interface VectorLike {
  * const vec = Victor.fromArray([42, 21]);
  *
  * vec.toString();
- * // => x:42, y:21
+ * // 'x:42, y:21'
  *
  * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
  * @return A new Victor instance
