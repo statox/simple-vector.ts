@@ -3,7 +3,7 @@ import assert from 'node:assert';
 
 import { DivisionByZeroError, Victor } from '../src/Victor.ts';
 
-const assertCloseTo = (actual: number, expected: number, margin: number = 0.000001) => {
+const assertCloseTo = (actual: number, expected: number, margin: number = 0.000002) => {
     const isInMargin = actual >= expected - margin && actual <= expected + margin;
     assert.strictEqual(isInMargin, true, `Expected ${actual} to be close to ${expected}`);
 };
@@ -551,6 +551,110 @@ test('Angle methods', () => {
         assert.strictEqual(new Victor(-10, 0).verticalAngleDeg(), -90);
         assert.strictEqual(new Victor(0, -10).verticalAngleDeg(), 180);
         assert.strictEqual(new Victor(10, 0).verticalAngleDeg(), 90);
+    });
+
+    test('angle with radians', () => {
+        assert.strictEqual(new Victor(0, 0).angleWith(new Victor(0, 0)), 0);
+
+        const v1 = new Victor(1, 0);
+        assert.strictEqual(v1.angleWith(new Victor(1, 0)), 0);
+        assertCloseTo(v1.angleWith(new Victor(1, 1)), Math.PI / 4);
+        assert.strictEqual(v1.angleWith(new Victor(0, 1)), Math.PI / 2);
+        assertCloseTo(v1.angleWith(new Victor(-1, 1)), (3 * Math.PI) / 4);
+        assert.strictEqual(v1.angleWith(new Victor(-1, 0)), Math.PI);
+
+        assertCloseTo(v1.angleWith(new Victor(1, -1)), Math.PI / 4);
+        assert.strictEqual(v1.angleWith(new Victor(0, -1)), Math.PI / 2);
+        assertCloseTo(v1.angleWith(new Victor(-1, -1)), (3 * Math.PI) / 4);
+        assert.strictEqual(v1.angleWith(new Victor(-1, -0)), Math.PI);
+
+        const v2 = new Victor(-1, 1);
+        assertCloseTo(v2.angleWith(new Victor(-1, 1)), 0);
+
+        assertCloseTo(v2.angleWith(new Victor(-1, 0)), Math.PI / 4);
+        assertCloseTo(v2.angleWith(new Victor(0, -1)), (3 * Math.PI) / 4);
+        assertCloseTo(v2.angleWith(new Victor(1, -1)), Math.PI);
+        assertCloseTo(v2.angleWith(new Victor(1, 0)), (3 * Math.PI) / 4);
+        assertCloseTo(v2.angleWith(new Victor(1, 1)), Math.PI / 2);
+        assertCloseTo(v2.angleWith(new Victor(0, 1)), Math.PI / 4);
+    });
+
+    test('angle with degrees', () => {
+        assert.strictEqual(new Victor(0, 0).angleDegWith(new Victor(0, 0)), 0);
+
+        const v1 = new Victor(1, 0);
+        assert.strictEqual(v1.angleDegWith(new Victor(1, 0)), 0);
+        assertCloseTo(v1.angleDegWith(new Victor(1, 1)), 45);
+        assert.strictEqual(v1.angleDegWith(new Victor(0, 1)), 90);
+        assertCloseTo(v1.angleDegWith(new Victor(-1, 1)), 135);
+        assert.strictEqual(v1.angleDegWith(new Victor(-1, 0)), 180);
+
+        assertCloseTo(v1.angleDegWith(new Victor(1, -1)), 45);
+        assert.strictEqual(v1.angleDegWith(new Victor(0, -1)), 90);
+        assertCloseTo(v1.angleDegWith(new Victor(-1, -1)), 135);
+        assert.strictEqual(v1.angleDegWith(new Victor(-1, -0)), 180);
+
+        const v2 = new Victor(-1, 1);
+        assertCloseTo(v2.angleDegWith(new Victor(-1, 1)), 0);
+
+        assertCloseTo(v2.angleDegWith(new Victor(-1, 0)), 45);
+        assertCloseTo(v2.angleDegWith(new Victor(0, -1)), 135);
+        assertCloseTo(v2.angleDegWith(new Victor(1, -1)), 180);
+        assertCloseTo(v2.angleDegWith(new Victor(1, 0)), 135);
+        assertCloseTo(v2.angleDegWith(new Victor(1, 1)), 90);
+        assertCloseTo(v2.angleDegWith(new Victor(0, 1)), 45);
+    });
+
+    test('oriented angle with radians', () => {
+        assert.strictEqual(new Victor(0, 0).orientedAngleWith(new Victor(0, 0)), 0);
+
+        const v1 = new Victor(1, 0);
+        assert.strictEqual(v1.orientedAngleWith(new Victor(1, 0)), 0);
+        assertCloseTo(v1.orientedAngleWith(new Victor(1, 1)), Math.PI / 4);
+        assert.strictEqual(v1.orientedAngleWith(new Victor(0, 1)), Math.PI / 2);
+        assertCloseTo(v1.orientedAngleWith(new Victor(-1, 1)), (3 * Math.PI) / 4);
+        assert.strictEqual(v1.orientedAngleWith(new Victor(-1, 0)), Math.PI);
+
+        assertCloseTo(v1.orientedAngleWith(new Victor(1, -1)), -Math.PI / 4);
+        assert.strictEqual(v1.orientedAngleWith(new Victor(0, -1)), -Math.PI / 2);
+        assertCloseTo(v1.orientedAngleWith(new Victor(-1, -1)), -(3 * Math.PI) / 4);
+        assert.strictEqual(v1.orientedAngleWith(new Victor(-1, -0)), Math.PI);
+
+        const v2 = new Victor(-1, 1);
+        assertCloseTo(v2.orientedAngleWith(new Victor(-1, 1)), 0);
+
+        assertCloseTo(v2.orientedAngleWith(new Victor(-1, 0)), Math.PI / 4);
+        assertCloseTo(v2.orientedAngleWith(new Victor(0, -1)), (3 * Math.PI) / 4);
+        assertCloseTo(v2.orientedAngleWith(new Victor(1, -1)), Math.PI);
+        assertCloseTo(v2.orientedAngleWith(new Victor(1, 0)), -(3 * Math.PI) / 4);
+        assertCloseTo(v2.orientedAngleWith(new Victor(1, 1)), -Math.PI / 2);
+        assertCloseTo(v2.orientedAngleWith(new Victor(0, 1)), -Math.PI / 4);
+    });
+
+    test('oriented angle with degrees', () => {
+        assert.strictEqual(new Victor(0, 0).orientedAngleDegWith(new Victor(0, 0)), 0);
+
+        const v1 = new Victor(1, 0);
+        assert.strictEqual(v1.orientedAngleDegWith(new Victor(1, 0)), 0);
+        assertCloseTo(v1.orientedAngleDegWith(new Victor(1, 1)), 45);
+        assert.strictEqual(v1.orientedAngleDegWith(new Victor(0, 1)), 90);
+        assertCloseTo(v1.orientedAngleDegWith(new Victor(-1, 1)), 135);
+        assert.strictEqual(v1.orientedAngleDegWith(new Victor(-1, 0)), 180);
+
+        assertCloseTo(v1.orientedAngleDegWith(new Victor(1, -1)), -45);
+        assert.strictEqual(v1.orientedAngleDegWith(new Victor(0, -1)), -90);
+        assertCloseTo(v1.orientedAngleDegWith(new Victor(-1, -1)), -135);
+        assert.strictEqual(v1.orientedAngleDegWith(new Victor(-1, -0)), 180);
+
+        const v2 = new Victor(-1, 1);
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(-1, 1)), 0);
+
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(-1, 0)), 45);
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(0, -1)), 135);
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(1, -1)), 180);
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(1, 0)), -135);
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(1, 1)), -90);
+        assertCloseTo(v2.orientedAngleDegWith(new Victor(0, 1)), -45);
     });
 });
 

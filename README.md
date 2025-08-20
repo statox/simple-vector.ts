@@ -8,9 +8,8 @@ Changes from Victor:
 - Added tests
 - Explicitly fail when trying to divide by zero
 - Changed `random()` function. For some reason it generated a number between `min` and `max + 1` which sounded confusing.
-
 - `.toFixed()` converted components to string, fixed to keep them number, might renamed the function as suggested here: https://github.com/maxkueng/victor/issues/28
-- TODO Angle between 2 vectors https://github.com/maxkueng/victor/issues/30
+- Added methods to compute angle between two vectors https://github.com/maxkueng/victor/issues/30
 
 Using latest node features to run typescript and tests so
 

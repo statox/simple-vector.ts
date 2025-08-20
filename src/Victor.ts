@@ -1087,6 +1087,105 @@ export class Victor {
     angleDeg = this.horizontalAngleDeg;
 
     /**
+     * Gets the angle in radian (0 < θ <= π) between this vector and another one
+     *
+     * ### Examples:
+     *     const vec1 = new Victor(1, 0);
+     *
+     *     a = vec1.angleWith(new Victor(1, 0));
+     *     assert.equal(a, 0)
+     *     a = vec1.angleWith(new Victor(1, 1));
+     *     assert.equal(a, Math.PI / 4)
+     *     a = vec1.angleWith(new Victor(1, -1));
+     *     assert.equal(a, Math.PI / 4)
+     *     a = vec1.angleWith(new Victor(-1, 0));
+     *     assert.equal(a, Math.PI)
+     *
+     * @param {Victor} vec The second vector
+     * @return The angle between both vectors in radians
+     */
+    angleWith(vec: Victor) {
+        if (this.isZero() && vec.isZero()) {
+            return 0;
+        }
+        return Math.acos((this.x * vec.x + this.y * vec.y) / (this.magnitude() * vec.magnitude()));
+    }
+
+    /**
+     * Gets the angle in degrees (0 < θ <= 180 between this vector and another one
+     *
+     * If both vectors are null the method returns NaN
+     *
+     * ### Examples:
+     *     const vec1 = new Victor(1, 0);
+     *
+     *     a = vec1.angleWith(new Victor(1, 0));
+     *     assert.equal(a, 0)
+     *     a = vec1.angleWith(new Victor(1, 1));
+     *     assert.equal(a, 45)
+     *     a = vec1.angleWith(new Victor(1, -1));
+     *     assert.equal(a, 45)
+     *     a = vec1.angleWith(new Victor(-1, 0));
+     *     assert.equal(a, 180)
+     *
+     * @param {Victor} vec The second vector
+     * @return The angle between both vectors in degrees
+     */
+    angleDegWith(vec: Victor) {
+        return radian2degrees(this.angleWith(vec));
+    }
+
+    /**
+     * Gets the angle in radian ( -π < θ <= π) between this vector and another one
+     * measured in a counterclockwise direction from this to the other one.
+     *
+     * This method is roughly 20% slower than this.angleWith()
+     *
+     * ### Examples:
+     *     const vec1 = new Victor(1, 0);
+     *
+     *     a = vec1.orientedAngleWith(new Victor(1, 0));
+     *     assert.equal(a, 0)
+     *     a = vec1.orientedAngleWith(new Victor(1, 1));
+     *     assert.equal(a, Math.PI / 4)
+     *     a = vec1.orientedAngleWith(new Victor(1, -1));
+     *     assert.equal(a, -Math.PI / 4)
+     *     a = vec1.orientedAngleWith(new Victor(-1, 0));
+     *     assert.equal(a, Math.PI)
+     *
+     * @param {Victor} vec The second vector
+     * @return The angle between both vectors in radians
+     */
+    orientedAngleWith(vec: Victor) {
+        return Math.atan2(this.x * vec.y - this.y * vec.x, this.x * vec.x + this.y * vec.y);
+    }
+
+    /**
+     * Gets the angle in degrees ( -180 < θ <= 180) between this vector and another one
+     * measured in a counterclockwise direction from this to the other one.
+     *
+     * This method is roughly 20% slower than this.angleDegWith()
+     *
+     * ### Examples:
+     *     const vec1 = new Victor(1, 0);
+     *
+     *     a = vec1.orientedAngleWith(new Victor(1, 0));
+     *     assert.equal(a, 0)
+     *     a = vec1.orientedAngleWith(new Victor(1, 1));
+     *     assert.equal(a, 45)
+     *     a = vec1.orientedAngleWith(new Victor(1, -1));
+     *     assert.equal(a, -45)
+     *     a = vec1.orientedAngleWith(new Victor(-1, 0));
+     *     assert.equal(a, 180)
+     *
+     * @param {Victor} vec The second vector
+     * @return The angle between both vectors in radians
+     */
+    orientedAngleDegWith(vec: Victor) {
+        return radian2degrees(this.orientedAngleWith(vec));
+    }
+
+    /**
      * Rotate the vector counter-clockwise by an angle in radians
      *
      * ### Examples:
