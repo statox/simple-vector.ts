@@ -5,9 +5,6 @@
 #
 # The tests are used as State Checks for the PR
 # And the steps trigger the approval of the PR and the setup of the auto-merge setting
-#
-# TODO:
-# - Maybe restrict the types for the pull_request event
 
 name: Test and AutoMerge PRs
 
@@ -95,23 +92,26 @@ jobs:
               run: npm ci
 
             - name: Run tests
-              run: npm run tests
+              run: npm run tests:ci
 
-            - name: Merge test reports
-              if: always()
-              run: npx ctrf merge ctrf/
+            - name: Convert junit test report to ctrf
+              # node test runner produces junit results we need to convert
+              # them for ctrf to publish a comment in the MR
+              run: npx junit-to-ctrf tests_results.xml
 
             - name: Generate tests report
               if: always()
-              run: npm run tests:coverage
+              run: npm run tests:ci
 
             - name: Publish CTRF pull request comment
-              run: npx github-actions-ctrf pull-request coverage.info
+              run: npx github-actions-ctrf pull-request ctrf/ctrf-report.json
               if: always()
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     auto-merge-dependabot:
+        # Automatically approve the MR if it was created by dependabot
+        # and validates all the tests
         needs: [lint-and-format, tests]
         runs-on: ubuntu-latest
         if: github.actor == 'dependabot[bot]'
@@ -126,8 +126,4 @@ jobs:
               run: gh pr merge --rebase --auto "$PR_URL"
               env:
                   PR_URL: ${{github.event.pull_request.html_url}}
-                  # TODO Try to remove
-                  # This line comes from my template workflow but I didn't setup
-                  # any secret in the repo and a MR was still merged (#2) so I
-                  # can probably remove that and maybe the line above
-                  # GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
