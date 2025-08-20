@@ -1,0 +1,9 @@
+{
+    "validation": {
+        "notExported": true,
+        "invalidLink": true,
+        "rewrittenLink": true,
+        "notDocumented": true,
+        "unusedMergeModuleWith": true
+    }
+}

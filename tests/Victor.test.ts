@@ -687,18 +687,20 @@ test('toString', () => {
     assert.strictEqual(new Victor(0, 0).toString(), 'x:0, y:0');
 });
 
-test('unfloat', () => {
-    const vec = new Victor(100.2, 50.9);
+test('Precision methods', () => {
+    test('unfloat', () => {
+        const vec = new Victor(100.2, 50.9);
 
-    vec.unfloat();
-    assert.strictEqual(vec.x, 100);
-    assert.strictEqual(vec.y, 51);
-});
+        vec.unfloat();
+        assert.strictEqual(vec.x, 100);
+        assert.strictEqual(vec.y, 51);
+    });
 
-test('toFixed', () => {
-    const vec = new Victor(100.2345, 50.9876);
+    test('toFixed', () => {
+        const vec = new Victor(100.2345, 50.9876);
 
-    vec.toFixed(2);
-    assert.strictEqual(vec.x, 100.23);
-    assert.strictEqual(vec.y, 50.99);
+        vec.toFixed(2);
+        assert.strictEqual(vec.x, 100.23);
+        assert.strictEqual(vec.y, 50.99);
+    });
 });

@@ -1,5 +1,5 @@
 {
-    "name": "@statox/vector",
+    "name": "SimpleVector.ts",
     "version": "0.0.4",
     "description": "A 2D Vector library",
     "main": "./dist/index.js",
@@ -20,7 +20,8 @@
         "lint:fix": "npm run lint --fix",
         "tests": "node --test",
         "tests:coverage": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter-destination=coverage.info ",
-        "build": "rm -fr dist/ && tsc",
+        "build": "rm -fr dist/ && tsc && npm run build-doc",
+        "build-doc": "typedoc",
         "watch": "rm -fr dist/ && tsc -w",
         "publish": "npm run check && npm run build && npm publish --access public"
     },
@@ -33,6 +34,7 @@
         "eslint": "^9.33.0",
         "eslint-config-prettier": "^10.1.8",
         "prettier": "^3.6.2",
+        "typedoc": "^0.28.10",
         "typescript": "^5.9.2"
     },
     "repository": {

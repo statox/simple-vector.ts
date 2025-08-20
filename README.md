@@ -1,4 +1,4 @@
-# Victor (Name WIP?)
+# SimpleVector.ts
 
 The code is mostly taken from [Victor.js](https://www.npmjs.com/package/victor). I am currently adding Typescript type definitions and tests.
 Changes from Victor:
