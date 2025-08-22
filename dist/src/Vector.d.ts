@@ -17,8 +17,8 @@ export declare class DivisionByZeroError extends Error {
 }
 /**
  * A simple 2D vector class
- * @property {number} x axis value
- * @property {number} y axis value
+ * @property {number} x The X axis value
+ * @property {number} y The Y axis value
  */
 export declare class Vector {
     x: number;
@@ -29,8 +29,8 @@ export declare class Vector {
      * @example
      * const vec = new Vector(100, 50);
      *
-     * @param {Number} x Value of the x axis
-     * @param {Number} y Value of the y axis
+     * @param {Number} x Value of the X axis
+     * @param {Number} y Value of the Y axis
      */
     constructor(x?: number, y?: number);
     /**
@@ -81,7 +81,7 @@ export declare class Vector {
      */
     add(vec: Vector): this;
     /**
-     * Adds the given scalar to both vector axis
+     * Adds the given scalar to both vector axes
      *
      * @category Addition
      * @example
@@ -173,7 +173,7 @@ export declare class Vector {
      */
     subtract(vec: Vector): this;
     /**
-     * Subtracts the given scalar from both axis
+     * Subtracts the given scalar from both axes
      *
      * @category Subtraction
      * @example
@@ -250,7 +250,7 @@ export declare class Vector {
      */
     divideY(vec: Vector): this;
     /**
-     * Divides the both axis of this vector by those of another one
+     * Divides both axes of this vector by those of another one
      *
      * @category Division
      * @example
@@ -266,7 +266,7 @@ export declare class Vector {
      */
     divide(vec: Vector): this;
     /**
-     * Divides both vector axis by the given scalar
+     * Divides both vector axes by the given scalar
      *
      * @category Division
      * @example
@@ -343,7 +343,7 @@ export declare class Vector {
      */
     multiplyY(vec: Vector): this;
     /**
-     * Multiplies both axis of this vector by those of another one
+     * Multiplies both axes of this vector by those of another one
      *
      * @category Multiplication
      * @example
@@ -359,7 +359,7 @@ export declare class Vector {
      */
     multiply(vec: Vector): this;
     /**
-     * Multiplies both vector axis by the given scalar
+     * Multiplies both vector axes by the given scalar
      *
      * @category Multiplication
      * @example
@@ -432,7 +432,7 @@ export declare class Vector {
      */
     invertY(): this;
     /**
-     * Inverts both axis
+     * Inverts both axes
      *
      * @category Multiplication
      * @example
@@ -467,8 +467,8 @@ export declare class Vector {
      */
     norm: () => this;
     /**
-     * If the absolute vector axis is greater than `max`, multiplies the axis
-     * by `factor`
+     * If the absolute value of the axes is greater than `max`,
+     * multiplies the axis by `factor`
      *
      * @category Norm
      * @example
@@ -478,8 +478,8 @@ export declare class Vector {
      * assert.equal(vec.x, 90)
      * assert.equal(vec.y, 50)
      *
-     * @param {Number} max The maximum value for both x and y axis
-     * @param {Number} factor Factor by which the axis are to be multiplied with
+     * @param {Number} max The maximum value for both X and Y axes
+     * @param {Number} factor Factor by which the axes are to be multiplied with
      * @return `this` for chaining capabilities
      */
     limit(max: number, factor: number): this;
@@ -522,7 +522,7 @@ export declare class Vector {
      */
     randomizeY(topLeft: Vector, bottomRight: Vector): this;
     /**
-     * Randomizes both vector axis with a value between 2 vectors
+     * Randomizes both vector axes with a value between 2 vectors
      *
      * @category Randomization
      * @example
@@ -561,7 +561,7 @@ export declare class Vector {
      */
     randomizeAny(topLeft: Vector, bottomRight: Vector): this;
     /**
-     * Rounds both axis to an integer value using Math.round()
+     * Rounds both axes to an integer value using Math.round()
      *
      * @category Precision
      * @example
@@ -575,7 +575,7 @@ export declare class Vector {
      */
     unfloat(): this;
     /**
-     * Fix both axis to a certain precision using Number.toFixed()
+     * Fix both axes to a certain precision using Number.toFixed()
      *
      * @category Precision
      * @example
@@ -763,7 +763,7 @@ export declare class Vector {
     projectOnto(vec: Vector): this;
     /**
      * Gets the angle θ in the plane (in radians, -π < θ < π ) between the positive
-     * x-axis and the ray from (0, 0) to the point (x, y).
+     * X axis and the ray from (0, 0) to the point (x, y).
      *
      * This is also the phase of the complex number x + iy.
      *
@@ -781,7 +781,7 @@ export declare class Vector {
     horizontalAngle(): number;
     /**
      * Gets the angle θ in the plane (in degrees, -180 < θ < 180 ) between the positive
-     * x-axis and the ray from (0, 0) to the point (x, y)
+     * X axis and the ray from (0, 0) to the point (x, y)
      *
      * This is also the phase of the complex number x + iy.
      *
@@ -799,7 +799,7 @@ export declare class Vector {
     horizontalAngleDeg(): number;
     /**
      * Gets the angle θ in the plane (in rads -π < θ < π) between the positive
-     * y-axis and the ray from (0, 0) to the point (x, y)
+     * Y axis and the ray from (0, 0) to the point (x, y)
      *
      * Caution: The direction is not the same as horizontalAngle()
      *
@@ -815,7 +815,7 @@ export declare class Vector {
     verticalAngle(): number;
     /**
      * Gets the angle θ in the plane (in degrees -180 < θ < 180) between the positive
-     * y-axis and the ray from (0, 0) to the point (x, y)
+     * Y axis and the ray from (0, 0) to the point (x, y)
      *
      * Caution: The direction is not the same as horizontalAngleDeg()
      *
@@ -979,7 +979,7 @@ export declare class Vector {
     rotateDeg(angle: number): this;
     /**
      * Rotate the vector to an angle in radians using the positif
-     * x-axis as origin, move counter-clockwise
+     * X axis as origin, move counter-clockwise
      *
      * @category Angle
      * @example
@@ -998,7 +998,7 @@ export declare class Vector {
     rotateTo(rotation: number): this;
     /**
      * Rotate the vector to an angle in degrees using the positif
-     * x-axis as origin, move counter-clockwise
+     * X axis as origin, move counter-clockwise
      *
      * @category Angle
      * @example
@@ -1207,8 +1207,8 @@ export declare class Vector {
 /**
  * An object returned by {@link Vector.toObject}
  *
- * @property x The value of the x axis
- * @property y The value of the y axis
+ * @property x The value of the X axis
+ * @property y The value of the Y axis
  */
 export interface VectorLike {
     x: number;

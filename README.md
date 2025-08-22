@@ -20,3 +20,4 @@ Using latest node features to run typescript and tests so
 - TBD: How to publish properly?
     - For now published at https://www.npmjs.com/package/@statox/vector
     - TODO: Proper publishing workflow
+        - For now the documentation is not synced with the published package but with the latest commit of the `main` branch.

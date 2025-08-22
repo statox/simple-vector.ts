@@ -19,8 +19,8 @@ export class DivisionByZeroError extends Error {
 }
 /**
  * A simple 2D vector class
- * @property {number} x axis value
- * @property {number} y axis value
+ * @property {number} x The X axis value
+ * @property {number} y The Y axis value
  */
 export class Vector {
     x = 0;
@@ -31,8 +31,8 @@ export class Vector {
      * @example
      * const vec = new Vector(100, 50);
      *
-     * @param {Number} x Value of the x axis
-     * @param {Number} y Value of the y axis
+     * @param {Number} x Value of the X axis
+     * @param {Number} y Value of the Y axis
      */
     constructor(x = 0, y = 0) {
         this.x = x;
@@ -96,7 +96,7 @@ export class Vector {
         return this;
     }
     /**
-     * Adds the given scalar to both vector axis
+     * Adds the given scalar to both vector axes
      *
      * @category Addition
      * @example
@@ -208,7 +208,7 @@ export class Vector {
         return this;
     }
     /**
-     * Subtracts the given scalar from both axis
+     * Subtracts the given scalar from both axes
      *
      * @category Subtraction
      * @example
@@ -307,7 +307,7 @@ export class Vector {
         return this;
     }
     /**
-     * Divides the both axis of this vector by those of another one
+     * Divides both axes of this vector by those of another one
      *
      * @category Division
      * @example
@@ -330,7 +330,7 @@ export class Vector {
         return this;
     }
     /**
-     * Divides both vector axis by the given scalar
+     * Divides both vector axes by the given scalar
      *
      * @category Division
      * @example
@@ -432,7 +432,7 @@ export class Vector {
         return this;
     }
     /**
-     * Multiplies both axis of this vector by those of another one
+     * Multiplies both axes of this vector by those of another one
      *
      * @category Multiplication
      * @example
@@ -452,7 +452,7 @@ export class Vector {
         return this;
     }
     /**
-     * Multiplies both vector axis by the given scalar
+     * Multiplies both vector axes by the given scalar
      *
      * @category Multiplication
      * @example
@@ -541,7 +541,7 @@ export class Vector {
         return this;
     }
     /**
-     * Inverts both axis
+     * Inverts both axes
      *
      * @category Multiplication
      * @example
@@ -584,8 +584,8 @@ export class Vector {
      */
     norm = this.normalize;
     /**
-     * If the absolute vector axis is greater than `max`, multiplies the axis
-     * by `factor`
+     * If the absolute value of the axes is greater than `max`,
+     * multiplies the axis by `factor`
      *
      * @category Norm
      * @example
@@ -595,8 +595,8 @@ export class Vector {
      * assert.equal(vec.x, 90)
      * assert.equal(vec.y, 50)
      *
-     * @param {Number} max The maximum value for both x and y axis
-     * @param {Number} factor Factor by which the axis are to be multiplied with
+     * @param {Number} max The maximum value for both X and Y axes
+     * @param {Number} factor Factor by which the axes are to be multiplied with
      * @return `this` for chaining capabilities
      */
     limit(max, factor) {
@@ -657,7 +657,7 @@ export class Vector {
         return this;
     }
     /**
-     * Randomizes both vector axis with a value between 2 vectors
+     * Randomizes both vector axes with a value between 2 vectors
      *
      * @category Randomization
      * @example
@@ -708,7 +708,7 @@ export class Vector {
         return this;
     }
     /**
-     * Rounds both axis to an integer value using Math.round()
+     * Rounds both axes to an integer value using Math.round()
      *
      * @category Precision
      * @example
@@ -726,7 +726,7 @@ export class Vector {
         return this;
     }
     /**
-     * Fix both axis to a certain precision using Number.toFixed()
+     * Fix both axes to a certain precision using Number.toFixed()
      *
      * @category Precision
      * @example
@@ -953,7 +953,7 @@ export class Vector {
     }
     /**
      * Gets the angle θ in the plane (in radians, -π < θ < π ) between the positive
-     * x-axis and the ray from (0, 0) to the point (x, y).
+     * X axis and the ray from (0, 0) to the point (x, y).
      *
      * This is also the phase of the complex number x + iy.
      *
@@ -973,7 +973,7 @@ export class Vector {
     }
     /**
      * Gets the angle θ in the plane (in degrees, -180 < θ < 180 ) between the positive
-     * x-axis and the ray from (0, 0) to the point (x, y)
+     * X axis and the ray from (0, 0) to the point (x, y)
      *
      * This is also the phase of the complex number x + iy.
      *
@@ -993,7 +993,7 @@ export class Vector {
     }
     /**
      * Gets the angle θ in the plane (in rads -π < θ < π) between the positive
-     * y-axis and the ray from (0, 0) to the point (x, y)
+     * Y axis and the ray from (0, 0) to the point (x, y)
      *
      * Caution: The direction is not the same as horizontalAngle()
      *
@@ -1011,7 +1011,7 @@ export class Vector {
     }
     /**
      * Gets the angle θ in the plane (in degrees -180 < θ < 180) between the positive
-     * y-axis and the ray from (0, 0) to the point (x, y)
+     * Y axis and the ray from (0, 0) to the point (x, y)
      *
      * Caution: The direction is not the same as horizontalAngleDeg()
      *
@@ -1197,7 +1197,7 @@ export class Vector {
     }
     /**
      * Rotate the vector to an angle in radians using the positif
-     * x-axis as origin, move counter-clockwise
+     * X axis as origin, move counter-clockwise
      *
      * @category Angle
      * @example
@@ -1218,7 +1218,7 @@ export class Vector {
     }
     /**
      * Rotate the vector to an angle in degrees using the positif
-     * x-axis as origin, move counter-clockwise
+     * X axis as origin, move counter-clockwise
      *
      * @category Angle
      * @example
