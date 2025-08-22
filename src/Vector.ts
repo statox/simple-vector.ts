@@ -45,7 +45,6 @@ export class Vector {
     /**
      * Adds the X axis of another vector to this one
      *
-     * @category Addition
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 30);
@@ -56,6 +55,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to add to this one
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     addX(vec: Vector) {
         this.x += vec.x;
@@ -65,7 +65,6 @@ export class Vector {
     /**
      * Adds the Y axis of another vector to this one
      *
-     * @category Addition
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 30);
@@ -76,6 +75,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to add to this one
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     addY(vec: Vector) {
         this.y += vec.y;
@@ -85,7 +85,6 @@ export class Vector {
     /**
      * Adds another vector to this one
      *
-     * @category Addition
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 30);
@@ -95,6 +94,7 @@ export class Vector {
      * assert.equal(vec1.y, 40)
      * @param {Vector} vec The other vector you want to add to this one
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     add(vec: Vector) {
         this.x += vec.x;
@@ -105,7 +105,6 @@ export class Vector {
     /**
      * Adds the given scalar to both vector axes
      *
-     * @category Addition
      * @example
      * const vec = new Vector(10, 20);
      *
@@ -115,6 +114,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to add
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     addScalar(scalar: number) {
         this.x += scalar;
@@ -125,7 +125,6 @@ export class Vector {
     /**
      * Adds the given scalar to the X axis
      *
-     * @category Addition
      * @example
      * const vec = new Vector(10, 20);
      *
@@ -135,6 +134,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to add
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     addScalarX(scalar: number) {
         this.x += scalar;
@@ -144,7 +144,6 @@ export class Vector {
     /**
      * Adds the given scalar to the Y axis
      *
-     * @category Addition
      * @example
      * const vec = new Vector(10, 20);
      *
@@ -154,6 +153,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to add
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     addScalarY(scalar: number) {
         this.y += scalar;
@@ -163,7 +163,6 @@ export class Vector {
     /**
      * Subtracts the X axis of another vector from this one
      *
-     * @category Subtraction
      * @example
      * const vec1 = new Vector(30, 30);
      * const vec2 = new Vector(10, 20);
@@ -174,6 +173,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to subtract from this one
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     subtractX(vec: Vector) {
         this.x -= vec.x;
@@ -183,7 +183,6 @@ export class Vector {
     /**
      * Subtracts the Y axis of another vector from this one
      *
-     * @category Subtraction
      * @example
      * const vec1 = new Vector(30, 30);
      * const vec2 = new Vector(10, 20);
@@ -194,6 +193,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to subtract from this one
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     subtractY(vec: Vector) {
         this.y -= vec.y;
@@ -203,7 +203,6 @@ export class Vector {
     /**
      * Subtracts another vector from this one
      *
-     * @category Subtraction
      * @example
      * const vec1 = new Vector(30, 30);
      * const vec2 = new Vector(10, 20);
@@ -213,6 +212,7 @@ export class Vector {
      * assert.equal(vec1.y, 10)
      * @param {Vector} vec The other vector you want to subtract from this one
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     subtract(vec: Vector) {
         this.x -= vec.x;
@@ -223,7 +223,6 @@ export class Vector {
     /**
      * Subtracts the given scalar from both axes
      *
-     * @category Subtraction
      * @example
      * const vec = new Vector(10, 20);
      *
@@ -233,6 +232,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to subtract
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     subtractScalar(scalar: number) {
         this.x -= scalar;
@@ -243,7 +243,6 @@ export class Vector {
     /**
      * Subtracts the given scalar from the X axis
      *
-     * @category Subtraction
      * @example
      * const vec = new Vector(10, 20);
      *
@@ -253,6 +252,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to subtract
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     subtractScalarX(scalar: number) {
         this.x -= scalar;
@@ -262,7 +262,6 @@ export class Vector {
     /**
      * Subtracts the given scalar from the Y axis
      *
-     * @category Subtraction
      * @example
      * const vec = new Vector(10, 20);
      *
@@ -272,6 +271,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to subtract
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     subtractScalarY(scalar: number) {
         this.y -= scalar;
@@ -281,7 +281,6 @@ export class Vector {
     /**
      * Divides the X axis of this vector by the X axis of another one
      *
-     * @category Division
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 0);
@@ -293,6 +292,7 @@ export class Vector {
      * @param {Vector} vec The other vector you want divide by
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If the X axis of the argument vector is 0
+     * @category Arithmetic operations
      */
     divideX(vec: Vector) {
         if (vec.x === 0) {
@@ -306,7 +306,6 @@ export class Vector {
     /**
      * Divides the Y axis of this vector by the Y axis of another one
      *
-     * @category Division
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(0, 2);
@@ -318,6 +317,7 @@ export class Vector {
      * @param {Vector} vec The other vector you want divide by
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If the Y axis of the argument vector is 0
+     * @category Arithmetic operations
      */
     divideY(vec: Vector) {
         if (vec.y === 0) {
@@ -331,7 +331,6 @@ export class Vector {
     /**
      * Divides both axes of this vector by those of another one
      *
-     * @category Division
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 2);
@@ -343,6 +342,7 @@ export class Vector {
      * @param {Vector} vec The vector to divide by
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If any axis of the argument vector is 0
+     * @category Arithmetic operations
      */
     divide(vec: Vector) {
         if (vec.x === 0 || vec.y === 0) {
@@ -357,7 +357,6 @@ export class Vector {
     /**
      * Divides both vector axes by the given scalar
      *
-     * @category Division
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -368,6 +367,7 @@ export class Vector {
      * @param {Number} scalar The scalar to divide by
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If the argument scalar is 0
+     * @category Arithmetic operations
      */
     divideScalar(scalar: number) {
         if (scalar === 0) {
@@ -383,7 +383,6 @@ export class Vector {
     /**
      * Divides the X axis by the given scalar
      *
-     * @category Division
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -394,6 +393,7 @@ export class Vector {
      * @param {Number} scalar The scalar to divide by
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
+     * @category Arithmetic operations
      */
     divideScalarX(scalar: number) {
         if (scalar === 0) {
@@ -407,7 +407,6 @@ export class Vector {
     /**
      * Divides the Y axis by the given scalar
      *
-     * @category Division
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -418,6 +417,7 @@ export class Vector {
      * @param {Number} scalar The scalar to divide by
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
+     * @category Arithmetic operations
      */
     divideScalarY(scalar: number) {
         if (scalar === 0) {
@@ -431,7 +431,6 @@ export class Vector {
     /**
      * Multiplies the X axis of this vector by the X axis of another one
      *
-     * @category Multiplication
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 0);
@@ -442,6 +441,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want multiply by
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     multiplyX(vec: Vector) {
         this.x *= vec.x;
@@ -451,7 +451,6 @@ export class Vector {
     /**
      * Multiplies the Y axis of this vector by the Y axis of another one
      *
-     * @category Multiplication
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(0, 2);
@@ -462,6 +461,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want multiply by
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     multiplyY(vec: Vector) {
         this.y *= vec.y;
@@ -471,7 +471,6 @@ export class Vector {
     /**
      * Multiplies both axes of this vector by those of another one
      *
-     * @category Multiplication
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 2);
@@ -482,6 +481,7 @@ export class Vector {
      *
      * @param {Vector} vec The vector to multiply by
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     multiply(vec: Vector) {
         this.x *= vec.x;
@@ -492,7 +492,6 @@ export class Vector {
     /**
      * Multiplies both vector axes by the given scalar
      *
-     * @category Multiplication
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -502,6 +501,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to multiply by
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     multiplyScalar(scalar: number) {
         this.x *= scalar;
@@ -512,7 +512,6 @@ export class Vector {
     /**
      * Multiplies the X axis by the given scalar
      *
-     * @category Multiplication
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -522,6 +521,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to multiply by
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     multiplyScalarX(scalar: number) {
         this.x *= scalar;
@@ -531,7 +531,6 @@ export class Vector {
     /**
      * Multiplies the Y axis by the given scalar
      *
-     * @category Multiplication
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -541,6 +540,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to multiply by
      * @return `this` for chaining capabilities
+     * @category Arithmetic operations
      */
     multiplyScalarY(scalar: number) {
         this.y *= scalar;
@@ -550,7 +550,6 @@ export class Vector {
     /**
      * Inverts the X axis
      *
-     * @category Multiplication
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -559,6 +558,7 @@ export class Vector {
      * assert.equal(vec.y, 50)
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     invertX() {
         this.x *= -1;
@@ -568,7 +568,6 @@ export class Vector {
     /**
      * Inverts the Y axis
      *
-     * @category Multiplication
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -577,6 +576,7 @@ export class Vector {
      * assert.equal(vec.y, -50)
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     invertY() {
         this.y *= -1;
@@ -586,7 +586,6 @@ export class Vector {
     /**
      * Inverts both axes
      *
-     * @category Multiplication
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -595,6 +594,7 @@ export class Vector {
      * assert.equal(vec.y, -50)
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     invert() {
         this.x *= -1;
@@ -605,7 +605,6 @@ export class Vector {
     /**
      * Normalize the vector. (Keep direction but reduce length to 1)
      *
-     * @category Norm
      * @example
      * const vec = new Vector(10, 0);
      *
@@ -614,6 +613,7 @@ export class Vector {
      * assert.equal(vec.y, 0)
      *
      * @return `this` for chaining capabilities
+     * @category Magnitude
      */
     normalize() {
         const length = this.length();
@@ -624,8 +624,8 @@ export class Vector {
     /**
      * Alias for {@link Vector.normalize}
      *
-     * @category Norm
      * @return `this` for chaining capabilities
+     * @category Magnitude
      */
     norm = this.normalize;
 
@@ -633,7 +633,6 @@ export class Vector {
      * If the absolute value of the axes is greater than `max`,
      * multiplies the axis by `factor`
      *
-     * @category Norm
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -644,6 +643,7 @@ export class Vector {
      * @param {Number} max The maximum value for both X and Y axes
      * @param {Number} factor Factor by which the axes are to be multiplied with
      * @return `this` for chaining capabilities
+     * @category Magnitude
      */
     limit(max: number, factor: number) {
         if (Math.abs(this.x) > max) {
@@ -658,7 +658,6 @@ export class Vector {
     /**
      * Randomizes the X axis with a value between the X axes of 2 others vectors
      *
-     * @category Randomization
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -672,6 +671,7 @@ export class Vector {
      * @param {Vector} topLeft First bounding vector
      * @param {Vector} bottomRight Second bouding vector
      * @return `this` for chaining capabilities
+     * @category Randomization
      */
     randomizeX(topLeft: Vector, bottomRight: Vector) {
         const min = Math.min(topLeft.x, bottomRight.x);
@@ -683,7 +683,6 @@ export class Vector {
     /**
      * Randomizes the Y axis with a value between the Y axes of 2 others vectors
      *
-     * @category Randomization
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -697,6 +696,7 @@ export class Vector {
      * @param {Vector} topLeft First bounding vector
      * @param {Vector} bottomRight Second bouding vector
      * @return `this` for chaining capabilities
+     * @category Randomization
      */
     randomizeY(topLeft: Vector, bottomRight: Vector) {
         const min = Math.min(topLeft.y, bottomRight.y);
@@ -708,7 +708,6 @@ export class Vector {
     /**
      * Randomizes both vector axes with a value between 2 vectors
      *
-     * @category Randomization
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -722,6 +721,7 @@ export class Vector {
      * @param {Vector} topLeft First bounding vector
      * @param {Vector} bottomRight Second bouding vector
      * @return `this` for chaining capabilities
+     * @category Randomization
      */
     randomize(topLeft: Vector, bottomRight: Vector) {
         this.randomizeX(topLeft, bottomRight);
@@ -734,7 +734,6 @@ export class Vector {
      * Randomly choses one axis and randomizes it with a value between the
      * corresponding axes of 2 other vectors
      *
-     * @category Randomization
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -748,6 +747,7 @@ export class Vector {
      * @param {Vector} topLeft First bounding vector
      * @param {Vector} bottomRight Second bouding vector
      * @return `this` for chaining capabilities
+     * @category Randomization
      */
     randomizeAny(topLeft: Vector, bottomRight: Vector) {
         if (Math.random() < 0.5) {
@@ -761,7 +761,6 @@ export class Vector {
     /**
      * Rounds both axes to an integer value using Math.round()
      *
-     * @category Precision
      * @example
      * const vec = new Vector(100.2, 50.9);
      *
@@ -770,6 +769,7 @@ export class Vector {
      * assert.equal(vec.y, 51)
      *
      * @return `this` for chaining capabilities
+     * @category Precision
      */
     unfloat() {
         this.x = Math.round(this.x);
@@ -780,7 +780,6 @@ export class Vector {
     /**
      * Fix both axes to a certain precision using Number.toFixed()
      *
-     * @category Precision
      * @example
      * const vec = new Vector(100.2345, 50.9876);
      *
@@ -790,6 +789,7 @@ export class Vector {
      *
      * @param {Number} precision (default: 8)
      * @return `this` for chaining capabilities
+     * @category Precision
      */
     toFixed(precision: number = 8) {
         this.x = Number(this.x.toFixed(precision));
@@ -800,7 +800,6 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the X axis towards another vector.
      *
-     * @category Mixing
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -813,6 +812,7 @@ export class Vector {
      * @param {Number} amount The blend amount [0, 1] (optional, default: 0.5)
      * @return `this` for chaining capabilities
      * @throws {RangeError} if `amount` is not between 0 and 1
+     * @category Interpolation
      */
     mixX(vec: Vector, amount: number = 0.5) {
         if (amount < 0 || amount > 1) {
@@ -825,7 +825,6 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the Y axis towards another vector
      *
-     * @category Mixing
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -838,6 +837,7 @@ export class Vector {
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
      * @throws {RangeError} if `amount` is not between 0 and 1
+     * @category Interpolation
      */
     mixY(vec: Vector, amount: number = 0.5) {
         if (amount < 0 || amount > 1) {
@@ -850,7 +850,6 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation towards another vector
      *
-     * @category Mixing
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -863,6 +862,7 @@ export class Vector {
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
      * @throws {RangeError} if `amount` is not between 0 and 1
+     * @category Interpolation
      */
     mix(vec: Vector, amount: number = 0.5) {
         if (amount < 0 || amount > 1) {
@@ -892,7 +892,6 @@ export class Vector {
     /**
      * Copies the X axis of another vector to this one
      *
-     * @category Copy
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 20);
@@ -903,6 +902,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to copy to this one
      * @return `this` for chaining capabilities
+     * @category Copy
      */
     copyX(vec: Vector) {
         this.x = vec.x;
@@ -912,7 +912,6 @@ export class Vector {
     /**
      * Copies the Y axis of another vector to this one
      *
-     * @category Copy
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 20);
@@ -923,6 +922,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to copy to this one
      * @return `this` for chaining capabilities
+     * @category Copy
      */
     copyY(vec: Vector) {
         this.y = vec.y;
@@ -932,7 +932,6 @@ export class Vector {
     /**
      * Copies vector axes to this one
      *
-     * @category Copy
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 20);
@@ -943,29 +942,11 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want to copy to this one
      * @return `this` for chaining capabilities
+     * @category Copy
      */
     copy(vec: Vector) {
         this.x = vec.x;
         this.y = vec.y;
-        return this;
-    }
-
-    /**
-     * Sets the vector axes to zero (0,0)
-     *
-     * @category Norm
-     * @example
-     * const vec = new Vector(10, 10);
-     *
-     * vec.zero();
-     * assert.equal(vec1.x, 0)
-     * assert.equal(vec1.y, 0)
-     *
-     * @return `this` for chaining capabilities
-     */
-    zero() {
-        this.x = 0;
-        this.y = 0;
         return this;
     }
 
@@ -981,6 +962,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The dot product of this vector and the other one
+     * @category Product & Projection
      */
     dot(vec: Vector) {
         return this.x * vec.x + this.y * vec.y;
@@ -1001,6 +983,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The cross product of this vector and the other one
+     * @category Product & Projection
      */
     cross(vec: Vector) {
         return this.x * vec.y - this.y * vec.x;
@@ -1019,6 +1002,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return `this` for chaining capabilities
+     * @category Product & Projection
      */
     projectOnto(vec: Vector) {
         const coeff = (this.x * vec.x + this.y * vec.y) / (vec.x * vec.x + vec.y * vec.y);
@@ -1035,7 +1019,6 @@ export class Vector {
      *
      * Caution: The direction is not the same as verticalAngle()
      *
-     * @category Angle
      * @example
      * assert.equal(0,          (new Vector(10, 0)).horizontalAngle());
      * assert.equal(Math.PI/2,  (new Vector(0, 10)).horizontalAngle());
@@ -1043,6 +1026,7 @@ export class Vector {
      * assert.equal(-Math.PI/2, (new Vector(0, -10)).horizontalAngle());
      *
      * @return The angle in radians
+     * @category Angle
      */
     horizontalAngle() {
         return Math.atan2(this.y, this.x);
@@ -1056,7 +1040,6 @@ export class Vector {
      *
      * Caution: The direction is not the same as verticalAngleDeg()
      *
-     * @category Angle
      * @example
      * assert.equal(0,    (new Vector(10, 0)).horizontalAngleDeg());
      * assert.equal(90,   (new Vector(0, 10)).horizontalAngleDeg());
@@ -1064,6 +1047,7 @@ export class Vector {
      * assert.equal(-90,  (new Vector(0, -10)).horizontalAngleDeg());
      *
      * @return The angle in degrees
+     * @category Angle
      */
     horizontalAngleDeg() {
         return radian2degrees(this.horizontalAngle());
@@ -1075,7 +1059,6 @@ export class Vector {
      *
      * Caution: The direction is not the same as horizontalAngle()
      *
-     * @category Angle
      * @example
      * assert.equal(0,          (new Vector(0, 10)).verticalAngle());
      * assert.equal(-Math.PI/2, (new Vector(-10, 0)).verticalAngle());
@@ -1083,6 +1066,7 @@ export class Vector {
      * assert.equal(Math.PI/2,  (new Vector(10, 0)).verticalAngle());
      *
      * @return The angle in degrees
+     * @category Angle
      */
     verticalAngle() {
         return Math.atan2(this.x, this.y);
@@ -1094,7 +1078,6 @@ export class Vector {
      *
      * Caution: The direction is not the same as horizontalAngleDeg()
      *
-     * @category Angle
      * @example
      * assert.equal(0,   (new Vector(0, 10)).verticalAngleDeg());
      * assert.equal(-90, (new Vector(-10, 0)).verticalAngleDeg());
@@ -1102,6 +1085,7 @@ export class Vector {
      * assert.equal(90,  (new Vector(10, 0)).verticalAngleDeg());
      *
      * @return The angle in degrees
+     * @category Angle
      */
     verticalAngleDeg() {
         return radian2degrees(this.verticalAngle());
@@ -1137,7 +1121,6 @@ export class Vector {
     /**
      * Gets the angle in radian (0 < θ <= π) between this vector and another one
      *
-     * @category Angle
      * @example
      * const vec1 = new Vector(1, 0);
      *
@@ -1152,6 +1135,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in radians
+     * @category Angle
      */
     angleWith(vec: Vector) {
         if (this.isZero() && vec.isZero()) {
@@ -1165,7 +1149,6 @@ export class Vector {
      *
      * If both vectors are null the method returns NaN
      *
-     * @category Angle
      * @example
      * const vec1 = new Vector(1, 0);
      *
@@ -1180,6 +1163,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in degrees
+     * @category Angle
      */
     angleDegWith(vec: Vector) {
         return radian2degrees(this.angleWith(vec));
@@ -1191,7 +1175,6 @@ export class Vector {
      *
      * This method is roughly 20% slower than this.angleWith()
      *
-     * @category Angle
      * @example
      * const vec1 = new Vector(1, 0);
      *
@@ -1206,6 +1189,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in radians
+     * @category Angle
      */
     orientedAngleWith(vec: Vector) {
         return Math.atan2(this.x * vec.y - this.y * vec.x, this.x * vec.x + this.y * vec.y);
@@ -1217,7 +1201,6 @@ export class Vector {
      *
      * This method is roughly 20% slower than this.angleDegWith()
      *
-     * @category Angle
      * @example
      * const vec1 = new Vector(1, 0);
      *
@@ -1232,6 +1215,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in radians
+     * @category Angle
      */
     orientedAngleDegWith(vec: Vector) {
         return radian2degrees(this.orientedAngleWith(vec));
@@ -1240,7 +1224,6 @@ export class Vector {
     /**
      * Rotate the vector counter-clockwise by an angle in radians
      *
-     * @category Angle
      * @example
      * const vec = new Vector(10, 0);
      * assert.equal(0, vec.horizontalAngleDeg())
@@ -1253,6 +1236,7 @@ export class Vector {
      * assert.equal(-90, vec.horizontalAngleDeg())
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     rotate(angle: number) {
         const nx = this.x * Math.cos(angle) - this.y * Math.sin(angle);
@@ -1267,7 +1251,6 @@ export class Vector {
     /**
      * Rotate the vector counter-clockwise by an angle in degrees
      *
-     * @category Angle
      * @example
      * const vec = new Vector(10, 0);
      * assert.equal(0, vec.horizontalAngleDeg())
@@ -1280,6 +1263,7 @@ export class Vector {
      * assert.equal(-90, vec.horizontalAngleDeg())
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     rotateDeg(angle: number) {
         const radAngle = degrees2radian(angle);
@@ -1290,7 +1274,6 @@ export class Vector {
      * Rotate the vector to an angle in radians using the positif
      * X axis as origin, move counter-clockwise
      *
-     * @category Angle
      * @example
      * const vec = new Vector(10, 0);
      *
@@ -1303,6 +1286,7 @@ export class Vector {
      * assert.equal(v.y, -10);
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     rotateTo(rotation: number) {
         return this.rotate(rotation - this.horizontalAngle());
@@ -1312,7 +1296,6 @@ export class Vector {
      * Rotate the vector to an angle in degrees using the positif
      * X axis as origin, move counter-clockwise
      *
-     * @category Angle
      * @example
      * const vec = new Vector(10, 0);
      *
@@ -1325,6 +1308,7 @@ export class Vector {
      * assert.equal(v.y, -10);
      *
      * @return `this` for chaining capabilities
+     * @category Transformation
      */
     rotateToDeg(rotation: number) {
         const radRotation = degrees2radian(rotation);
@@ -1334,7 +1318,6 @@ export class Vector {
     /**
      * Calculates the distance between the X axis of this vector the X axis of another
      *
-     * @category Distance
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
@@ -1344,6 +1327,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The distance between the X axes
+     * @category Distance
      */
     distanceX(vec: Vector) {
         return this.x - vec.x;
@@ -1352,7 +1336,6 @@ export class Vector {
     /**
      * Same as `distanceX()` but always returns an absolute number
      *
-     * @category Distance
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
@@ -1362,6 +1345,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The absolute distance between the X axes
+     * @category Distance
      */
     absDistanceX(vec: Vector) {
         return Math.abs(this.distanceX(vec));
@@ -1370,7 +1354,6 @@ export class Vector {
     /**
      * Calculates the distance between the X axis of this vector the X axis of another
      *
-     * @category Distance
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
@@ -1380,6 +1363,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The distance between the Y axes
+     * @category Distance
      */
     distanceY(vec: Vector) {
         return this.y - vec.y;
@@ -1388,7 +1372,6 @@ export class Vector {
     /**
      * Same as `distanceY()` but always returns an absolute number
      *
-     * @category Distance
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
@@ -1398,6 +1381,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The absolute distance between the Y axes
+     * @category Distance
      */
     absDistanceY(vec: Vector) {
         return Math.abs(this.distanceY(vec));
@@ -1406,7 +1390,6 @@ export class Vector {
     /**
      * Calculates the euclidean distance between this vector and another
      *
-     * @category Distance
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
@@ -1416,6 +1399,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The euclidian distance between the vectors
+     * @category Distance
      */
     distance(vec: Vector) {
         return Math.sqrt(this.distanceSq(vec));
@@ -1424,7 +1408,6 @@ export class Vector {
     /**
      * Calculates the squared euclidean distance between this vector and another
      *
-     * @category Distance
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
@@ -1434,6 +1417,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The squared euclidian distance between the vectors
+     * @category Distance
      */
     distanceSq(vec: Vector) {
         const dx = this.distanceX(vec);
@@ -1445,7 +1429,6 @@ export class Vector {
     /**
      * Calculates the length or magnitude of the vector
      *
-     * @category Norm
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -1453,6 +1436,7 @@ export class Vector {
      * assert.equal(m, 111.80339887498948)
      *
      * @return The magnitude of the vector
+     * @category Magnitude
      */
     length() {
         return Math.sqrt(this.lengthSq());
@@ -1461,15 +1445,14 @@ export class Vector {
     /**
      * Alias for .length()
      *
-     * @category Norm
      * @return The magnitude of the vector
+     * @category Magnitude
      */
     magnitude = this.length;
 
     /**
      * Calculates the squared length or squared magnitude of the vector
      *
-     * @category Norm
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -1477,15 +1460,34 @@ export class Vector {
      * assert.equal(m, 12500)
      *
      * @return The squared magnitude of the vector
+     * @category Magnitude
      */
     lengthSq() {
         return this.x * this.x + this.y * this.y;
     }
 
     /**
+     * Sets the vector axes to zero (0,0)
+     *
+     * @example
+     * const vec = new Vector(10, 10);
+     *
+     * vec.zero();
+     * assert.equal(vec1.x, 0)
+     * assert.equal(vec1.y, 0)
+     *
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     */
+    zero() {
+        this.x = 0;
+        this.y = 0;
+        return this;
+    }
+
+    /**
      * Returns true if vector is (0, 0)
      *
-     * @category Norm
      * @example
      * const vec = new Vector(100, 50);
      * assert.false(vec.isZero())
@@ -1494,6 +1496,7 @@ export class Vector {
      * assert.true(vec.isZero())
      *
      * @return true if the vector magnitude is 0, false otherwise
+     * @category Comparison
      */
     isZero() {
         return this.x === 0 && this.y === 0;
@@ -1513,6 +1516,7 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return true if the vector magnitude is 0, false otherwise
+     * @category Comparison
      */
     isEqualTo(vec: Vector) {
         return this.x === vec.x && this.y === vec.y;

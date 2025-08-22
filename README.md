@@ -13,15 +13,15 @@ This are changes already implemented:
 - Changed `random()` function. For some reason it generated a number between `min` and `max + 1` which sounded confusing.
 - `.toFixed()` converted components to string, fixed to keep them number, might renamed the function as suggested here: https://github.com/maxkueng/victor/issues/28
 - Added methods to compute angle between two vectors https://github.com/maxkueng/victor/issues/30
+- Mix validate the percentage value and throws an error if <0 or >1
 
 ## TODO
 
 Things I want to review before considering the library ready to be officially published:
 
-- Rework categories (split angle and rotation)
+- ~Rework categories (split angle and rotation)~
 - In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
 
-- Mix validate the percentage value (error if <0 or >1)
 - Rename `rotate` by `rotateBy`
 - Maybe add resize = normalize + multiplyScalar
 - Maybe add fromPolar https://github.com/maxkueng/victor/issues/26

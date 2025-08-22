@@ -8,17 +8,15 @@
 <li>Changed <code>random()</code> function. For some reason it generated a number between <code>min</code> and <code>max + 1</code> which sounded confusing.</li>
 <li><code>.toFixed()</code> converted components to string, fixed to keep them number, might renamed the function as suggested here: <a href="https://github.com/maxkueng/victor/issues/28">https://github.com/maxkueng/victor/issues/28</a></li>
 <li>Added methods to compute angle between two vectors <a href="https://github.com/maxkueng/victor/issues/30">https://github.com/maxkueng/victor/issues/30</a></li>
+<li>Mix validate the percentage value and throws an error if &lt;0 or &gt;1</li>
 </ul>
 <h2 id="todo" class="tsd-anchor-link">TODO<a href="#todo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Things I want to review before considering the library ready to be officially published:</p>
 <ul>
 <li>
-<p>Rework categories (split angle and rotation)</p>
+<p>~Rework categories (split angle and rotation)~</p>
 </li>
 <li>
 <p>In the README add a word about immutability <a href="https://github.com/maxkueng/victor/issues/18">https://github.com/maxkueng/victor/issues/18</a></p>
-</li>
-<li>
-<p>Mix validate the percentage value (error if &lt;0 or &gt;1)</p>
 </li>
 <li>
 <p>Rename <code>rotate</code> by <code>rotateBy</code></p>
