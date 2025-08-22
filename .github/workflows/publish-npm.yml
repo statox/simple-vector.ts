@@ -56,8 +56,18 @@ jobs:
             - name: Check prettier
               run: npm run prettier
 
-            - name: Run tests:ci
+            - name: Generate tests report
               run: npm run tests:ci
+
+            - name: Convert junit test report to ctrf
+              # node test runner produces junit results we need to convert
+              # them for ctrf to publish a comment in the MR
+              run: npx junit-to-ctrf tests_results.xml
+              if: always()
+
+            - name: Publish CTRF pull request comment
+              run: npx github-actions-ctrf ctrf/ctrf-report.json
+              if: always()
 
             - name: Run build package and docs
               run: npm run build:package
