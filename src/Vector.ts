@@ -1238,7 +1238,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @category Transformation
      */
-    rotate(angle: number) {
+    rotateBy(angle: number) {
         const nx = this.x * Math.cos(angle) - this.y * Math.sin(angle);
         const ny = this.x * Math.sin(angle) + this.y * Math.cos(angle);
 
@@ -1265,9 +1265,9 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @category Transformation
      */
-    rotateDeg(angle: number) {
+    rotateByDeg(angle: number) {
         const radAngle = degrees2radian(angle);
-        return this.rotate(radAngle);
+        return this.rotateBy(radAngle);
     }
 
     /**
@@ -1289,7 +1289,7 @@ export class Vector {
      * @category Transformation
      */
     rotateTo(rotation: number) {
-        return this.rotate(rotation - this.horizontalAngle());
+        return this.rotateBy(rotation - this.horizontalAngle());
     }
 
     /**

@@ -482,13 +482,13 @@ test('Rotation methods', () => {
         const v = new Vector(10, 0);
         assert.strictEqual(v.horizontalAngleDeg(), 0);
 
-        v.rotateDeg(180);
+        v.rotateByDeg(180);
         assert.strictEqual(v.horizontalAngleDeg(), 180);
 
-        v.rotateDeg(10);
+        v.rotateByDeg(10);
         assert.strictEqual(v.horizontalAngleDeg(), -170);
 
-        v.rotateDeg(100);
+        v.rotateByDeg(100);
         assertCloseTo(v.horizontalAngleDeg(), -70);
     });
 
@@ -496,22 +496,22 @@ test('Rotation methods', () => {
         const v = new Vector(10, 0);
         assert.strictEqual(v.horizontalAngleDeg(), 0);
 
-        v.rotate(Math.PI);
+        v.rotateBy(Math.PI);
         v.unfloat();
         assert.strictEqual(v.horizontalAngleDeg(), 180);
 
-        v.rotate(Math.PI);
+        v.rotateBy(Math.PI);
         v.unfloat();
         // Using equal instead of strictEqual because horizontalAngleDeg()
         // produces -0, strictEqual(-0, 0) throws but -0 === 0 is true
         // so we consider test good enough
         assert.equal(v.horizontalAngleDeg(), 0);
 
-        v.rotate(Math.PI);
+        v.rotateBy(Math.PI);
         v.unfloat();
         assert.strictEqual(v.horizontalAngleDeg(), 180);
 
-        v.rotate(Math.PI / 2);
+        v.rotateBy(Math.PI / 2);
         v.unfloat();
         assert.equal(v.horizontalAngleDeg(), -90);
     });
@@ -520,13 +520,13 @@ test('Rotation methods', () => {
         const v = new Vector(10, 0);
         assert.strictEqual(v.horizontalAngle(), 0);
 
-        v.rotate(Math.PI / 3);
+        v.rotateBy(Math.PI / 3);
         assert.strictEqual(v.horizontalAngle(), Math.PI / 3);
 
-        v.rotate(Math.PI / 3);
+        v.rotateBy(Math.PI / 3);
         assertCloseTo(v.horizontalAngle(), (2 * Math.PI) / 3);
 
-        v.rotate(Math.PI / 3);
+        v.rotateBy(Math.PI / 3);
         assert.strictEqual(v.horizontalAngle(), Math.PI);
     });
 });

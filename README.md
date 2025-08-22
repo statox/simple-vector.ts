@@ -7,6 +7,7 @@ The code is mostly taken from [Victor.js](https://www.npmjs.com/package/victor).
 This are changes already implemented:
 
 - Removed `rotateBy` and `rotateByDeg` which seemed to be broken or not useful ([Issue agreeing with that](https://github.com/maxkueng/victor/issues/37))
+- Renamed `rotate` and `rotateDeg` to `rotateBy` and `rotateByDeg` which make more sense.
 - Improved documentation (In particular for the remaining rotation functions)
 - Ported the original tests and added new tests.
 - Explicitly fail when trying to divide by zero
@@ -23,7 +24,7 @@ Things I want to review before considering the library ready to be officially pu
 - ~Rework categories (split angle and rotation)~
 - In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
 
-- Rename `rotate` by `rotateBy`
+- ~Rename `rotate` by `rotateBy`~
 - Add `rotateToward(vector, percent)` / `rotateToward(vec, maxAngle)` / `rotateToward(vec, fixedAngle)`
 - ~Maybe add resize = normalize + multiplyScalar~
 - Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26

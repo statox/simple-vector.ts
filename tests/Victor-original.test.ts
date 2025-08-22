@@ -866,13 +866,13 @@ describe('chainable instance methods', function () {
         });
     });
 
-    describe('#rotate()', function () {
+    describe('#rotateBy()', function () {
         let vec: Vector;
         let ret: Vector;
 
         before(function () {
             vec = new Vector(100, 100);
-            ret = vec.rotate((90 * Math.PI) / 180);
+            ret = vec.rotateBy((90 * Math.PI) / 180);
         });
 
         it('should be chainable', function () {
@@ -886,13 +886,13 @@ describe('chainable instance methods', function () {
         });
     });
 
-    describe('#rotateDeg()', function () {
+    describe('#rotateByDeg()', function () {
         let vec: Vector;
         let ret: Vector;
 
         before(function () {
             vec = new Vector(100, 100);
-            ret = vec.rotateDeg(90);
+            ret = vec.rotateByDeg(90);
         });
 
         it('should be chainable', function () {
