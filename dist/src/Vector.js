@@ -1401,6 +1401,30 @@ export class Vector {
         return this;
     }
     /**
+     * Resize the vector so that its direction is not changed but it's
+     * magnitude is set to the new value. If the `magnitude` argument is
+     * negative, the angle of the resulting vector is rotated by 180 degees.
+     *
+     * @example
+     * const vec1 = new Vector(0, 1);
+     * vec1.resize(10);
+     * assert.equal(vec1.horizontalAngle(), 90);
+     * assert.equal(vec1.magnitude(), 10);
+     *
+     * vec1.resize(-2);
+     * assert.equal(vec1.horizontalAngle(), -90);
+     * assert.equal(vec1.magnitude(), 2);
+     *
+     * @param {Number} magnitude The new value of the vector's magnitude
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     */
+    resize(magnitude) {
+        this.normalize();
+        this.multiplyScalar(magnitude);
+        return this;
+    }
+    /**
      * Returns true if vector is (0, 0)
      *
      * @example

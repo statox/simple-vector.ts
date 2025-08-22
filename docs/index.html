@@ -9,6 +9,7 @@
 <li><code>.toFixed()</code> converted components to string, fixed to keep them number, might renamed the function as suggested here: <a href="https://github.com/maxkueng/victor/issues/28">https://github.com/maxkueng/victor/issues/28</a></li>
 <li>Added methods to compute angle between two vectors <a href="https://github.com/maxkueng/victor/issues/30">https://github.com/maxkueng/victor/issues/30</a></li>
 <li>Mix validate the percentage value and throws an error if &lt;0 or &gt;1</li>
+<li>Added <code>resize()</code> (<a href="https://github.com/maxkueng/victor/pull/39">Victor #39</a> but with a ~10x faster implementation than the proposed code)</li>
 </ul>
 <h2 id="todo" class="tsd-anchor-link">TODO<a href="#todo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Things I want to review before considering the library ready to be officially published:</p>
 <ul>
@@ -22,7 +23,7 @@
 <p>Rename <code>rotate</code> by <code>rotateBy</code></p>
 </li>
 <li>
-<p>Maybe add resize = normalize + multiplyScalar</p>
+<p>~Maybe add resize = normalize + multiplyScalar~</p>
 </li>
 <li>
 <p>Maybe add fromPolar <a href="https://github.com/maxkueng/victor/issues/26">https://github.com/maxkueng/victor/issues/26</a></p>

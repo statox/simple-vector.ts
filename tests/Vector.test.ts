@@ -304,7 +304,7 @@ test('Distance methods', () => {
     });
 });
 
-test('Norm methods', () => {
+test('Magnitude methods', () => {
     test('length', () => {
         assert.strictEqual(new Vector(100, 0).length(), 100);
         assert.strictEqual(new Vector(0, 100).length(), 100);
@@ -351,6 +351,35 @@ test('Norm methods', () => {
         const v3 = new Vector(200, 200).limit(100, 0.1);
         assert.strictEqual(v3.x, 20);
         assert.strictEqual(v3.y, 20);
+    });
+
+    test('resize', () => {
+        it('should be chainable', function () {
+            const vec1 = new Vector(1, 0);
+            const ret = vec1.resize(10);
+            assert.ok(ret === vec1);
+        });
+        it('should keep the angle and change the magnitude for a positive value', function () {
+            const vec1 = new Vector(12, 9);
+            const originalAngle = vec1.horizontalAngle();
+            vec1.resize(10);
+            assert.strictEqual(vec1.horizontalAngle(), originalAngle);
+            assert.strictEqual(vec1.magnitude(), 10);
+        });
+        it('should rotate the angle by 180deg and change the magnitude for a negative value', function () {
+            const vec1 = new Vector(12, 9);
+            const originalAngle = vec1.horizontalAngle();
+            vec1.resize(-10);
+            assert.strictEqual(vec1.horizontalAngle(), originalAngle - Math.PI);
+            assert.strictEqual(vec1.magnitude(), 10);
+        });
+        it('TBD for value equal to zero', function () {
+            const vec1 = new Vector(12, 9);
+            // const originalAngle = vec1.horizontalAngle();
+            vec1.resize(0);
+            assert.strictEqual(vec1.horizontalAngle(), 0);
+            assert.strictEqual(vec1.magnitude(), 0);
+        });
     });
 });
 
