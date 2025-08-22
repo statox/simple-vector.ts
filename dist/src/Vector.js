@@ -276,6 +276,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want divide by
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the X axis of the argument vector is 0
      */
     divideX(vec) {
         if (vec.x === 0) {
@@ -298,6 +299,7 @@ export class Vector {
      *
      * @param {Vector} vec The other vector you want divide by
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the Y axis of the argument vector is 0
      */
     divideY(vec) {
         if (vec.y === 0) {
@@ -320,6 +322,7 @@ export class Vector {
      *
      * @param {Vector} vec The vector to divide by
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If any axis of the argument vector is 0
      */
     divide(vec) {
         if (vec.x === 0 || vec.y === 0) {
@@ -342,6 +345,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to divide by
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the argument scalar is 0
      */
     divideScalar(scalar) {
         if (scalar === 0) {
@@ -364,6 +368,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to divide by
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
      */
     divideScalarX(scalar) {
         if (scalar === 0) {
@@ -385,6 +390,7 @@ export class Vector {
      *
      * @param {Number} scalar The scalar to divide by
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
      */
     divideScalarY(scalar) {
         if (scalar === 0) {
