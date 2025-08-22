@@ -816,7 +816,7 @@ export class Vector {
      */
     mixX(vec: Vector, amount: number = 0.5) {
         if (amount < 0 || amount > 1) {
-            throw new RangeError("The amount argument must be between 0 and 1.");
+            throw new RangeError('The amount argument must be between 0 and 1.');
         }
         this.x = (1 - amount) * this.x + amount * vec.x;
         return this;
@@ -841,7 +841,7 @@ export class Vector {
      */
     mixY(vec: Vector, amount: number = 0.5) {
         if (amount < 0 || amount > 1) {
-            throw new RangeError("The amount argument must be between 0 and 1.");
+            throw new RangeError('The amount argument must be between 0 and 1.');
         }
         this.y = (1 - amount) * this.y + amount * vec.y;
         return this;
@@ -866,7 +866,7 @@ export class Vector {
      */
     mix(vec: Vector, amount: number = 0.5) {
         if (amount < 0 || amount > 1) {
-            throw new RangeError("The amount argument must be between 0 and 1.");
+            throw new RangeError('The amount argument must be between 0 and 1.');
         }
         this.mixX(vec, amount);
         this.mixY(vec, amount);
