@@ -24,6 +24,7 @@ Things I want to review before considering the library ready to be officially pu
 - In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
 
 - Rename `rotate` by `rotateBy`
+- Add `rotateToward(vector, percent)` / `rotateToward(vec, maxAngle)` / `rotateToward(vec, fixedAngle)`
 - ~Maybe add resize = normalize + multiplyScalar~
 - Maybe add fromPolar https://github.com/maxkueng/victor/issues/26
 - Maybe isPerpendicular, isParallel https://github.com/maxkueng/victor/pull/42
