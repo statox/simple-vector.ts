@@ -662,6 +662,9 @@ test('Mix methods', () => {
         vec1.mixX(vec2, 0.5);
         assert.strictEqual(vec1.x, 150);
         assert.strictEqual(vec1.y, 100);
+
+        assert.throws(() => vec1.mixX(vec2, -1), RangeError);
+        assert.throws(() => vec1.mixX(vec2, 1.5), RangeError);
     });
 
     test('mixY', () => {
@@ -671,6 +674,9 @@ test('Mix methods', () => {
         vec1.mixY(vec2, 0.5);
         assert.strictEqual(vec1.x, 100);
         assert.strictEqual(vec1.y, 150);
+
+        assert.throws(() => vec1.mixY(vec2, -1), RangeError);
+        assert.throws(() => vec1.mixY(vec2, 1.5), RangeError);
     });
 
     test('mix', () => {
@@ -680,6 +686,9 @@ test('Mix methods', () => {
         vec1.mix(vec2, 0.5);
         assert.strictEqual(vec1.x, 150);
         assert.strictEqual(vec1.y, 150);
+
+        assert.throws(() => vec1.mix(vec2, -1), RangeError);
+        assert.throws(() => vec1.mix(vec2, 1.5), RangeError);
     });
 });
 

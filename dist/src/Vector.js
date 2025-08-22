@@ -745,7 +745,7 @@ export class Vector {
         return this;
     }
     /**
-     * Performs a linear blend / interpolation of the X axis towards another vector
+     * Performs a linear blend / interpolation of the X axis towards another vector.
      *
      * @category Mixing
      * @example
@@ -757,10 +757,14 @@ export class Vector {
      * assert.equal(vec1.y, 100)
      *
      * @param {Vector} vec The other vector
-     * @param {Number} amount The blend amount (optional, default: 0.5)
+     * @param {Number} amount The blend amount [0, 1] (optional, default: 0.5)
      * @return `this` for chaining capabilities
+     * @throws {RangeError} if `amount` is not between 0 and 1
      */
     mixX(vec, amount = 0.5) {
+        if (amount < 0 || amount > 1) {
+            throw new RangeError("The amount argument must be between 0 and 1.");
+        }
         this.x = (1 - amount) * this.x + amount * vec.x;
         return this;
     }
@@ -779,8 +783,12 @@ export class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
+     * @throws {RangeError} if `amount` is not between 0 and 1
      */
     mixY(vec, amount = 0.5) {
+        if (amount < 0 || amount > 1) {
+            throw new RangeError("The amount argument must be between 0 and 1.");
+        }
         this.y = (1 - amount) * this.y + amount * vec.y;
         return this;
     }
@@ -799,8 +807,12 @@ export class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
+     * @throws {RangeError} if `amount` is not between 0 and 1
      */
     mix(vec, amount = 0.5) {
+        if (amount < 0 || amount > 1) {
+            throw new RangeError("The amount argument must be between 0 and 1.");
+        }
         this.mixX(vec, amount);
         this.mixY(vec, amount);
         return this;

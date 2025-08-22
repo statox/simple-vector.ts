@@ -590,7 +590,7 @@ export declare class Vector {
      */
     toFixed(precision?: number): this;
     /**
-     * Performs a linear blend / interpolation of the X axis towards another vector
+     * Performs a linear blend / interpolation of the X axis towards another vector.
      *
      * @category Mixing
      * @example
@@ -602,8 +602,9 @@ export declare class Vector {
      * assert.equal(vec1.y, 100)
      *
      * @param {Vector} vec The other vector
-     * @param {Number} amount The blend amount (optional, default: 0.5)
+     * @param {Number} amount The blend amount [0, 1] (optional, default: 0.5)
      * @return `this` for chaining capabilities
+     * @throws {RangeError} if `amount` is not between 0 and 1
      */
     mixX(vec: Vector, amount?: number): this;
     /**
@@ -621,6 +622,7 @@ export declare class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
+     * @throws {RangeError} if `amount` is not between 0 and 1
      */
     mixY(vec: Vector, amount?: number): this;
     /**
@@ -638,6 +640,7 @@ export declare class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
+     * @throws {RangeError} if `amount` is not between 0 and 1
      */
     mix(vec: Vector, amount?: number): this;
     /**
