@@ -20,12 +20,13 @@
         "lint": "eslint",
         "lint:fix": "npm run lint --fix",
         "tests": "node --test",
+        "tests:watch": "node --test --watch",
         "tests:ci": "node --test --test-reporter=junit --test-reporter-destination=tests_results.xml",
         "tests:coverage": "node --test --experimental-test-coverage --test-reporter=tap --test-reporter-destination=coverage.lcov",
         "build": "npm run build:package && npm run build:doc",
         "build:package": "rm -fr dist/ && tsc",
         "build:doc": "typedoc",
-        "watch": "rm -fr dist/ && tsc -w"
+        "build:watch": "rm -fr dist/ && tsc -w"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
