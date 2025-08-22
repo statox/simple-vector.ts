@@ -1,0 +1,53 @@
+on:
+    push:
+        branches: main
+    workflow_dispatch: # Only for tests, to remove
+
+jobs:
+    publish-npm-package:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 'latest'
+                  cache: 'npm'
+
+            - name: Cache node modules
+              id: cache-nodemodules
+              uses: actions/cache@v4
+              env:
+                  cache-name: cache-node-modules
+              with:
+                  # caching node_modules
+                  path: node_modules
+                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-build-${{ env.cache-name }}-
+                      ${{ runner.os }}-build-
+                      ${{ runner.os }}-
+
+            - name: Install Dependencies
+              if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+              run: npm ci
+
+            - name: Check lint
+              run: npm run check
+
+            - name: Check prettier
+              run: npm run prettier
+
+            - name: Run tests:ci
+              run: npm run tests:ci
+
+            - name: Run build package and docs
+              run: npm run build:package
+
+            # Publish npm package (the action triggers the publish only if
+            # the version changed in package.json)
+            # TODO: Use trusted publishing instead https://docs.npmjs.com/trusted-publishers
+            - uses: JS-DevTools/npm-publish@v3
+              with:
+                  token: ${{ secrets.NPM_TOKEN }}

@@ -22,8 +22,9 @@
         "tests": "node --test",
         "tests:ci": "node --test --test-reporter=junit --test-reporter-destination=tests_results.xml",
         "tests:coverage": "node --test --experimental-test-coverage --test-reporter=tap --test-reporter-destination=coverage.lcov",
-        "build": "rm -fr dist/ && tsc && npm run build-doc",
-        "build-doc": "typedoc",
+        "build": "npm run build:package && npm run build:doc",
+        "build:package": "rm -fr dist/ && tsc",
+        "build:doc": "typedoc",
         "watch": "rm -fr dist/ && tsc -w",
         "publish": "npm run check && npm run build && npm publish --access public"
     },
