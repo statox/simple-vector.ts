@@ -99,10 +99,6 @@ jobs:
               # them for ctrf to publish a comment in the MR
               run: npx junit-to-ctrf tests_results.xml
 
-            - name: Generate tests report
-              if: always()
-              run: npm run tests:ci
-
             - name: Publish CTRF pull request comment
               run: npx github-actions-ctrf pull-request ctrf/ctrf-report.json
               if: always()
