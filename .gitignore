@@ -1,2 +1,4 @@
-# Do not ignore the build directory even if ~/.gitignore excludes it
-!dist/
+# The dist and docs directory are built automatically by the CI
+# don't version them
+dist/
+docs/

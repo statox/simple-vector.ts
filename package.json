@@ -25,8 +25,7 @@
         "build": "npm run build:package && npm run build:doc",
         "build:package": "rm -fr dist/ && tsc",
         "build:doc": "typedoc",
-        "watch": "rm -fr dist/ && tsc -w",
-        "publish": "npm run check && npm run build && npm publish --access public"
+        "watch": "rm -fr dist/ && tsc -w"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
