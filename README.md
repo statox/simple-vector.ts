@@ -31,6 +31,7 @@ Things I want to review before considering the library ready to be officially pu
 - Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42
 - Maybe rework `limit`: To me it would make more sense to make it work like `x = Math.max(x, limit)`. Maybe name the new version `clamp` instead of `limit` to keep the old version.
 - Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change.
+- Add an `epsilon` property to `Vector` to improve computations stability?
 
 - Rework publishing
     - For now published at https://www.npmjs.com/package/@statox/vector. I want to rename to `simplevector` when we are ready.
