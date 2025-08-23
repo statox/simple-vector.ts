@@ -49,3 +49,5 @@ Using latest node features to run typescript and tests so
 ### Publishing
 
 The Github CI handle the publication of the package to npm and the deployment of the github pages for the docs website. See [`.github/workflows/publish-npm.yml`](.github/workflows/publish-npm.yml).
+
+Update the `version` field in `package.json` to trigger the publishing of a new version and its documentation.
