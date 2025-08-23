@@ -811,7 +811,7 @@ export class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount [0, 1] (optional, default: 0.5)
      * @return `this` for chaining capabilities
-     * @throws {RangeError} if `amount` is not between 0 and 1
+     * @throws {RangeError} RangeError if `amount` is not between 0 and 1
      * @category Interpolation
      */
     mixX(vec: Vector, amount: number = 0.5) {
@@ -836,7 +836,7 @@ export class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
-     * @throws {RangeError} if `amount` is not between 0 and 1
+     * @throws {RangeError} RangeError if `amount` is not between 0 and 1
      * @category Interpolation
      */
     mixY(vec: Vector, amount: number = 0.5) {
@@ -861,7 +861,7 @@ export class Vector {
      * @param {Vector} vec The other vector
      * @param {Number} amount The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
-     * @throws {RangeError} if `amount` is not between 0 and 1
+     * @throws {RangeError} RangeError if `amount` is not between 0 and 1
      * @category Interpolation
      */
     mix(vec: Vector, amount: number = 0.5) {
@@ -1235,6 +1235,7 @@ export class Vector {
      * // π + π / 2 => -π/2
      * assert.equal(-90, vec.horizontalAngleDeg())
      *
+     * @param {number} angle The angle in radians to rotate the vector by
      * @return `this` for chaining capabilities
      * @category Transformation
      */
