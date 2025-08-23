@@ -26,7 +26,8 @@
         "build": "npm run build:package && npm run build:doc",
         "build:package": "rm -fr dist/ && tsc",
         "build:doc": "typedoc",
-        "build:watch": "rm -fr dist/ && tsc -w"
+        "build:watch": "rm -fr dist/ && tsc -w",
+        "serve:docs": "npx serve docs/"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
