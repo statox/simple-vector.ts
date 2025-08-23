@@ -529,6 +529,56 @@ test('Rotation methods', () => {
         v.rotateBy(Math.PI / 3);
         assert.strictEqual(v.horizontalAngle(), Math.PI);
     });
+
+    test('rotateTowards', () => {
+        it('should be chainable', function () {
+            const vec1 = new Vector(10, 0);
+            const vec2 = new Vector(0, 10);
+            const ret = vec1.rotateTowards(vec2, Math.PI / 4);
+            assert.ok(ret === vec1);
+        });
+
+        it('Should rotate the vector toward the other one and respect the max angle', () => {
+            const vec1 = new Vector(10, 0);
+            const vec2 = new Vector(0, 10);
+
+            vec1.rotateTowards(vec2, Math.PI / 4);
+            assertCloseTo(vec1.horizontalAngle(), Math.PI/4)
+        });
+
+        it('Should not overshoot if max angle is bigger than gap', () => {
+            const vec1 = new Vector(10, 0);
+            const vec2 = new Vector(0, 10);
+
+            vec1.rotateTowards(vec2, Math.PI);
+            assertCloseTo(vec1.horizontalAngle(), vec2.horizontalAngle())
+        });
+
+        it('Should choose the shortest route', () => {
+            const vec1 = new Vector(-10, 10);
+            const vec2 = new Vector(-10, -10);
+
+            vec1.rotateTowards(vec2, Math.PI / 4);
+            assertCloseTo(vec1.horizontalAngle(), Math.PI)
+        });
+    });
+
+    test('rotateTowardsDeg', () => {
+        it('should be chainable', function () {
+            const vec1 = new Vector(10, 0);
+            const vec2 = new Vector(0, 10);
+            const ret = vec1.rotateTowardsDeg(vec2, 45);
+            assert.ok(ret === vec1);
+        });
+
+        it('Should use degrees to the maxAngle', () => {
+            const vec1 = new Vector(10, 0);
+            const vec2 = new Vector(0, 10);
+
+            vec1.rotateTowardsDeg(vec2, 2);
+            assertCloseTo(vec1.horizontalAngleDeg(), 2)
+        });
+    });
 });
 
 test('Angle methods', () => {

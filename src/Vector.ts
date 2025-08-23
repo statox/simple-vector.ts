@@ -1250,6 +1250,61 @@ export class Vector {
     }
 
     /**
+     * Rotate towards another vector limiting the rotation to a max
+     * angle θ in radians (θ > 0) .
+     *
+     * @example
+     * const vec1 = new Vector(10, 0);
+     * const vec2 = new Vector(0, 10);
+     *
+     * vec1.rotateTowards(vec2, Math.PI / 4);
+     * assert.equal(vec1.horizontalAngle(), Math.PI / 4)
+     *
+     * @param {Vector} vec The vector steering the current vector
+     * @param {number} maxAngle The max angle in radians to rotate the vector by
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
+     * @category Transformation
+     */
+    rotateTowards(vec: Vector, maxAngle: number) {
+        if (maxAngle <= 0) {
+            throw new RangeError('The max angle must be positive');
+        }
+        const angle = this.angleWith(vec);
+
+        // Clamp rotation
+        let delta = Math.min(angle, maxAngle);
+
+        // Decide direction (CW or CCW)
+        if (this.cross(vec) < 0) {
+            delta = -delta;
+        }
+
+        return this.rotateBy(delta);
+    }
+
+    /**
+     * Rotate towards another vector limiting the rotation to a max
+     * angle θ in degrees (θ > 0) .
+     *
+     * @example
+     * const vec1 = new Vector(10, 0);
+     * const vec2 = new Vector(0, 10);
+     *
+     * vec1.rotateTowardsDeg(vec2, 2);
+     * assert.equal(vec1.horizontalAngleDeg(), 2)
+     *
+     * @param {Vector} vec The vector steering the current vector
+     * @param {number} maxAngle The max angle in degrees to rotate the vector by
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
+     * @category Transformation
+     */
+    rotateTowardsDeg(vec: Vector, maxAngle: number) {
+        return this.rotateTowards(vec, degrees2radian(maxAngle));
+    }
+
+    /**
      * Rotate the vector counter-clockwise by an angle in degrees
      *
      * @example

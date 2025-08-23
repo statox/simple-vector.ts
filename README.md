@@ -16,6 +16,7 @@ This are changes already implemented:
 - Added methods to compute angle between two vectors https://github.com/maxkueng/victor/issues/30
 - Mix validate the percentage value and throws an error if <0 or >1
 - Added `resize()` ([Victor #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
+- Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one
 
 ## TODO
 
@@ -25,7 +26,7 @@ Things I want to review before considering the library ready to be officially pu
 - In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
 
 - ~Rename `rotate` by `rotateBy`~
-- Add `rotateToward(vector, percent)` / `rotateToward(vec, maxAngle)` / `rotateToward(vec, fixedAngle)`
+- ~Add `rotateToward(vec, maxAngle)`~
 - ~Maybe add resize = normalize + multiplyScalar~
 - Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26
 - Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42
