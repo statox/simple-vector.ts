@@ -30,9 +30,13 @@ Things I want to review before considering the library ready to be officially pu
 - ~Maybe add resize = normalize + multiplyScalar~
 - Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26
 - Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42
-- Maybe rework `limit`: To me it would make more sense to make it work like `x = Math.max(x, limit)`. Maybe name the new version `clamp` instead of `limit` to keep the old version.
+- Implement `limitX` and `limitY` and use them in `limit`.
+- Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.
 - Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change.
 - Add an `epsilon` property to `Vector` to improve computations stability?
+- Use spellcheck to avoid typos.
+- Find a way to validate docs (make sure all required tags are used, maybe make sure the documented method is used in the `@example` tag)
+- Create a dedicated section for dev workflow documentation.
 
 - Rework publishing
     - For now published at https://www.npmjs.com/package/@statox/vector. I want to rename to `simplevector` when we are ready.
