@@ -21,6 +21,7 @@ This are changes already implemented:
 - Added `clamp` to clamp the magnitude and `clampX`, `clampY` to clamp the axes.
 - Added `fromPolar` and `toPolar` methods.
 - Added `limitX` and `limitY` to go with `limit`
+- Renamed `toFixed` to `fixPrecision` to avoid confusion with `Number.toFixed` and the fact that it casts numbers to strings.
 
 ## TODO
 

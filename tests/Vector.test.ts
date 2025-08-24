@@ -842,10 +842,10 @@ test('Precision methods', () => {
         assert.strictEqual(vec.y, 51);
     });
 
-    test('toFixed', () => {
+    test('fixPrecision', () => {
         const vec = new Vector(100.2345, 50.9876);
 
-        vec.toFixed(2);
+        vec.fixPrecision(2);
         assert.strictEqual(vec.x, 100.23);
         assert.strictEqual(vec.y, 50.99);
     });

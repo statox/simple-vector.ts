@@ -1023,12 +1023,13 @@ export class Vector {
     }
 
     /**
-     * Fix both axes to a certain precision using Number.toFixed()
+     * Fix both axes to a certain precision using {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed Number.toFixed()}
+     * on each axis
      *
      * @example
      * const vec = new Vector(100.2345, 50.9876);
      *
-     * vec.toFixed(2);
+     * vec.fixPrecision(2);
      * assert.equal(vec.x, 100.23)
      * assert.equal(vec.y, 50.99)
      *
@@ -1036,7 +1037,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @category Precision
      */
-    toFixed(precision: number = 8) {
+    fixPrecision(precision: number = 8) {
         this.x = Number(this.x.toFixed(precision));
         this.y = Number(this.y.toFixed(precision));
         return this;
