@@ -703,6 +703,101 @@ export class Vector {
     norm = this.normalize;
 
     /**
+     * Clamp the value of the x axis to a maximum value.
+     * Also clamp to a minimum value if a second argument is specified
+     *
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.clampX(50)
+     * assert.equal(vec.x, 50)
+     * assert.equal(vec.y, 100)
+     *
+     * @param {Number} max The maximum value for the X axis
+     * @param {Number} min (optional) The maximum value for the X axis
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     * @throws RangeError RangeError if the min value is defined and larger than the max value
+     */
+    clampX(max: number, min?: number) {
+        if (min !== undefined && min !== null) {
+            if (min > max) {
+                throw RangeError('min must be smaller than max');
+            }
+            this.x = Math.max(this.x, min);
+        }
+
+        this.x = Math.min(this.x, max);
+
+        return this;
+    }
+
+    /**
+     * Clamp the value of the y axis to a maximum value.
+     * Also clamp to a minimum value if a second argument is specified
+     *
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.clampY(50)
+     * assert.equal(vec.y, 50)
+     * assert.equal(vec.y, 100)
+     *
+     * @param {Number} max The maximum value for the Y axis
+     * @param {Number} min (optional) The maximum value for the Y axis
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     * @throws RangeError RangeError if the min value is defined and larger than the max value
+     */
+    clampY(max: number, min?: number) {
+        if (min !== undefined && min !== null) {
+            if (min > max) {
+                throw RangeError('min must be smaller than max');
+            }
+            this.y = Math.max(this.y, min);
+        }
+
+        this.y = Math.min(this.y, max);
+
+        return this;
+    }
+
+    /**
+     * Resize the vector to clamp the magnitude to the max value.
+     * Also clamp to a minimum value if a second argument is specified.
+     *
+     * This preserves the angle of the vector.
+     *
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.clampY(50)
+     * assert.equal(vec.y, 50)
+     * assert.equal(vec.y, 100)
+     *
+     * @param {Number} max The maximum value for the Y axis
+     * @param {Number} min (optional) The maximum value for the Y axis
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     * @throws RangeError RangeError if the min value is defined and larger than the max value
+     */
+    clamp(max: number, min?: number) {
+        const currentMag = this.magnitude();
+        let minBound = Number.MIN_VALUE;
+        if (min !== undefined && min !== null) {
+            if (min > max) {
+                throw RangeError('min must be smaller than max');
+            }
+            minBound = min;
+        }
+
+        const newMag = Math.max(Math.min(currentMag, max), minBound);
+        this.resize(newMag);
+
+        return this;
+    }
+
+    /**
      * If the absolute value of the axes is greater than `max`,
      * multiplies the axis by `factor`
      *

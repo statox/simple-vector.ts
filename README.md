@@ -18,6 +18,7 @@ This are changes already implemented:
 - Added `resize()` ([Victor #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
 - Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one
 - Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input but also accept string representations instead of numbers.
+- Added `clamp` to clamp the magnitude and `clampX`, `clampY` to clamp the axes.
 
 ## TODO
 
@@ -32,7 +33,7 @@ Things I want to review before considering the library ready to be officially pu
 - Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26
 - Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42
 - Implement `limitX` and `limitY` and use them in `limit`.
-- Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.
+- ~Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
 - Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change.
 - Add an `epsilon` property to `Vector` to improve computations stability?
 - Use spellcheck to avoid typos.
