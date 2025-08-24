@@ -31,6 +31,17 @@ export interface VectorLike {
 }
 
 /**
+ * An interface representing polar coordinates
+ *
+ * @property {number} r The value of the magnitude
+ * @property {number} theta The value of the angle in radians
+ */
+export interface Polar {
+    r: number;
+    theta: number;
+}
+
+/**
  * A simple 2D vector class
  * @property {number} x The X axis value
  * @property {number} y The Y axis value
@@ -113,6 +124,24 @@ export class Vector {
             throw new TypeError('The .y property of the argument object must be a number');
         }
         return new Vector(Number(obj.x), Number(obj.y));
+    };
+
+    /**
+     * Creates a new instance from an angle in radians and a magnitude
+     * (The angle is from the positive x axis)
+     *
+     * @example
+     * const vec = Vector.fromPolar(Math.PI / 2, 100);
+     *
+     * assert.equal(vec1.x, 0)
+     * assert.equal(vec1.y, 100)
+     *
+     * @param {number} radians Object with properties x and/or y
+     * @param {number} magnitude Object with properties x and/or y
+     * @return A new Vector instance
+     */
+    static fromPolar = (radians: number, magnitude: number) => {
+        return new Vector(magnitude * Math.cos(radians), magnitude * Math.sin(radians));
     };
 
     /**
@@ -1813,6 +1842,25 @@ export class Vector {
      */
     toObject(): VectorLike {
         return { x: this.x, y: this.y };
+    }
+
+    /**
+     * Returns a polar representation of the vector.
+     *
+     * @example
+     * const vec = new Vector(1, 1);
+     *
+     * vec.toPolar();
+     * // { theta: Math.PI/ 4, r: Math.sqrt(2) }
+     *
+     * @return A polar representation of the vector
+     */
+    toPolar(): Polar {
+        const angle = Math.atan(this.y / this.x);
+        return {
+            r: Math.sqrt(this.x * this.x + this.y * this.y),
+            theta: Number.isNaN(angle) ? 0 : angle
+        };
     }
 }
 

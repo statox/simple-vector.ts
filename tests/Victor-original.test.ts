@@ -113,6 +113,36 @@ describe('static methods', function () {
             assert.strictEqual(vec.y, 2);
         });
     });
+
+    describe('#fromPolar()', function () {
+        it('should return an instance of Vector', function () {
+            assert.ok(Vector.fromPolar(1, 10) instanceof Vector);
+        });
+
+        it('should create a vector without an angle', function () {
+            const vec = Vector.fromPolar(0, 10);
+            assert.strictEqual(vec.x, 10);
+            assert.strictEqual(vec.y, 0);
+        });
+
+        it('should create a vector with an angle of PI/2', function () {
+            const vec = Vector.fromPolar(Math.PI / 2, 100);
+            assertCloseTo(vec.x, 0);
+            assert.strictEqual(vec.y, 100);
+        });
+
+        it('should create a vector with a negative angle', function () {
+            const vec = Vector.fromPolar(-Math.PI / 2, 1);
+            assertCloseTo(vec.x, 0);
+            assert.strictEqual(vec.y, -1);
+        });
+
+        it('should create a vector with a negative magnitude', function () {
+            const vec = Vector.fromPolar(0, -2);
+            assertCloseTo(vec.x, -2);
+            assertCloseTo(vec.y, 0);
+        });
+    });
 });
 
 describe('chainable instance methods', function () {
@@ -1327,6 +1357,26 @@ describe('utility methods', function () {
         it('should return an object representation of the vector', function () {
             assert.strictEqual(ret.x, 100);
             assert.strictEqual(ret.y, 200);
+        });
+    });
+
+    describe('#toPolar()', function () {
+        it('should return correct values - 1', function () {
+            const { r, theta } = new Vector(0, 0).toPolar();
+            assert.strictEqual(r, 0);
+            assert.strictEqual(theta, 0);
+        });
+
+        it('should return correct values - 2', function () {
+            const { r, theta } = new Vector(10, 0).toPolar();
+            assert.strictEqual(r, 10);
+            assert.strictEqual(theta, 0);
+        });
+
+        it('should return correct values - 3', function () {
+            const { r, theta } = new Vector(0, -1).toPolar();
+            assert.strictEqual(r, 1);
+            assert.strictEqual(theta, -Math.PI / 2);
         });
     });
 });

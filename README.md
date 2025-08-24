@@ -19,6 +19,7 @@ This are changes already implemented:
 - Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one
 - Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input but also accept string representations instead of numbers.
 - Added `clamp` to clamp the magnitude and `clampX`, `clampY` to clamp the axes.
+- Added `fromPolar` and `toPolar` methods.
 
 ## TODO
 
@@ -30,7 +31,7 @@ Things I want to review before considering the library ready to be officially pu
 - ~Rename `rotate` by `rotateBy`~
 - ~Add `rotateToward(vec, maxAngle)`~
 - ~Maybe add resize = normalize + multiplyScalar~
-- Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26
+- ~Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26`
 - Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42
 - Implement `limitX` and `limitY` and use them in `limit`.
 - ~Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
