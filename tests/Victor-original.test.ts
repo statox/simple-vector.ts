@@ -10,7 +10,7 @@
 import { describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { DivisionByZeroError, Vector, fromArray, fromObject } from '../src/Vector.ts';
+import { DivisionByZeroError, Vector, type VectorLike } from '../src/Vector.ts';
 import { assertCloseTo } from './helpers.ts';
 
 describe('static methods', function () {
@@ -35,7 +35,7 @@ describe('static methods', function () {
 
         before(function () {
             arr = [100, 200];
-            vec = fromArray(arr);
+            vec = Vector.fromArray(arr);
         });
 
         it('should return an instance of Vector', function () {
@@ -46,15 +46,37 @@ describe('static methods', function () {
             assert.strictEqual(vec.x, arr[0]);
             assert.strictEqual(vec.y, arr[1]);
         });
+
+        it('should throw if the array has less than 2 members', function () {
+            assert.throws(() => Vector.fromArray([0]), TypeError);
+        });
+
+        it('should throw if the members of the array are not a number', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromArray([null, 1]), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromArray([undefined, 1]), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromArray([1, null]), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromArray(['a', null]), TypeError);
+        });
+
+        it('should accept array of strings representing number', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            const vec = Vector.fromArray(['1', '2']);
+            assert.strictEqual(vec.x, 1);
+            assert.strictEqual(vec.y, 2);
+        });
     });
 
     describe('#fromObject()', function () {
-        let obj: { x?: number; y?: number };
+        let obj: VectorLike;
         let vec: Vector;
 
         before(function () {
             obj = { x: 100, y: 200 };
-            vec = fromObject(obj);
+            vec = Vector.fromObject(obj);
         });
 
         it('should return an instance of Vector', function () {
@@ -64,6 +86,31 @@ describe('static methods', function () {
         it('should have axis from object', function () {
             assert.strictEqual(vec.x, obj.x);
             assert.strictEqual(vec.y, obj.y);
+        });
+
+        it('should throw if the object doesnt have .x and .y properties', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: 1 }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ y: 1 }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ foo: 1 }), TypeError);
+        });
+
+        it('should throw if the properties of the object are not a number', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: null, y: 1 }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: undefined, y: 1 }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: 'a', y: 1 }), TypeError);
+        });
+
+        it('should accept object with strings properties representing number', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            const vec = Vector.fromObject({ x: '1', y: '2' });
+            assert.strictEqual(vec.x, 1);
+            assert.strictEqual(vec.y, 2);
         });
     });
 });

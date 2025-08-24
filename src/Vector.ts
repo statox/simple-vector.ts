@@ -20,6 +20,17 @@ export class DivisionByZeroError extends Error {
 }
 
 /**
+ * An interface for objects with x and y properties.
+ *
+ * @property x The value of the X axis
+ * @property y The value of the Y axis
+ */
+export interface VectorLike {
+    x: number;
+    y: number;
+}
+
+/**
  * A simple 2D vector class
  * @property {number} x The X axis value
  * @property {number} y The Y axis value
@@ -41,6 +52,68 @@ export class Vector {
         this.x = x;
         this.y = y;
     }
+
+    /**
+     * Creates a new instance from an array using first two items as x and y.
+     * (The array lenght must be at least 2)
+     *
+     * @example
+     * const vec = Vector.fromArray([42, 21]);
+     *
+     * vec.toString();
+     * // 'x:42, y:21'
+     *
+     * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
+     * @return A new Vector instance
+     */
+    static fromArray = (arr: number[]) => {
+        if (arr.length < 2) {
+            throw new TypeError('The length of the argument array must be at least 2');
+        }
+        if (
+            arr[0] === null ||
+            arr[0] === undefined ||
+            Number.isNaN(Number(arr[0])) ||
+            Number.isNaN(arr[0])
+        ) {
+            throw new TypeError('The length of the argument array must be at least 2');
+        }
+        if (
+            arr[1] === null ||
+            arr[1] === undefined ||
+            Number.isNaN(Number(arr[1])) ||
+            Number.isNaN(arr[1])
+        ) {
+            throw new TypeError('The length of the argument array must be at least 2');
+        }
+        return new Vector(Number(arr[0]), Number(arr[1]));
+    };
+
+    /**
+     * Creates a new instance from an object ressembling a vector
+     * (Object must have a `x: number` and a `y: number` property)
+     *
+     * @example
+     * const vec1 = Vector.fromObject({ x: 42, y: 21 });
+     * const vec2 = new Vector(42, 21);
+     *
+     * assert.true(vec1.isEqualTo(vec2))
+     *
+     * @param {Object} obj Object with properties x and/or y
+     * @return A new Vector instance
+     */
+    static fromObject = (obj: VectorLike) => {
+        if (obj.x === null || obj.x === undefined || obj.y === null || obj.y === undefined) {
+            throw new TypeError('The argument object must have a .x and .y properties');
+        }
+        if (Number.isNaN(Number(obj.x)) || Number.isNaN(obj.x)) {
+            throw new TypeError('The .x property of the argument object must be a number');
+        }
+        if (Number.isNaN(Number(obj.y)) || Number.isNaN(obj.y)) {
+            throw new TypeError('The .y property of the argument object must be a number');
+        }
+        return new Vector(Number(obj.x), Number(obj.y));
+    };
 
     /**
      * Adds the X axis of another vector to this one
@@ -1647,50 +1720,6 @@ export class Vector {
         return { x: this.x, y: this.y };
     }
 }
-
-/**
- * An object returned by {@link Vector.toObject}
- *
- * @property x The value of the X axis
- * @property y The value of the Y axis
- */
-export interface VectorLike {
-    x: number;
-    y: number;
-}
-
-/**
- * Creates a new instance from an array
- *
- * @example
- * const vec = Vector.fromArray([42, 21]);
- *
- * vec.toString();
- * // 'x:42, y:21'
- *
- * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
- * @return A new Vector instance
- */
-export const fromArray = (arr: number[]) => {
-    return new Vector(arr[0] || 0, arr[1] || 0);
-};
-
-/**
- * Creates a new instance from an object ressembling a vector
- * (Object can have a `x: number` and/or a `y: number` property)
- *
- * @example
- * const vec1 = Vector.fromObject({ x: 42, y: 21 });
- * const vec2 = new Vector(42, 21);
- *
- * assert.true(vec1.isEqualTo(vec2))
- *
- * @param {Object} obj Object with properties x and/or y
- * @return A new Vector instance
- */
-export const fromObject = (obj: { x?: number; y?: number }) => {
-    return new Vector(obj.x || 0, obj.y || 0);
-};
 
 const degrees = 180 / Math.PI;
 

@@ -17,6 +17,7 @@ This are changes already implemented:
 - Mix validate the percentage value and throws an error if <0 or >1
 - Added `resize()` ([Victor #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
 - Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one
+- Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input but also accept string representations instead of numbers.
 
 ## TODO
 
