@@ -50,6 +50,8 @@ Using latest node features to run typescript and tests so
 - No `tsconfig.json` because node 24+ handles typescript
 - We replaced the usage of `jest` and `chai` of Victor with nodeJS built-in test runner and assertions.
 
+- When cloning the repo `ln -s "$(pwd)/tools/pre-commit" .git/hooks/pre-commit` to enable local formatting and linting on commit.
+
 ### Publishing
 
 The Github CI handle the publication of the package to npm and the deployment of the github pages for the docs website. See [`.github/workflows/publish-npm.yml`](.github/workflows/publish-npm.yml).
