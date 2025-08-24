@@ -27,16 +27,15 @@ This are changes already implemented:
 Things I want to review before considering the library ready to be officially published:
 
 - ~Rework categories (split angle and rotation)~
-- In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
-
 - ~Rename `rotate` by `rotateBy`~
 - ~Add `rotateToward(vec, maxAngle)`~
 - ~Maybe add resize = normalize + multiplyScalar~
-- ~Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26`
+- ~Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26`~
 - ~Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42~
 - ~Implement `limitX` and `limitY` and use them in `limit`.~
 - ~Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
-- Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change.
+- ~Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change.~ Won't do I would make more sense to use `vec1.subtract(v2).angle()`.
+- In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
 - Add an `epsilon` property to `Vector` to improve computations stability?
 - Use spellcheck to avoid typos.
 - Find a way to validate docs (make sure all required tags are used, maybe make sure the documented method is used in the `@example` tag)
