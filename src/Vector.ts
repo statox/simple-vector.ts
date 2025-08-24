@@ -827,28 +827,76 @@ export class Vector {
     }
 
     /**
+     * If the absolute value of the X axis is greater than `max`,
+     * multiplies its value by `factor`
+     *
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.limit(80, 0.9);
+     * assert.equal(vec.x, 90)
+     * assert.equal(vec.y, 100)
+     *
+     * @param {Number} max The maximum value for the X axis
+     * @param {Number} factor Factor by which the axis is to be multiplied by
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     */
+    limitX(max: number, factor: number) {
+        if (Math.abs(this.x) > max) {
+            this.x *= factor;
+        }
+        return this;
+    }
+
+    /**
+     * If the absolute value of the Y axis is greater than `max`,
+     * multiplies its value by `factor`
+     *
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.limit(80, 0.9);
+     * assert.equal(vec.x, 100)
+     * assert.equal(vec.y, 90)
+     *
+     * @param {Number} max The maximum value for the Y axes
+     * @param {Number} factor Factor by which the axis is to be multiplied by
+     * @return `this` for chaining capabilities
+     * @category Magnitude
+     */
+    limitY(max: number, factor: number) {
+        if (Math.abs(this.y) > max) {
+            this.y *= factor;
+        }
+        return this;
+    }
+
+    /**
      * If the absolute value of the axes is greater than `max`,
      * multiplies the axis by `factor`
      *
      * @example
-     * const vec = new Vector(100, 50);
+     * const vec1 = new Vector(100, 50);
      *
-     * vec.limit(80, 0.9);
-     * assert.equal(vec.x, 90)
-     * assert.equal(vec.y, 50)
+     * vec1.limit(80, 0.9);
+     * assert.equal(vec1.x, 90)
+     * assert.equal(vec1.y, 50)
+     *
+     * const vec2 = new Vector(100, 100);
+     *
+     * vec2.limit(80, 0.9);
+     * assert.equal(vec2.x, 90)
+     * assert.equal(vec2.y, 90)
      *
      * @param {Number} max The maximum value for both X and Y axes
-     * @param {Number} factor Factor by which the axes are to be multiplied with
+     * @param {Number} factor Factor by which the axes are to be multiplied by
      * @return `this` for chaining capabilities
      * @category Magnitude
      */
     limit(max: number, factor: number) {
-        if (Math.abs(this.x) > max) {
-            this.x *= factor;
-        }
-        if (Math.abs(this.y) > max) {
-            this.y *= factor;
-        }
+        this.limitX(max, factor);
+        this.limitY(max, factor);
         return this;
     }
 

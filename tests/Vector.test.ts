@@ -339,6 +339,26 @@ test('Magnitude methods', () => {
         assertCloseTo(v3.y, -Math.sqrt(2) / 2);
     });
 
+    test('limitX', () => {
+        const v1 = new Vector(100, 50).limitX(80, 0.9);
+        assert.strictEqual(v1.x, 90);
+        assert.strictEqual(v1.y, 50);
+
+        const v2 = new Vector(5, 10).limitX(8, 0.5);
+        assert.strictEqual(v2.x, 5);
+        assert.strictEqual(v2.y, 10);
+    });
+
+    test('limitY', () => {
+        const v1 = new Vector(50, 100).limitY(80, 0.9);
+        assert.strictEqual(v1.x, 50);
+        assert.strictEqual(v1.y, 90);
+
+        const v2 = new Vector(10, 5).limitY(8, 0.5);
+        assert.strictEqual(v2.x, 10);
+        assert.strictEqual(v2.y, 5);
+    });
+
     test('limit', () => {
         const v1 = new Vector(100, 50).limit(80, 0.9);
         assert.strictEqual(v1.x, 90);
