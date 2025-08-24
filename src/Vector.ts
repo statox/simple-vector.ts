@@ -1764,6 +1764,48 @@ export class Vector {
     }
 
     /**
+     * Returns true if this vector is parallel to another one.
+     *
+     * This method has a small tolerance so that vector which seems almost parallel
+     * are considered parallel. This is to avoid rounding errors inherent to floating
+     * point programming. (For example v.isParallelTo(v.rotateBy(2 * Math.PI)) would be
+     * likely to be false without this small tolerance).
+     *
+     * @example
+     * const vec1 = new Vector(1, 1);
+     * const vec2 = new Vector(-2, -2);
+     * assert.true(vec1.isParallelTo(vec2))
+     *
+     * @return true if the vector is parallel to the other one
+     * @category Comparison
+     */
+    isParallelTo(vec: Vector) {
+        const EPSILON = 1e-6;
+        return Math.abs(this.cross(vec)) < EPSILON;
+    }
+
+    /**
+     * Returns true if this vector is perpendicular to another one.
+     *
+     * This method has a small tolerance so that vector which seems almost perpendicular
+     * are considered perpendicular. This is to avoid rounding errors inherent to floating
+     * point programming. (For example v.isParallelTo(v.rotateBy(Math.PI / 2)) would be
+     * likely to be false without this small tolerance).
+     *
+     * @example
+     * const vec1 = new Vector(1, 0);
+     * const vec2 = new Vector(0, -2);
+     * assert.true(vec1.isPerpendicularTo(vec2))
+     *
+     * @return true if the vector is perpendicular to the other one
+     * @category Comparison
+     */
+    isPerpendicularTo(vec: Vector) {
+        const EPSILON = 1e-6;
+        return Math.abs(this.dot(vec)) < EPSILON;
+    }
+
+    /**
      * Returns true if vector is (0, 0)
      *
      * @example
