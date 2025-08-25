@@ -1,0 +1,2081 @@
+TAP version 13
+# Subtest: Angle methods - Original tests
+    # Subtest: .horizontalAngle
+        # Subtest: should x directed vector to 0°
+        ok 1 - should x directed vector to 0°
+          ---
+          duration_ms: 0.688985
+          type: 'test'
+          ...
+        # Subtest: should y directed vector to 90°
+        ok 2 - should y directed vector to 90°
+          ---
+          duration_ms: 0.183762
+          type: 'test'
+          ...
+        # Subtest: should negative x directed vector to 180°
+        ok 3 - should negative x directed vector to 180°
+          ---
+          duration_ms: 0.180317
+          type: 'test'
+          ...
+        1..3
+    ok 1 - .horizontalAngle
+      ---
+      duration_ms: 2.232799
+      type: 'suite'
+      ...
+    1..1
+ok 1 - Angle methods - Original tests
+  ---
+  duration_ms: 3.784702
+  type: 'test'
+  ...
+# Subtest: Angle methods
+    # Subtest: .horizontalAngle
+    ok 1 - .horizontalAngle
+      ---
+      duration_ms: 0.935922
+      type: 'test'
+      ...
+    # Subtest: .horizontalAngleDeg
+    ok 2 - .horizontalAngleDeg
+      ---
+      duration_ms: 0.342385
+      type: 'test'
+      ...
+    # Subtest: .verticalAngle
+    ok 3 - .verticalAngle
+      ---
+      duration_ms: 3.652563
+      type: 'test'
+      ...
+    # Subtest: .verticalAngleDeg
+    ok 4 - .verticalAngleDeg
+      ---
+      duration_ms: 0.232924
+      type: 'test'
+      ...
+    # Subtest: .angleWith
+    ok 5 - .angleWith
+      ---
+      duration_ms: 0.342531
+      type: 'test'
+      ...
+    # Subtest: .angleDegWith
+    ok 6 - .angleDegWith
+      ---
+      duration_ms: 0.225534
+      type: 'test'
+      ...
+    # Subtest: .orientedAngleWith
+    ok 7 - .orientedAngleWith
+      ---
+      duration_ms: 0.204466
+      type: 'test'
+      ...
+    # Subtest: .orientedAngleDegWith
+    ok 8 - .orientedAngleDegWith
+      ---
+      duration_ms: 0.172439
+      type: 'test'
+      ...
+    1..8
+ok 2 - Angle methods
+  ---
+  duration_ms: 6.921861
+  type: 'test'
+  ...
+# Subtest: Addition methods - Original tests
+    # Subtest: .addScalar
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 1.278167
+          type: 'test'
+          ...
+        # Subtest: should add 2 to both vector axis
+        ok 2 - should add 2 to both vector axis
+          ---
+          duration_ms: 0.277057
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .addScalar
+      ---
+      duration_ms: 3.349692
+      type: 'suite'
+      ...
+    # Subtest: .addScalarX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.254148
+          type: 'test'
+          ...
+        # Subtest: should add 2 to the x axis
+        ok 2 - should add 2 to the x axis
+          ---
+          duration_ms: 0.430462
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .addScalarX
+      ---
+      duration_ms: 1.93676
+      type: 'suite'
+      ...
+    # Subtest: .addScalarY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.250832
+          type: 'test'
+          ...
+        # Subtest: should add 2 to the y axis
+        ok 2 - should add 2 to the y axis
+          ---
+          duration_ms: 0.179537
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .addScalarY
+      ---
+      duration_ms: 1.520772
+      type: 'suite'
+      ...
+    # Subtest: .addX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.96589
+          type: 'test'
+          ...
+        # Subtest: should add only the X axis of a vector
+        ok 2 - should add only the X axis of a vector
+          ---
+          duration_ms: 0.189779
+          type: 'test'
+          ...
+        1..2
+    ok 4 - .addX
+      ---
+      duration_ms: 1.587328
+      type: 'suite'
+      ...
+    # Subtest: .addY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.471719
+          type: 'test'
+          ...
+        # Subtest: should add only the Y axis of a vector
+        ok 2 - should add only the Y axis of a vector
+          ---
+          duration_ms: 0.181468
+          type: 'test'
+          ...
+        1..2
+    ok 5 - .addY
+      ---
+      duration_ms: 1.005368
+      type: 'suite'
+      ...
+    # Subtest: .add
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.180781
+          type: 'test'
+          ...
+        # Subtest: should add a vector
+        ok 2 - should add a vector
+          ---
+          duration_ms: 0.367053
+          type: 'test'
+          ...
+        1..2
+    ok 6 - .add
+      ---
+      duration_ms: 0.870954
+      type: 'suite'
+      ...
+    1..6
+ok 3 - Addition methods - Original tests
+  ---
+  duration_ms: 16.107174
+  type: 'test'
+  ...
+# Subtest: Addition methods
+    # Subtest: .addX
+    ok 1 - .addX
+      ---
+      duration_ms: 0.47828
+      type: 'test'
+      ...
+    # Subtest: .addY
+    ok 2 - .addY
+      ---
+      duration_ms: 0.159521
+      type: 'test'
+      ...
+    # Subtest: .add
+    ok 3 - .add
+      ---
+      duration_ms: 0.28627
+      type: 'test'
+      ...
+    # Subtest: .addScalar
+    ok 4 - .addScalar
+      ---
+      duration_ms: 0.147142
+      type: 'test'
+      ...
+    # Subtest: .addScalarX
+    ok 5 - .addScalarX
+      ---
+      duration_ms: 0.421769
+      type: 'test'
+      ...
+    # Subtest: .addScalarY
+    ok 6 - .addScalarY
+      ---
+      duration_ms: 0.156703
+      type: 'test'
+      ...
+    1..6
+ok 4 - Addition methods
+  ---
+  duration_ms: 2.174855
+  type: 'test'
+  ...
+# Subtest: Division methods - Original tests
+    # Subtest: .divideX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 1.143094
+          type: 'test'
+          ...
+        # Subtest: should divide the X axis by 2
+        ok 2 - should divide the X axis by 2
+          ---
+          duration_ms: 0.296778
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .divideX
+      ---
+      duration_ms: 3.357867
+      type: 'suite'
+      ...
+    # Subtest: .divideY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 1.230826
+          type: 'test'
+          ...
+        # Subtest: should divide the Y axis by 2
+        ok 2 - should divide the Y axis by 2
+          ---
+          duration_ms: 0.459791
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .divideY
+      ---
+      duration_ms: 2.167595
+      type: 'suite'
+      ...
+    # Subtest: .divide
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.216306
+          type: 'test'
+          ...
+        # Subtest: should divide both vector axis by 2
+        ok 2 - should divide both vector axis by 2
+          ---
+          duration_ms: 0.252308
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .divide
+      ---
+      duration_ms: 1.619503
+      type: 'suite'
+      ...
+    # Subtest: .divideScalar
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.804745
+          type: 'test'
+          ...
+        # Subtest: should divide both vector axis by 2
+        ok 2 - should divide both vector axis by 2
+          ---
+          duration_ms: 0.173803
+          type: 'test'
+          ...
+        # Subtest: should throw when dividing by 0
+        ok 3 - should throw when dividing by 0
+          ---
+          duration_ms: 0.917854
+          type: 'test'
+          ...
+        1..3
+    ok 4 - .divideScalar
+      ---
+      duration_ms: 2.350954
+      type: 'suite'
+      ...
+    # Subtest: .divideScalarX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.217954
+          type: 'test'
+          ...
+        # Subtest: should divide the X axis by 2
+        ok 2 - should divide the X axis by 2
+          ---
+          duration_ms: 0.15585
+          type: 'test'
+          ...
+        # Subtest: should return a zero X when dividing by 0
+        ok 3 - should return a zero X when dividing by 0
+          ---
+          duration_ms: 0.219094
+          type: 'test'
+          ...
+        1..3
+    ok 5 - .divideScalarX
+      ---
+      duration_ms: 1.106014
+      type: 'suite'
+      ...
+    # Subtest: .divideScalarY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.195546
+          type: 'test'
+          ...
+        # Subtest: should divide the Y axis by 2
+        ok 2 - should divide the Y axis by 2
+          ---
+          duration_ms: 0.142265
+          type: 'test'
+          ...
+        # Subtest: should return a zero Y when dividing by 0
+        ok 3 - should return a zero Y when dividing by 0
+          ---
+          duration_ms: 0.372467
+          type: 'test'
+          ...
+        1..3
+    ok 6 - .divideScalarY
+      ---
+      duration_ms: 1.106328
+      type: 'suite'
+      ...
+    1..6
+ok 5 - Division methods - Original tests
+  ---
+  duration_ms: 17.089276
+  type: 'test'
+  ...
+# Subtest: Division methods
+    # Subtest: .divideX
+    ok 1 - .divideX
+      ---
+      duration_ms: 0.543993
+      type: 'test'
+      ...
+    # Subtest: .divideY
+    ok 2 - .divideY
+      ---
+      duration_ms: 0.477323
+      type: 'test'
+      ...
+    # Subtest: .divide
+    ok 3 - .divide
+      ---
+      duration_ms: 0.429375
+      type: 'test'
+      ...
+    # Subtest: .divideScalar
+    ok 4 - .divideScalar
+      ---
+      duration_ms: 0.199532
+      type: 'test'
+      ...
+    # Subtest: .divideScalarX
+    ok 5 - .divideScalarX
+      ---
+      duration_ms: 0.194231
+      type: 'test'
+      ...
+    # Subtest: .divideScalarY
+    ok 6 - .divideScalarY
+      ---
+      duration_ms: 0.40827
+      type: 'test'
+      ...
+    1..6
+ok 6 - Division methods
+  ---
+  duration_ms: 2.830481
+  type: 'test'
+  ...
+# Subtest: Multiplication methods - Original tests
+    # Subtest: .multiplyX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 4.554013
+          type: 'test'
+          ...
+        # Subtest: should multiply the X axis by 2
+        ok 2 - should multiply the X axis by 2
+          ---
+          duration_ms: 0.30001
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .multiplyX
+      ---
+      duration_ms: 6.720698
+      type: 'suite'
+      ...
+    # Subtest: .multiplyY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.430578
+          type: 'test'
+          ...
+        # Subtest: should multiply the Y axis by 2
+        ok 2 - should multiply the Y axis by 2
+          ---
+          duration_ms: 0.514991
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .multiplyY
+      ---
+      duration_ms: 2.21104
+      type: 'suite'
+      ...
+    # Subtest: .multiply
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.260869
+          type: 'test'
+          ...
+        # Subtest: should multiply both vector axis by 2
+        ok 2 - should multiply both vector axis by 2
+          ---
+          duration_ms: 0.184717
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .multiply
+      ---
+      duration_ms: 1.574509
+      type: 'suite'
+      ...
+    # Subtest: .multiplyScalar
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.7351
+          type: 'test'
+          ...
+        # Subtest: should multiply both vector axis by 2
+        ok 2 - should multiply both vector axis by 2
+          ---
+          duration_ms: 0.162933
+          type: 'test'
+          ...
+        1..2
+    ok 4 - .multiplyScalar
+      ---
+      duration_ms: 1.514551
+      type: 'suite'
+      ...
+    # Subtest: .multiplyScalarX
+        # Subtest: should multiply the X axis by 2
+        ok 1 - should multiply the X axis by 2
+          ---
+          duration_ms: 0.499965
+          type: 'test'
+          ...
+        # Subtest: should be chainable
+        ok 2 - should be chainable
+          ---
+          duration_ms: 0.155751
+          type: 'test'
+          ...
+        1..2
+    ok 5 - .multiplyScalarX
+      ---
+      duration_ms: 0.981412
+      type: 'suite'
+      ...
+    # Subtest: .multiplyScalarY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.176198
+          type: 'test'
+          ...
+        # Subtest: should multiply the Y axis by 2
+        ok 2 - should multiply the Y axis by 2
+          ---
+          duration_ms: 0.355868
+          type: 'test'
+          ...
+        1..2
+    ok 6 - .multiplyScalarY
+      ---
+      duration_ms: 0.850057
+      type: 'suite'
+      ...
+    1..6
+ok 7 - Multiplication methods - Original tests
+  ---
+  duration_ms: 24.095595
+  type: 'test'
+  ...
+# Subtest: Multiplication methods
+    # Subtest: .multiplyX
+    ok 1 - .multiplyX
+      ---
+      duration_ms: 0.464955
+      type: 'test'
+      ...
+    # Subtest: .multiplyY
+    ok 2 - .multiplyY
+      ---
+      duration_ms: 0.14661
+      type: 'test'
+      ...
+    # Subtest: .multiply
+    ok 3 - .multiply
+      ---
+      duration_ms: 0.277519
+      type: 'test'
+      ...
+    # Subtest: .multiplyScalar
+    ok 4 - .multiplyScalar
+      ---
+      duration_ms: 0.166983
+      type: 'test'
+      ...
+    # Subtest: .multiplyScalarX
+    ok 5 - .multiplyScalarX
+      ---
+      duration_ms: 0.393068
+      type: 'test'
+      ...
+    # Subtest: .multiplyScalarY
+    ok 6 - .multiplyScalarY
+      ---
+      duration_ms: 0.151324
+      type: 'test'
+      ...
+    1..6
+ok 8 - Multiplication methods
+  ---
+  duration_ms: 2.106594
+  type: 'test'
+  ...
+# Subtest: Subtraction methods - Original tests
+    # Subtest: .subtractX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.935314
+          type: 'test'
+          ...
+        # Subtest: should subtract only the X axis of a vector
+        ok 2 - should subtract only the X axis of a vector
+          ---
+          duration_ms: 0.182763
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .subtractX
+      ---
+      duration_ms: 2.231618
+      type: 'suite'
+      ...
+    # Subtest: .subtractY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.266945
+          type: 'test'
+          ...
+        # Subtest: should subtract only the Y axis of a vector
+        ok 2 - should subtract only the Y axis of a vector
+          ---
+          duration_ms: 0.313629
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .subtractY
+      ---
+      duration_ms: 1.400974
+      type: 'suite'
+      ...
+    # Subtest: .subtract
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.157982
+          type: 'test'
+          ...
+        # Subtest: should subtract a vector
+        ok 2 - should subtract a vector
+          ---
+          duration_ms: 0.106364
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .subtract
+      ---
+      duration_ms: 1.024369
+      type: 'suite'
+      ...
+    # Subtest: .subtractScalar
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.54272
+          type: 'test'
+          ...
+        # Subtest: should subtract 2 from both vector axis
+        ok 2 - should subtract 2 from both vector axis
+          ---
+          duration_ms: 0.111962
+          type: 'test'
+          ...
+        1..2
+    ok 4 - .subtractScalar
+      ---
+      duration_ms: 1.057571
+      type: 'suite'
+      ...
+    # Subtest: .subtractScalarX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.301105
+          type: 'test'
+          ...
+        # Subtest: should subtract 2 from the x axis
+        ok 2 - should subtract 2 from the x axis
+          ---
+          duration_ms: 0.102194
+          type: 'test'
+          ...
+        1..2
+    ok 5 - .subtractScalarX
+      ---
+      duration_ms: 0.608355
+      type: 'suite'
+      ...
+    # Subtest: .subtractScalarY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.096198
+          type: 'test'
+          ...
+        # Subtest: should add 2 to the y axis
+        ok 2 - should add 2 to the y axis
+          ---
+          duration_ms: 0.245768
+          type: 'test'
+          ...
+        1..2
+    ok 6 - .subtractScalarY
+      ---
+      duration_ms: 0.553597
+      type: 'suite'
+      ...
+    1..6
+ok 9 - Subtraction methods - Original tests
+  ---
+  duration_ms: 10.345491
+  type: 'test'
+  ...
+# Subtest: Subtraction methods
+    # Subtest: .subtractX
+    ok 1 - .subtractX
+      ---
+      duration_ms: 0.288374
+      type: 'test'
+      ...
+    # Subtest: .subtractY
+    ok 2 - .subtractY
+      ---
+      duration_ms: 0.098203
+      type: 'test'
+      ...
+    # Subtest: .subtract
+    ok 3 - .subtract
+      ---
+      duration_ms: 0.107838
+      type: 'test'
+      ...
+    # Subtest: .subtractScalar
+    ok 4 - .subtractScalar
+      ---
+      duration_ms: 0.098377
+      type: 'test'
+      ...
+    # Subtest: .subtractScalarX
+    ok 5 - .subtractScalarX
+      ---
+      duration_ms: 0.34759
+      type: 'test'
+      ...
+    # Subtest: .subtractScalarY
+    ok 6 - .subtractScalarY
+      ---
+      duration_ms: 0.106986
+      type: 'test'
+      ...
+    1..6
+ok 10 - Subtraction methods
+  ---
+  duration_ms: 1.430857
+  type: 'test'
+  ...
+# Subtest: Comparison methods
+    # Subtest: .isZero
+        # Subtest: should return true if the vector is zero
+        ok 1 - should return true if the vector is zero
+          ---
+          duration_ms: 0.845534
+          type: 'test'
+          ...
+        1..1
+    ok 1 - .isZero
+      ---
+      duration_ms: 2.139764
+      type: 'suite'
+      ...
+    # Subtest: .isEqualTo
+        # Subtest: should return false if the vectors are not the same
+        ok 1 - should return false if the vectors are not the same
+          ---
+          duration_ms: 0.258544
+          type: 'test'
+          ...
+        # Subtest: should return true if the vectors are the same
+        ok 2 - should return true if the vectors are the same
+          ---
+          duration_ms: 0.12843
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .isEqualTo
+      ---
+      duration_ms: 0.667531
+      type: 'suite'
+      ...
+    # Subtest: .isParallelTo
+        # Subtest: Should have a tolerance for rounding errors
+        ok 1 - Should have a tolerance for rounding errors
+          ---
+          duration_ms: 5.578596
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 1
+        ok 2 - Should find parallel vectors - 1
+          ---
+          duration_ms: 0.209146
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 2
+        ok 3 - Should find parallel vectors - 2
+          ---
+          duration_ms: 0.119451
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 4
+        ok 4 - Should find parallel vectors - 4
+          ---
+          duration_ms: 0.451473
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 5
+        ok 5 - Should find parallel vectors - 5
+          ---
+          duration_ms: 0.286627
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 6
+        ok 6 - Should find parallel vectors - 6
+          ---
+          duration_ms: 0.62355
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 6
+        ok 7 - Should find parallel vectors - 6
+          ---
+          duration_ms: 0.136276
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 7
+        ok 8 - Should find parallel vectors - 7
+          ---
+          duration_ms: 0.122709
+          type: 'test'
+          ...
+        # Subtest: Should find non parallel vectors - 1
+        ok 9 - Should find non parallel vectors - 1
+          ---
+          duration_ms: 0.113441
+          type: 'test'
+          ...
+        # Subtest: Should find non parallel vectors - 1
+        ok 10 - Should find non parallel vectors - 1
+          ---
+          duration_ms: 0.091936
+          type: 'test'
+          ...
+        1..10
+    ok 3 - .isParallelTo
+      ---
+      duration_ms: 8.456469
+      type: 'suite'
+      ...
+    # Subtest: .isPerpendicularTo
+        # Subtest: Should have a tolerance for rounding errors -1 
+        ok 1 - Should have a tolerance for rounding errors -1 
+          ---
+          duration_ms: 0.284299
+          type: 'test'
+          ...
+        # Subtest: Should have a tolerance for rounding errors -2
+        ok 2 - Should have a tolerance for rounding errors -2
+          ---
+          duration_ms: 0.112791
+          type: 'test'
+          ...
+        # Subtest: Should find perpendicular vectors - 1
+        ok 3 - Should find perpendicular vectors - 1
+          ---
+          duration_ms: 0.08621
+          type: 'test'
+          ...
+        # Subtest: Should find parallel vectors - 2
+        ok 4 - Should find parallel vectors - 2
+          ---
+          duration_ms: 0.303776
+          type: 'test'
+          ...
+        # Subtest: Should find non perpendicular vectors - 1
+        ok 5 - Should find non perpendicular vectors - 1
+          ---
+          duration_ms: 0.105738
+          type: 'test'
+          ...
+        # Subtest: Should find non perpendicular vectors - 1
+        ok 6 - Should find non perpendicular vectors - 1
+          ---
+          duration_ms: 0.079878
+          type: 'test'
+          ...
+        1..6
+    ok 4 - .isPerpendicularTo
+      ---
+      duration_ms: 1.175951
+      type: 'suite'
+      ...
+    1..4
+ok 11 - Comparison methods
+  ---
+  duration_ms: 18.447993
+  type: 'test'
+  ...
+# Subtest: Copy methods
+    # Subtest: .copyX
+    ok 1 - .copyX
+      ---
+      duration_ms: 1.663827
+      type: 'test'
+      ...
+    # Subtest: .copyY
+    ok 2 - .copyY
+      ---
+      duration_ms: 3.291719
+      type: 'test'
+      ...
+    # Subtest: .copy
+    ok 3 - .copy
+      ---
+      duration_ms: 0.310931
+      type: 'test'
+      ...
+    1..3
+ok 12 - Copy methods
+  ---
+  duration_ms: 14.809552
+  type: 'test'
+  ...
+# Subtest: Distance methods - Original tests
+    # Subtest: .distanceX
+        # Subtest: should return the distance between the X axis of 2 vectors
+        ok 1 - should return the distance between the X axis of 2 vectors
+          ---
+          duration_ms: 0.887595
+          type: 'test'
+          ...
+        1..1
+    ok 1 - .distanceX
+      ---
+      duration_ms: 2.62501
+      type: 'suite'
+      ...
+    # Subtest: .distanceY
+        # Subtest: should return the distance between the Y axis of 2 vectors
+        ok 1 - should return the distance between the Y axis of 2 vectors
+          ---
+          duration_ms: 0.223101
+          type: 'test'
+          ...
+        1..1
+    ok 2 - .distanceY
+      ---
+      duration_ms: 0.659834
+      type: 'suite'
+      ...
+    # Subtest: .distance
+    ok 3 - .distance # SKIP
+      ---
+      duration_ms: 0.150812
+      type: 'suite'
+      ...
+    1..3
+ok 13 - Distance methods - Original tests
+  ---
+  duration_ms: 6.341053
+  type: 'test'
+  ...
+# Subtest: Distance methods
+    # Subtest: .distanceX
+    ok 1 - .distanceX
+      ---
+      duration_ms: 0.589165
+      type: 'test'
+      ...
+    # Subtest: .absDistanceX
+    ok 2 - .absDistanceX
+      ---
+      duration_ms: 0.265892
+      type: 'test'
+      ...
+    # Subtest: .distanceY
+    ok 3 - .distanceY
+      ---
+      duration_ms: 0.186965
+      type: 'test'
+      ...
+    # Subtest: .absDistanceY
+    ok 4 - .absDistanceY
+      ---
+      duration_ms: 0.205591
+      type: 'test'
+      ...
+    # Subtest: .distance
+    ok 5 - .distance
+      ---
+      duration_ms: 0.260326
+      type: 'test'
+      ...
+    # Subtest: .distanceSq
+    ok 6 - .distanceSq
+      ---
+      duration_ms: 0.189894
+      type: 'test'
+      ...
+    1..6
+ok 14 - Distance methods
+  ---
+  duration_ms: 2.472052
+  type: 'test'
+  ...
+# Subtest: Interpolation methods - Original tests
+    # Subtest: .mixX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.775373
+          type: 'test'
+          ...
+        # Subtest: should interpolate the X axis half way
+        ok 2 - should interpolate the X axis half way
+          ---
+          duration_ms: 0.44976
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .mixX
+      ---
+      duration_ms: 2.724584
+      type: 'suite'
+      ...
+    # Subtest: .mixY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.176607
+          type: 'test'
+          ...
+        # Subtest: should interpolate the Y axis half way
+        ok 2 - should interpolate the Y axis half way
+          ---
+          duration_ms: 0.126295
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .mixY
+      ---
+      duration_ms: 0.604869
+      type: 'suite'
+      ...
+    # Subtest: .mix
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.180729
+          type: 'test'
+          ...
+        # Subtest: should interpolate half way
+        ok 2 - should interpolate half way
+          ---
+          duration_ms: 0.142627
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .mix
+      ---
+      duration_ms: 4.157963
+      type: 'suite'
+      ...
+    1..3
+ok 15 - Interpolation methods - Original tests
+  ---
+  duration_ms: 10.201244
+  type: 'test'
+  ...
+# Subtest: Interpolation methods
+    # Subtest: .mixX
+    ok 1 - .mixX
+      ---
+      duration_ms: 0.776819
+      type: 'test'
+      ...
+    # Subtest: .mixY
+    ok 2 - .mixY
+      ---
+      duration_ms: 0.196678
+      type: 'test'
+      ...
+    # Subtest: .mix
+    ok 3 - .mix
+      ---
+      duration_ms: 0.174328
+      type: 'test'
+      ...
+    1..3
+ok 16 - Interpolation methods
+  ---
+  duration_ms: 1.450763
+  type: 'test'
+  ...
+# Subtest: Magnitude methods - Original tests
+    # Subtest: .limit
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.715768
+          type: 'test'
+          ...
+        # Subtest: should limit both vector axis by limit
+        ok 2 - should limit both vector axis by limit
+          ---
+          duration_ms: 0.82093
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .limit
+      ---
+      duration_ms: 2.899148
+      type: 'suite'
+      ...
+    # Subtest: .length
+        # Subtest: should return the length of the vector
+        ok 1 - should return the length of the vector
+          ---
+          duration_ms: 0.322322
+          type: 'test'
+          ...
+        1..1
+    ok 2 - .length
+      ---
+      duration_ms: 0.602636
+      type: 'suite'
+      ...
+    # Subtest: .zero
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.919277
+          type: 'test'
+          ...
+        # Subtest: should interpolate half way
+        ok 2 - should interpolate half way
+          ---
+          duration_ms: 0.117125
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .zero
+      ---
+      duration_ms: 1.303765
+      type: 'suite'
+      ...
+    # Subtest: .norm
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.285104
+          type: 'test'
+          ...
+        1..1
+    ok 4 - .norm
+      ---
+      duration_ms: 0.915461
+      type: 'suite'
+      ...
+    1..4
+ok 17 - Magnitude methods - Original tests
+  ---
+  duration_ms: 8.316629
+  type: 'test'
+  ...
+# Subtest: Magnitude methods
+    # Subtest: .clampX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.269399
+          type: 'test'
+          ...
+        # Subtest: should throw if min is larger than max
+        ok 2 - should throw if min is larger than max
+          ---
+          duration_ms: 0.722876
+          type: 'test'
+          ...
+        # Subtest: should not change value if its in range
+        ok 3 - should not change value if its in range
+          ---
+          duration_ms: 0.150307
+          type: 'test'
+          ...
+        # Subtest: should clamp the X axis to the max value
+        ok 4 - should clamp the X axis to the max value
+          ---
+          duration_ms: 0.101716
+          type: 'test'
+          ...
+        # Subtest: should clamp the X axis to the min value
+        ok 5 - should clamp the X axis to the min value
+          ---
+          duration_ms: 0.133682
+          type: 'test'
+          ...
+        1..5
+    ok 1 - .clampX
+      ---
+      duration_ms: 1.804281
+      type: 'suite'
+      ...
+    # Subtest: .clampY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.193126
+          type: 'test'
+          ...
+        # Subtest: should throw if min is larger than max
+        ok 2 - should throw if min is larger than max
+          ---
+          duration_ms: 0.319218
+          type: 'test'
+          ...
+        # Subtest: should not change value if its in range
+        ok 3 - should not change value if its in range
+          ---
+          duration_ms: 0.141461
+          type: 'test'
+          ...
+        # Subtest: should clamp the Y axis to the max value
+        ok 4 - should clamp the Y axis to the max value
+          ---
+          duration_ms: 0.104761
+          type: 'test'
+          ...
+        # Subtest: should clamp the X axis to the min value
+        ok 5 - should clamp the X axis to the min value
+          ---
+          duration_ms: 0.092417
+          type: 'test'
+          ...
+        1..5
+    ok 2 - .clampY
+      ---
+      duration_ms: 1.053757
+      type: 'suite'
+      ...
+    # Subtest: .clamp
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.243043
+          type: 'test'
+          ...
+        # Subtest: should throw if min is larger than max
+        ok 2 - should throw if min is larger than max
+          ---
+          duration_ms: 0.202195
+          type: 'test'
+          ...
+        # Subtest: should not change value if its in range
+        ok 3 - should not change value if its in range
+          ---
+          duration_ms: 0.112764
+          type: 'test'
+          ...
+        # Subtest: should clamp the magnitude to the max value
+        ok 4 - should clamp the magnitude to the max value
+          ---
+          duration_ms: 0.147873
+          type: 'test'
+          ...
+        # Subtest: should clamp the magnitude to the min value
+        ok 5 - should clamp the magnitude to the min value
+          ---
+          duration_ms: 0.092564
+          type: 'test'
+          ...
+        1..5
+    ok 3 - .clamp
+      ---
+      duration_ms: 0.993481
+      type: 'suite'
+      ...
+    # Subtest: .length
+    ok 4 - .length
+      ---
+      duration_ms: 0.279673
+      type: 'test'
+      ...
+    # Subtest: .normalize
+    ok 5 - .normalize
+      ---
+      duration_ms: 0.260707
+      type: 'test'
+      ...
+    # Subtest: .norm
+    ok 6 - .norm
+      ---
+      duration_ms: 0.119202
+      type: 'test'
+      ...
+    # Subtest: .limitX
+    ok 7 - .limitX
+      ---
+      duration_ms: 0.077052
+      type: 'test'
+      ...
+    # Subtest: .limitY
+    ok 8 - .limitY
+      ---
+      duration_ms: 0.065161
+      type: 'test'
+      ...
+    # Subtest: .limit
+    ok 9 - .limit
+      ---
+      duration_ms: 0.513909
+      type: 'test'
+      ...
+    # Subtest: .resize
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.26192
+          type: 'test'
+          ...
+        # Subtest: should keep the angle and change the magnitude for a positive value
+        ok 2 - should keep the angle and change the magnitude for a positive value
+          ---
+          duration_ms: 0.133781
+          type: 'test'
+          ...
+        # Subtest: should rotate the angle by 180deg and change the magnitude for a negative value
+        ok 3 - should rotate the angle by 180deg and change the magnitude for a negative value
+          ---
+          duration_ms: 0.065338
+          type: 'test'
+          ...
+        # Subtest: TBD for value equal to zero
+        ok 4 - TBD for value equal to zero
+          ---
+          duration_ms: 0.054937
+          type: 'test'
+          ...
+        1..4
+    ok 10 - .resize
+      ---
+      duration_ms: 0.794561
+      type: 'test'
+      ...
+    1..10
+ok 18 - Magnitude methods
+  ---
+  duration_ms: 7.933979
+  type: 'test'
+  ...
+# Subtest: Other methods
+    # Subtest: new Vector
+        # Subtest: should be an instance of Vector
+        ok 1 - should be an instance of Vector
+          ---
+          duration_ms: 1.211009
+          type: 'test'
+          ...
+        # Subtest: should have axis from arguments
+        ok 2 - should have axis from arguments
+          ---
+          duration_ms: 0.122066
+          type: 'test'
+          ...
+        1..2
+    ok 1 - new Vector
+      ---
+      duration_ms: 2.259467
+      type: 'suite'
+      ...
+    # Subtest: .clone
+        # Subtest: should return a clone of a vector
+        ok 1 - should return a clone of a vector
+          ---
+          duration_ms: 0.159307
+          type: 'test'
+          ...
+        # Subtest: should have the same values as the original
+        ok 2 - should have the same values as the original
+          ---
+          duration_ms: 0.122442
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .clone
+      ---
+      duration_ms: 0.624223
+      type: 'suite'
+      ...
+    # Subtest: .fromArray
+        # Subtest: should return an instance of Vector
+        ok 1 - should return an instance of Vector
+          ---
+          duration_ms: 0.433903
+          type: 'test'
+          ...
+        # Subtest: should have axis from array
+        ok 2 - should have axis from array
+          ---
+          duration_ms: 0.191926
+          type: 'test'
+          ...
+        # Subtest: should throw if the array has less than 2 members
+        ok 3 - should throw if the array has less than 2 members
+          ---
+          duration_ms: 0.732579
+          type: 'test'
+          ...
+        # Subtest: should throw if the members of the array are not a number
+        ok 4 - should throw if the members of the array are not a number
+          ---
+          duration_ms: 0.368709
+          type: 'test'
+          ...
+        # Subtest: should accept array of strings representing number
+        ok 5 - should accept array of strings representing number
+          ---
+          duration_ms: 0.20078
+          type: 'test'
+          ...
+        1..5
+    ok 3 - .fromArray
+      ---
+      duration_ms: 2.456464
+      type: 'suite'
+      ...
+    # Subtest: .fromObject
+        # Subtest: should return an instance of Vector
+        ok 1 - should return an instance of Vector
+          ---
+          duration_ms: 0.316294
+          type: 'test'
+          ...
+        # Subtest: should have axis from object
+        ok 2 - should have axis from object
+          ---
+          duration_ms: 0.13805
+          type: 'test'
+          ...
+        # Subtest: should throw if the object doesnt have .x and .y properties
+        ok 3 - should throw if the object doesnt have .x and .y properties
+          ---
+          duration_ms: 0.283111
+          type: 'test'
+          ...
+        # Subtest: should throw if the .x property of the object is not a number
+        ok 4 - should throw if the .x property of the object is not a number
+          ---
+          duration_ms: 0.343979
+          type: 'test'
+          ...
+        # Subtest: should throw if the .y property of the object is not a number
+        ok 5 - should throw if the .y property of the object is not a number
+          ---
+          duration_ms: 0.283673
+          type: 'test'
+          ...
+        # Subtest: should accept object with strings properties representing number
+        ok 6 - should accept object with strings properties representing number
+          ---
+          duration_ms: 0.169804
+          type: 'test'
+          ...
+        1..6
+    ok 4 - .fromObject
+      ---
+      duration_ms: 2.093044
+      type: 'suite'
+      ...
+    # Subtest: .fromPolar
+        # Subtest: should return an instance of Vector
+        ok 1 - should return an instance of Vector
+          ---
+          duration_ms: 0.258535
+          type: 'test'
+          ...
+        # Subtest: should create a vector without an angle
+        ok 2 - should create a vector without an angle
+          ---
+          duration_ms: 0.148764
+          type: 'test'
+          ...
+        # Subtest: should create a vector with an angle of PI/2
+        ok 3 - should create a vector with an angle of PI/2
+          ---
+          duration_ms: 0.195514
+          type: 'test'
+          ...
+        # Subtest: should create a vector with a negative angle
+        ok 4 - should create a vector with a negative angle
+          ---
+          duration_ms: 0.15189
+          type: 'test'
+          ...
+        # Subtest: should create a vector with a negative magnitude
+        ok 5 - should create a vector with a negative magnitude
+          ---
+          duration_ms: 0.159744
+          type: 'test'
+          ...
+        1..5
+    ok 5 - .fromPolar
+      ---
+      duration_ms: 1.184916
+      type: 'suite'
+      ...
+    # Subtest: .toString
+        # Subtest: should return a string representation of the vector
+        ok 1 - should return a string representation of the vector
+          ---
+          duration_ms: 0.148534
+          type: 'test'
+          ...
+        1..1
+    ok 6 - .toString
+      ---
+      duration_ms: 0.370613
+      type: 'suite'
+      ...
+    # Subtest: .toArray
+        # Subtest: should return an array representation of the vector
+        ok 1 - should return an array representation of the vector
+          ---
+          duration_ms: 0.176845
+          type: 'test'
+          ...
+        1..1
+    ok 7 - .toArray
+      ---
+      duration_ms: 0.465031
+      type: 'suite'
+      ...
+    # Subtest: .toObject
+        # Subtest: should return an object representation of the vector
+        ok 1 - should return an object representation of the vector
+          ---
+          duration_ms: 0.151221
+          type: 'test'
+          ...
+        1..1
+    ok 8 - .toObject
+      ---
+      duration_ms: 0.443096
+      type: 'suite'
+      ...
+    # Subtest: .toPolar
+        # Subtest: should return correct values - 1
+        ok 1 - should return correct values - 1
+          ---
+          duration_ms: 0.407706
+          type: 'test'
+          ...
+        # Subtest: should return correct values - 2
+        ok 2 - should return correct values - 2
+          ---
+          duration_ms: 0.109861
+          type: 'test'
+          ...
+        # Subtest: should return correct values - 3
+        ok 3 - should return correct values - 3
+          ---
+          duration_ms: 0.099579
+          type: 'test'
+          ...
+        1..3
+    ok 9 - .toPolar
+      ---
+      duration_ms: 0.801776
+      type: 'suite'
+      ...
+    # Subtest: .toString
+    ok 10 - .toString
+      ---
+      duration_ms: 0.038142
+      type: 'suite'
+      ...
+    1..10
+ok 19 - Other methods
+  ---
+  duration_ms: 16.071295
+  type: 'test'
+  ...
+# Subtest: Precision methods - Original tests
+    # Subtest: .unfloat
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.705898
+          type: 'test'
+          ...
+        # Subtest: should round both vector axis to integers
+        ok 2 - should round both vector axis to integers
+          ---
+          duration_ms: 0.200191
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .unfloat
+      ---
+      duration_ms: 2.06494
+      type: 'suite'
+      ...
+    1..1
+ok 20 - Precision methods - Original tests
+  ---
+  duration_ms: 3.604151
+  type: 'test'
+  ...
+# Subtest: Precision methods
+    # Subtest: .unfloat
+    ok 1 - .unfloat
+      ---
+      duration_ms: 0.297949
+      type: 'test'
+      ...
+    # Subtest: .fixPrecision
+    ok 2 - .fixPrecision
+      ---
+      duration_ms: 0.168595
+      type: 'test'
+      ...
+    1..2
+ok 21 - Precision methods
+  ---
+  duration_ms: 0.722711
+  type: 'test'
+  ...
+# Subtest: Product and projection methods
+    # Subtest: .cross
+        # Subtest: should return the cross product of 2 vectors
+        ok 1 - should return the cross product of 2 vectors
+          ---
+          duration_ms: 0.89132
+          type: 'test'
+          ...
+        1..1
+    ok 1 - .cross
+      ---
+      duration_ms: 2.9204
+      type: 'suite'
+      ...
+    # Subtest: .dot
+        # Subtest: should return the dot product of 2 vectors
+        ok 1 - should return the dot product of 2 vectors
+          ---
+          duration_ms: 0.228277
+          type: 'test'
+          ...
+        1..1
+    ok 2 - .dot
+      ---
+      duration_ms: 0.925547
+      type: 'suite'
+      ...
+    # Subtest: .projectOnto
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 1.104793
+          type: 'test'
+          ...
+        # Subtest: should project same vector onto itself without change
+        ok 2 - should project same vector onto itself without change
+          ---
+          duration_ms: 0.361913
+          type: 'test'
+          ...
+        # Subtest: should project orthogonal vectors into a zero-length vector
+        ok 3 - should project orthogonal vectors into a zero-length vector
+          ---
+          duration_ms: 0.163943
+          type: 'test'
+          ...
+        # Subtest: shuld project parallel vectors into a vector of same direction and magnitude
+        ok 4 - shuld project parallel vectors into a vector of same direction and magnitude
+          ---
+          duration_ms: 0.29851
+          type: 'test'
+          ...
+        # Subtest: should project non-orthogonal non-parallel vectors correctly
+        ok 5 - should project non-orthogonal non-parallel vectors correctly
+          ---
+          duration_ms: 0.460786
+          type: 'test'
+          ...
+        1..5
+    ok 3 - .projectOnto
+      ---
+      duration_ms: 3.039902
+      type: 'suite'
+      ...
+    1..3
+ok 22 - Product and projection methods
+  ---
+  duration_ms: 10.851403
+  type: 'test'
+  ...
+# Subtest: Randomization methods - Original tests
+    # Subtest: .randomize
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.86163
+          type: 'test'
+          ...
+        # Subtest: should randomize both vector axis and respect the boundaries
+        ok 2 - should randomize both vector axis and respect the boundaries
+          ---
+          duration_ms: 0.338353
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .randomize
+      ---
+      duration_ms: 1.971565
+      type: 'suite'
+      ...
+    # Subtest: .randomizeX
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.207922
+          type: 'test'
+          ...
+        # Subtest: should randomize only the X axis and respect the boundaries
+        ok 2 - should randomize only the X axis and respect the boundaries
+          ---
+          duration_ms: 0.223245
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .randomizeX
+      ---
+      duration_ms: 0.559878
+      type: 'suite'
+      ...
+    # Subtest: .randomizeY
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.112214
+          type: 'test'
+          ...
+        # Subtest: should randomize only the X axis and respect the boundaries
+        ok 2 - should randomize only the X axis and respect the boundaries
+          ---
+          duration_ms: 0.184081
+          type: 'test'
+          ...
+        1..2
+    ok 3 - .randomizeY
+      ---
+      duration_ms: 0.39398
+      type: 'suite'
+      ...
+    # Subtest: .randomizeAny
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.128774
+          type: 'test'
+          ...
+        # Subtest: should randomize only one vector axis and respect the boundaries
+        ok 2 - should randomize only one vector axis and respect the boundaries
+          ---
+          duration_ms: 0.234173
+          type: 'test'
+          ...
+        1..2
+    ok 4 - .randomizeAny
+      ---
+      duration_ms: 0.458713
+      type: 'suite'
+      ...
+    1..4
+ok 23 - Randomization methods - Original tests
+  ---
+  duration_ms: 5.18883
+  type: 'test'
+  ...
+# Subtest: Randomization methods
+    # Subtest: .randomizeX
+    ok 1 - .randomizeX
+      ---
+      duration_ms: 0.185884
+      type: 'test'
+      ...
+    # Subtest: .randomizeY
+    ok 2 - .randomizeY
+      ---
+      duration_ms: 0.146662
+      type: 'test'
+      ...
+    # Subtest: .randomize
+    ok 3 - .randomize
+      ---
+      duration_ms: 0.099745
+      type: 'test'
+      ...
+    1..3
+ok 24 - Randomization methods
+  ---
+  duration_ms: 0.67926
+  type: 'test'
+  ...
+# Subtest: Rotation methods - Original tests
+    # Subtest: .rotateBy
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 1.242919
+          type: 'test'
+          ...
+        # Subtest: should rotate the vector by certain degrees
+        ok 2 - should rotate the vector by certain degrees
+          ---
+          duration_ms: 0.564314
+          type: 'test'
+          ...
+        1..2
+    ok 1 - .rotateBy
+      ---
+      duration_ms: 3.83499
+      type: 'suite'
+      ...
+    # Subtest: .rotateByDeg
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.284152
+          type: 'test'
+          ...
+        # Subtest: should set the rotation angle in degrees
+        ok 2 - should set the rotation angle in degrees
+          ---
+          duration_ms: 0.396062
+          type: 'test'
+          ...
+        1..2
+    ok 2 - .rotateByDeg
+      ---
+      duration_ms: 1.25339
+      type: 'suite'
+      ...
+    # Subtest: .rotateTo
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.261557
+          type: 'test'
+          ...
+        # Subtest: should rotate any Vector to a given angle
+        ok 2 - should rotate any Vector to a given angle
+          ---
+          duration_ms: 0.212168
+          type: 'test'
+          ...
+        # Subtest: should keep the length
+        ok 3 - should keep the length
+          ---
+          duration_ms: 0.637558
+          type: 'test'
+          ...
+        1..3
+    ok 3 - .rotateTo
+      ---
+      duration_ms: 1.984143
+      type: 'suite'
+      ...
+    # Subtest: .rotateToDeg
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.743642
+          type: 'test'
+          ...
+        # Subtest: should rotate any Vector to a given angle
+        ok 2 - should rotate any Vector to a given angle
+          ---
+          duration_ms: 0.33393
+          type: 'test'
+          ...
+        # Subtest: should keep the length
+        ok 3 - should keep the length
+          ---
+          duration_ms: 0.177317
+          type: 'test'
+          ...
+        1..3
+    ok 4 - .rotateToDeg
+      ---
+      duration_ms: 1.685264
+      type: 'suite'
+      ...
+    1..4
+ok 25 - Rotation methods - Original tests
+  ---
+  duration_ms: 12.789149
+  type: 'test'
+  ...
+# Subtest: Rotation methods
+    # Subtest: .rotateTo
+    ok 1 - .rotateTo
+      ---
+      duration_ms: 0.812315
+      type: 'test'
+      ...
+    # Subtest: .rotateToDeg
+    ok 2 - .rotateToDeg
+      ---
+      duration_ms: 0.2292
+      type: 'test'
+      ...
+    # Subtest: .rotateDeg
+    ok 3 - .rotateDeg
+      ---
+      duration_ms: 0.172053
+      type: 'test'
+      ...
+    # Subtest: .rotate - 180
+    ok 4 - .rotate - 180
+      ---
+      duration_ms: 0.460409
+      type: 'test'
+      ...
+    # Subtest: .rotate - PI/3
+    ok 5 - .rotate - PI/3
+      ---
+      duration_ms: 0.182362
+      type: 'test'
+      ...
+    # Subtest: .rotateTowards
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.602315
+          type: 'test'
+          ...
+        # Subtest: Should throw if the max angle is negative
+        ok 2 - Should throw if the max angle is negative
+          ---
+          duration_ms: 0.671384
+          type: 'test'
+          ...
+        # Subtest: Should rotate the vector toward the other one and respect the max angle
+        ok 3 - Should rotate the vector toward the other one and respect the max angle
+          ---
+          duration_ms: 0.185919
+          type: 'test'
+          ...
+        # Subtest: Should not overshoot if max angle is bigger than gap
+        ok 4 - Should not overshoot if max angle is bigger than gap
+          ---
+          duration_ms: 0.298289
+          type: 'test'
+          ...
+        # Subtest: Should choose the shortest route
+        not ok 5 - Should choose the shortest route
+          ---
+          duration_ms: 1.424214
+          type: 'test'
+          location: '/home/adrien/dev/ts-vector/tests/rotation.test.ts:238:9'
+          failureType: 'testCodeFailure'
+          error: |-
+            Expected -3.141592653589793 to be close to 3.141592653589793
+            
+            false !== true
+            
+          code: 'ERR_ASSERTION'
+          name: 'AssertionError'
+          expected: true
+          actual: false
+          operator: 'strictEqual'
+          stack: |-
+            assertCloseTo (file:///home/adrien/dev/ts-vector/tests/helpers.ts:5:12)
+            TestContext.<anonymous> (file:///home/adrien/dev/ts-vector/tests/rotation.test.ts:243:13)
+            Test.runInAsyncScope (node:async_hooks:214:14)
+            Test.run (node:internal/test_runner/test:1062:25)
+            Test.processPendingSubtests (node:internal/test_runner/test:752:18)
+            Test.postRun (node:internal/test_runner/test:1191:19)
+            Test.run (node:internal/test_runner/test:1119:12)
+            async Test.processPendingSubtests (node:internal/test_runner/test:752:7)
+          ...
+        1..5
+    not ok 6 - .rotateTowards
+      ---
+      duration_ms: 3.735326
+      type: 'test'
+      location: '/home/adrien/dev/ts-vector/tests/rotation.test.ts:208:5'
+      failureType: 'subtestsFailed'
+      error: '1 subtest failed'
+      code: 'ERR_TEST_FAILURE'
+      ...
+    # Subtest: .rotateTowardsDeg
+        # Subtest: should be chainable
+        ok 1 - should be chainable
+          ---
+          duration_ms: 0.316007
+          type: 'test'
+          ...
+        # Subtest: Should use degrees to the maxAngle
+        ok 2 - Should use degrees to the maxAngle
+          ---
+          duration_ms: 0.176943
+          type: 'test'
+          ...
+        1..2
+    ok 7 - .rotateTowardsDeg
+      ---
+      duration_ms: 0.817866
+      type: 'test'
+      ...
+    1..7
+not ok 26 - Rotation methods
+  ---
+  duration_ms: 7.119392
+  type: 'test'
+  location: '/home/adrien/dev/ts-vector/tests/rotation.test.ts:98:1'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: Transformation methods
+    # Subtest: .invertX
+    ok 1 - .invertX
+      ---
+      duration_ms: 0.333682
+      type: 'suite'
+      ...
+    # Subtest: .invertY
+    ok 2 - .invertY
+      ---
+      duration_ms: 0.053725
+      type: 'suite'
+      ...
+    # Subtest: .invert
+    ok 3 - .invert
+      ---
+      duration_ms: 0.038095
+      type: 'suite'
+      ...
+    1..3
+ok 27 - Transformation methods
+  ---
+  duration_ms: 1.774852
+  type: 'test'
+  ...
+1..27
+# tests 256
+# suites 67
+# pass 253
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 350.99293
+# start of coverage report
+# ------------------------------------------------------------
+# file        | line % | branch % | funcs % | uncovered lines
+# ------------------------------------------------------------
+# src         |        |          |         | 
+#  Vector.ts  | 100.00 |   100.00 |  100.00 | 
+# tests       |        |          |         | 
+#  helpers.ts | 100.00 |   100.00 |  100.00 | 
+# ------------------------------------------------------------
+# all files   | 100.00 |   100.00 |  100.00 | 
+# ------------------------------------------------------------
+# end of coverage report

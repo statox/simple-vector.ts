@@ -213,6 +213,12 @@ test('Rotation methods', () => {
             assert.ok(ret === vec1);
         });
 
+        it('Should throw if the max angle is negative', () => {
+            const vec1 = new Vector(10, 0);
+            const vec2 = new Vector(0, 10);
+            assert.throws(() => vec1.rotateTowards(vec2, -1), RangeError);
+        });
+
         it('Should rotate the vector toward the other one and respect the max angle', () => {
             const vec1 = new Vector(10, 0);
             const vec2 = new Vector(0, 10);
@@ -230,11 +236,11 @@ test('Rotation methods', () => {
         });
 
         it('Should choose the shortest route', () => {
-            const vec1 = new Vector(-10, 10);
-            const vec2 = new Vector(-10, -10);
+            const vec1 = new Vector(-10, -10);
+            const vec2 = new Vector(-10, 10);
 
             vec1.rotateTowards(vec2, Math.PI / 4);
-            assertCloseTo(vec1.horizontalAngle(), Math.PI);
+            assertCloseTo(vec1.horizontalAngle(), -Math.PI);
         });
     });
 

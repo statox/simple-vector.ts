@@ -108,13 +108,22 @@ test('Other methods', () => {
             assert.throws(() => Vector.fromObject({ foo: 1 }), TypeError);
         });
 
-        it('should throw if the properties of the object are not a number', function () {
+        it('should throw if the .x property of the object is not a number', function () {
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromObject({ x: null, y: 1 }), TypeError);
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromObject({ x: undefined, y: 1 }), TypeError);
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromObject({ x: 'a', y: 1 }), TypeError);
+        });
+
+        it('should throw if the .y property of the object is not a number', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: 1, y: null }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: 1, y: undefined }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: 1, y: 'a' }), TypeError);
         });
 
         it('should accept object with strings properties representing number', function () {
