@@ -58,6 +58,7 @@ export class Vector {
      *
      * @param {Number} x Value of the X axis
      * @param {Number} y Value of the Y axis
+     * @category Constructor
      */
     constructor(x: number = 0, y: number = 0) {
         this.x = x;
@@ -76,6 +77,7 @@ export class Vector {
      *
      * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
      * @return A new Vector instance
+     * @category Constructor
      */
     static fromArray = (arr: number[]) => {
         if (arr.length < 2) {
@@ -112,6 +114,7 @@ export class Vector {
      *
      * @param {Object} obj Object with properties x and/or y
      * @return A new Vector instance
+     * @category Constructor
      */
     static fromObject = (obj: VectorLike) => {
         if (obj.x === null || obj.x === undefined || obj.y === null || obj.y === undefined) {
@@ -139,6 +142,7 @@ export class Vector {
      * @param {number} radians Object with properties x and/or y
      * @param {number} magnitude Object with properties x and/or y
      * @return A new Vector instance
+     * @category Constructor
      */
     static fromPolar = (radians: number, magnitude: number) => {
         return new Vector(magnitude * Math.cos(radians), magnitude * Math.sin(radians));
@@ -660,7 +664,7 @@ export class Vector {
      * assert.equal(vec.y, 50)
      *
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Inversion
      */
     invertX() {
         this.x *= -1;
@@ -678,7 +682,7 @@ export class Vector {
      * assert.equal(vec.y, -50)
      *
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Inversion
      */
     invertY() {
         this.y *= -1;
@@ -696,7 +700,7 @@ export class Vector {
      * assert.equal(vec.y, -50)
      *
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Inversion
      */
     invert() {
         this.x *= -1;
@@ -1130,6 +1134,7 @@ export class Vector {
      * assert.equal(vec2.y, vec1.y)
      *
      * @return The instance of the newly created vector
+     * @category Constructor
      */
     clone() {
         return new Vector(this.x, this.y);
@@ -1483,7 +1488,7 @@ export class Vector {
      *
      * @param {number} angle The angle in radians to rotate the vector by
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Rotation
      */
     rotateBy(angle: number) {
         const nx = this.x * Math.cos(angle) - this.y * Math.sin(angle);
@@ -1510,7 +1515,7 @@ export class Vector {
      * @param {number} maxAngle The max angle in radians to rotate the vector by
      * @return `this` for chaining capabilities
      * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
-     * @category Transformation
+     * @category Rotation
      */
     rotateTowards(vec: Vector, maxAngle: number) {
         if (maxAngle <= 0) {
@@ -1544,7 +1549,7 @@ export class Vector {
      * @param {number} maxAngle The max angle in degrees to rotate the vector by
      * @return `this` for chaining capabilities
      * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
-     * @category Transformation
+     * @category Rotation
      */
     rotateTowardsDeg(vec: Vector, maxAngle: number) {
         return this.rotateTowards(vec, degrees2radian(maxAngle));
@@ -1565,7 +1570,7 @@ export class Vector {
      * assert.equal(-90, vec.horizontalAngleDeg())
      *
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Rotation
      */
     rotateByDeg(angle: number) {
         const radAngle = degrees2radian(angle);
@@ -1588,7 +1593,7 @@ export class Vector {
      * assert.equal(v.y, -10);
      *
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Rotation
      */
     rotateTo(rotation: number) {
         return this.rotateBy(rotation - this.horizontalAngle());
@@ -1610,7 +1615,7 @@ export class Vector {
      * assert.equal(v.y, -10);
      *
      * @return `this` for chaining capabilities
-     * @category Transformation
+     * @category Rotation
      */
     rotateToDeg(rotation: number) {
         const radRotation = degrees2radian(rotation);
@@ -1900,6 +1905,7 @@ export class Vector {
      * assert.equal(s, "x:10, y:20")
      *
      * @return A string representing the vector's axes
+     * @category Constructor
      */
     toString() {
         return `x:${this.x}, y:${this.y}`;
@@ -1915,6 +1921,7 @@ export class Vector {
      * // [10, 20]
      *
      * @return An array representation of the vector
+     * @category Constructor
      */
     toArray() {
         return [this.x, this.y];
@@ -1930,6 +1937,7 @@ export class Vector {
      * // { x: 10, y: 20 }
      *
      * @return An object representation of the vector
+     * @category Constructor
      */
     toObject(): VectorLike {
         return { x: this.x, y: this.y };
@@ -1945,6 +1953,7 @@ export class Vector {
      * // { theta: Math.PI/ 4, r: Math.sqrt(2) }
      *
      * @return A polar representation of the vector
+     * @category Constructor
      */
     toPolar(): Polar {
         const angle = Math.atan(this.y / this.x);
