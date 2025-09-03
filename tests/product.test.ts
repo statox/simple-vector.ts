@@ -71,7 +71,7 @@ test('Product and projection methods', () => {
             assert.strictEqual(perpRet.y, 0);
         });
 
-        it('shuld project parallel vectors into a vector of same direction and magnitude', function () {
+        it('should project parallel vectors into a vector of same direction and magnitude', function () {
             assert.strictEqual(paraRet.x, 100);
             assert.strictEqual(paraRet.y, 0);
         });

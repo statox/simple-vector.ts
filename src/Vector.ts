@@ -1,11 +1,9 @@
 /**
- * Vector - A JavaScript 2D vector class with methods for common vector operations
+ * A 2D vector math library built as a modern ECMAScript module so that you can use it seamlessly in both Node.js and modern browsers.
  *
- * Taken from https://github.com/maxkueng/victor
+ * Check out [the website](https://statox.github.io/simple-vector.ts/) for documentation.
  *
- * My plan is to temporarily use this package to port victor to typescript and when
- * it's ready redistribute the package properly. Depending how it goes, that might
- * never happen.
+ * The goal of this package is to be thoroughly documented, easy to use and without dependencies.
  *
  * @module Vector
  */
@@ -67,7 +65,7 @@ export class Vector {
 
     /**
      * Creates a new instance from an array using first two items as x and y.
-     * (The array lenght must be at least 2)
+     * (The array length must be at least 2)
      *
      * @example
      * const vec = Vector.fromArray([42, 21]);
@@ -103,7 +101,7 @@ export class Vector {
     };
 
     /**
-     * Creates a new instance from an object ressembling a vector
+     * Creates a new instance from an object resembling a vector
      * (Object must have a `x: number` and a `y: number` property)
      *
      * @example
@@ -918,7 +916,7 @@ export class Vector {
      * assert.equal(vec.y, 50)
      *
      * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bouding vector
+     * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
      */
@@ -943,7 +941,7 @@ export class Vector {
      * assert.equal(vec.y, 73.933542831865296)
      *
      * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bouding vector
+     * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
      */
@@ -968,7 +966,7 @@ export class Vector {
      * assert.equal(vec.y, 73.933542831865296)
      *
      * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bouding vector
+     * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
      */
@@ -994,7 +992,7 @@ export class Vector {
      * assert.equal(vec.y, 50)
      *
      * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bouding vector
+     * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
      */
@@ -1578,7 +1576,7 @@ export class Vector {
     }
 
     /**
-     * Rotate the vector to an angle in radians using the positif
+     * Rotate the vector to an angle in radians using the positive
      * X axis as origin, move counter-clockwise
      *
      * @example
@@ -1600,7 +1598,7 @@ export class Vector {
     }
 
     /**
-     * Rotate the vector to an angle in degrees using the positif
+     * Rotate the vector to an angle in degrees using the positive
      * X axis as origin, move counter-clockwise
      *
      * @example
@@ -1705,7 +1703,7 @@ export class Vector {
      * assert.equal(d, 100.4987562112089)
      *
      * @param {Vector} vec The second vector
-     * @return The euclidian distance between the vectors
+     * @return The euclidean distance between the vectors
      * @category Distance
      */
     distance(vec: Vector) {
@@ -1723,7 +1721,7 @@ export class Vector {
      * assert.equal(d, 10100)
      *
      * @param {Vector} vec The second vector
-     * @return The squared euclidian distance between the vectors
+     * @return The squared euclidean distance between the vectors
      * @category Distance
      */
     distanceSq(vec: Vector) {
@@ -1795,7 +1793,7 @@ export class Vector {
     /**
      * Resize the vector so that its direction is not changed but it's
      * magnitude is set to the new value. If the `magnitude` argument is
-     * negative, the angle of the resulting vector is rotated by 180 degees.
+     * negative, the angle of the resulting vector is rotated by 180 degrees.
      *
      * @example
      * const vec1 = new Vector(0, 1);

@@ -30,6 +30,7 @@
         "serve:doc": "npx serve docs/"
     },
     "devDependencies": {
+        "@cspell/eslint-plugin": "^9.2.1",
         "@eslint/eslintrc": "^3.3.1",
         "@eslint/js": "^9.33.0",
         "@types/node": "^24.3.0",

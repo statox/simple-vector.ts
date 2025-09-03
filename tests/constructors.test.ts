@@ -1,7 +1,7 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { Vector, VectorLike } from '../src/Vector.ts';
 import { assertCloseTo } from './helpers.ts';
 
 test('Other methods', () => {
@@ -99,7 +99,7 @@ test('Other methods', () => {
             assert.strictEqual(vec.y, obj.y);
         });
 
-        it('should throw if the object doesnt have .x and .y properties', function () {
+        it('should throw if the object does not have .x and .y properties', function () {
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromObject({ x: 1 }), TypeError);
             // @ts-expect-error We are testing invalid types for JS version

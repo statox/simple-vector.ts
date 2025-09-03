@@ -1,4 +1,5 @@
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import cspellPlugin from '@cspell/eslint-plugin';
 import globals from 'globals';
 import tsParser from '@typescript-eslint/parser';
 import path from 'node:path';
@@ -32,6 +33,18 @@ export default [
             ecmaVersion: 2020,
             sourceType: 'module'
         }
+    },
+    {
+        plugins: { '@cspell': cspellPlugin },
+        rules: {
+            '@cspell/spellchecker': [
+                'warn',
+                {
+                    cspell: {
+                        words: ['seedable', 'unfloat', 'scal', 'coeff']
+                    }
+                }
+            ]
+        }
     }
 ];
-

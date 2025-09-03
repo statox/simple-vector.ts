@@ -12,10 +12,10 @@ Things I want to review before considering the library ready to be officially pu
 - [x] Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
 - [x] Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change. **Won't do I would make more sense to use `vec1.subtract(v2).angle()`.**
 - [x] Create a dedicated section for dev workflow documentation.
+- [x] Use spellcheck to avoid typos in code and docs.
 - [ ] Create interactive example of the different methods to make the discoverability easier.
 - [ ] Look into UMD to allow import from `<script>` without `type="module"`
 - [ ] Add an `epsilon` property to `Vector` to improve computations stability?
-- [ ] Use spellcheck to avoid typos.
 - [ ] Find a way to validate docs (make sure all required tags are used, maybe make sure the documented method is used in the `@example` tag)
 - [ ] In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
     - [ ] Think of an approach for a `VectorOps` collection of methods which would operate on immutable vectors. After reading [this blogpost](https://blog.tojicode.com/2012/04/if-i-built-physics-engine.html) I experimented with creating `type IVector = Float32Array` and methods like `add = (v1: IVector, v2: IVector, res: IVector)` but I realized accessing a `TypedArray` member like `res[0] = v1[0] + v2[0];` is much slower than `this.x = this.x + other.x`. So for now this is on hold, I'll rethink about that later on.
@@ -36,6 +36,10 @@ npmr build:watch # Watches both the typescript transpilation and the building of
 
 npmr serve:doc   # Serve the generated doc website locally
 ```
+
+## Linting
+
+In addition to common eslint configuration for typescript we use [cspell-eslint-plugin](https://github.com/streetsidesoftware/cspell/tree/main/packages/cspell-eslint-plugin) to check for English errors. See [`eslint.config.mjs`](./eslint-config.mjs) for configuration (also to add words to ignore).
 
 # Publishing
 
