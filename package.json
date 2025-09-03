@@ -49,12 +49,13 @@
     "keywords": [
         "vector",
         "math",
-        "2d"
+        "2d",
+        "victor.js"
     ],
     "author": "statox",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/statox/ts-vector/issues"
     },
-    "homepage": "https://github.com/statox/ts-vector#readme"
+    "homepage": "https://statox.github.io/simple-vector.ts/"
 }
