@@ -1,6 +1,6 @@
 {
-    "name": "@statox/vector",
-    "version": "0.0.9",
+    "name": "simple-vector",
+    "version": "0.0.1",
     "description": "A 2D Vector library",
     "main": "./dist/index.js",
     "types": "./dist/index.d.js",
