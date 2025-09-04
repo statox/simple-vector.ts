@@ -1,7 +1,7 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector, VectorLike } from '../src/Vector.ts';
+import { Vector, type VectorLike } from '../src/Vector.ts';
 import { assertCloseTo } from './helpers.ts';
 
 test('Other methods', () => {
