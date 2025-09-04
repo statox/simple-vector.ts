@@ -1,9 +1,9 @@
 {
     "name": "simple-vector",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A 2D Vector library",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.js",
+    "main": "./dist/simple-vector.umd.js",
+    "types": "./dist/types/index.d.js",
     "type": "module",
     "engines": {
         "node": "24.x"
@@ -23,16 +23,21 @@
         "tests:watch": "node --test --watch",
         "tests:ci": "node --test --test-reporter=junit --test-reporter-destination=tests_results.xml",
         "tests:coverage": "node --test --experimental-test-coverage --test-reporter=tap --test-reporter-destination=coverage.lcov",
-        "build": "npm run build:package && npm run build:doc",
-        "build:package": "rm -fr dist/ && tsc",
+        "build": "npm run build:js && npm run build:types && npm run build:doc",
         "build:doc": "typedoc",
-        "build:watch": "rm -fr dist/ && concurrently 'tsc -w' 'typedoc --watch'",
+        "build:js": "rollup -c rollup.config.js",
+        "build:types": "tsc -d --emitDeclarationOnly",
+        "build:watch": "concurrently 'npm run build:watch:js' 'npm run build:watch:types' 'npm run build:watch:doc'",
+        "build:watch:doc": "typedoc --watch",
+        "build:watch:js": "rollup -c rollup.config.js -w",
+        "build:watch:types": "tsc -d --emitDeclarationOnly -w",
         "serve:doc": "npx serve docs/"
     },
     "devDependencies": {
         "@cspell/eslint-plugin": "^9.2.1",
         "@eslint/eslintrc": "^3.3.1",
         "@eslint/js": "^9.33.0",
+        "@rollup/plugin-typescript": "^12.1.4",
         "@types/node": "^24.3.0",
         "@typescript-eslint/eslint-plugin": "^8.40.0",
         "@typescript-eslint/parser": "^8.39.0",
@@ -40,6 +45,7 @@
         "eslint": "^9.33.0",
         "eslint-config-prettier": "^10.1.8",
         "prettier": "^3.6.2",
+        "rollup": "^4.50.0",
         "typedoc": "^0.28.10",
         "typescript": "^5.9.2"
     },

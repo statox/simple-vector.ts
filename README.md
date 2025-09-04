@@ -19,7 +19,10 @@ npm install --save simple-vector
 Use:
 
 ```typescript
+// If in an ESM project
 import { Vector } from 'simple-vector';
+// Else if in a commonJS project
+const { Vector } = require('simple-vector');
 
 // Create a new vector
 const v = new Vector(1, 0);
@@ -46,8 +49,9 @@ Using a CDN to include the package in a vanilla JS page
         <title>Vector Example</title>
     </head>
     <body>
-        <script type="module">
-            import { Vector } from 'https://esm.sh/simple-vector';
+        <script src="https://unpkg.com/simple-vector/dist/simple-vector.umd.js"></script>
+        <script>
+            const { Vector } = SimpleVector;
 
             const v1 = new Vector(0, 0);
             const v2 = new Vector(5, 5);
