@@ -15,6 +15,7 @@ Things I want to review before considering the library ready to be officially pu
 - [x] Use spellcheck to avoid typos in code and docs.
 - [ ] Create interactive example of the different methods to make the discoverability easier.
 - [ ] Look into UMD to allow import from `<script>` without `type="module"`
+- [ ] Look into how changelogs are generated and decide if I want to do something with commit names.
 - [ ] Add an `epsilon` property to `Vector` to improve computations stability?
 - [ ] Find a way to validate docs (make sure all required tags are used, maybe make sure the documented method is used in the `@example` tag)
 - [ ] In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
@@ -40,6 +41,12 @@ npmr serve:doc   # Serve the generated doc website locally
 ## Linting
 
 In addition to common eslint configuration for typescript we use [cspell-eslint-plugin](https://github.com/streetsidesoftware/cspell/tree/main/packages/cspell-eslint-plugin) to check for English errors. See [`eslint.config.mjs`](./eslint-config.mjs) for configuration (also to add words to ignore).
+
+# Bundling
+
+We bundle the package as a [UMD module](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-plugin-d-ts.html) so that it can be used both in nodeJS and in browsers.
+
+To do so we use `rollup` and `@rollup/plugin-typescript` the `npmr run build` and `npm run build:watch` take care of building the package, the types and the doc.
 
 # Publishing
 

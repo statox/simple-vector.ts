@@ -72,7 +72,7 @@ jobs:
               if: always()
 
             - name: Run build package and docs
-              run: npm run build:package
+              run: npm run build
 
             # Publish npm package (the action triggers the publish only if
             # the version changed in package.json)

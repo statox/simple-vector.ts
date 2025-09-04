@@ -1,4 +1,5 @@
 {
+    "entryPoints": ["./index.ts"],
     "validation": {
         "notExported": true,
         "invalidLink": true,

@@ -1,13 +1,15 @@
 {
-    "comment": "We use node to handle typescript but keep this file for editor configuration. See https://nodejs.org/api/typescript.html#type-stripping",
     "compilerOptions": {
         "target": "esnext",
         "module": "nodenext",
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationDir": "dist/types",
         "rewriteRelativeImportExtensions": true,
         "erasableSyntaxOnly": true,
         "verbatimModuleSyntax": true,
-        "outDir": "dist",
-        "declaration": true
+        "outDir": "dist"
     },
-    "exclude": ["tests/**/*"]
+    "exclude": ["tests/**/*"],
+    "include": ["src/**/*", "index.ts"]
 }
