@@ -51,7 +51,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/statox/ts-vector.git"
+        "url": "git+https://github.com/statox/simple-vector.ts.git"
     },
     "keywords": [
         "vector",
@@ -62,7 +62,7 @@
     "author": "statox",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/statox/ts-vector/issues"
+        "url": "https://github.com/statox/simple-vector.ts/issues"
     },
     "homepage": "https://statox.github.io/simple-vector.ts/"
 }
