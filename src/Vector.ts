@@ -1048,6 +1048,7 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the X axis towards another vector.
      *
+     *
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -1057,16 +1058,17 @@ export class Vector {
      * assert.equal(vec1.y, 100)
      *
      * @param {Vector} vec The other vector
-     * @param {Number} amount The blend amount [0, 1] (optional, default: 0.5)
+     * @param {Number} mixFactor The blend amount [0, 1] (optional, default: 0.5)
      * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `amount` is not between 0 and 1
+     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @category Interpolation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
-    mixX(vec: Vector, amount: number = 0.5) {
-        if (amount < 0 || amount > 1) {
-            throw new RangeError('The amount argument must be between 0 and 1.');
+    mixX(vec: Vector, mixFactor: number = 0.5) {
+        if (mixFactor < 0 || mixFactor > 1) {
+            throw new RangeError('The mixFactor argument must be between 0 and 1.');
         }
-        this.x = (1 - amount) * this.x + amount * vec.x;
+        this.x = (1 - mixFactor) * this.x + mixFactor * vec.x;
         return this;
     }
 
@@ -1082,16 +1084,17 @@ export class Vector {
      * assert.equal(vec1.y, 150)
      *
      * @param {Vector} vec The other vector
-     * @param {Number} amount The blend amount (optional, default: 0.5)
+     * @param {Number} mixFactor The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `amount` is not between 0 and 1
+     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @category Interpolation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
-    mixY(vec: Vector, amount: number = 0.5) {
-        if (amount < 0 || amount > 1) {
-            throw new RangeError('The amount argument must be between 0 and 1.');
+    mixY(vec: Vector, mixFactor: number = 0.5) {
+        if (mixFactor < 0 || mixFactor > 1) {
+            throw new RangeError('The mixFactor argument must be between 0 and 1.');
         }
-        this.y = (1 - amount) * this.y + amount * vec.y;
+        this.y = (1 - mixFactor) * this.y + mixFactor * vec.y;
         return this;
     }
 
@@ -1107,17 +1110,18 @@ export class Vector {
      * assert.equal(vec1.y, 150)
      *
      * @param {Vector} vec The other vector
-     * @param {Number} amount The blend amount (optional, default: 0.5)
+     * @param {Number} mixFactor The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `amount` is not between 0 and 1
+     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @category Interpolation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
-    mix(vec: Vector, amount: number = 0.5) {
-        if (amount < 0 || amount > 1) {
-            throw new RangeError('The amount argument must be between 0 and 1.');
+    mix(vec: Vector, mixFactor: number = 0.5) {
+        if (mixFactor < 0 || mixFactor > 1) {
+            throw new RangeError('The mixFactor argument must be between 0 and 1.');
         }
-        this.mixX(vec, amount);
-        this.mixY(vec, amount);
+        this.mixX(vec, mixFactor);
+        this.mixY(vec, mixFactor);
         return this;
     }
 
@@ -1251,7 +1255,8 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return `this` for chaining capabilities
-     * @category Product & Projection
+     * @category Interpolation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
     projectOnto(vec: Vector) {
         const coeff = (this.x * vec.x + this.y * vec.y) / (vec.x * vec.x + vec.y * vec.y);
@@ -1266,7 +1271,7 @@ export class Vector {
      *
      * This is also the phase of the complex number x + iy.
      *
-     * Caution: The direction is not the same as verticalAngle()
+     * Caution: The direction is not the same as `verticalAngle()`
      *
      * @example
      * assert.equal(0,          (new Vector(10, 0)).horizontalAngle());
@@ -1276,6 +1281,7 @@ export class Vector {
      *
      * @return The angle in radians
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
     horizontalAngle() {
         return Math.atan2(this.y, this.x);
@@ -1297,6 +1303,7 @@ export class Vector {
      *
      * @return The angle in degrees
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
     horizontalAngleDeg() {
         return radian2degrees(this.horizontalAngle());
@@ -1316,6 +1323,7 @@ export class Vector {
      *
      * @return The angle in degrees
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
     verticalAngle() {
         return Math.atan2(this.x, this.y);
@@ -1335,6 +1343,7 @@ export class Vector {
      *
      * @return The angle in degrees
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
     verticalAngleDeg() {
         return radian2degrees(this.verticalAngle());
@@ -1385,6 +1394,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in radians
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
     angleWith(vec: Vector) {
         if (this.isZero() && vec.isZero()) {
@@ -1413,6 +1423,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in degrees
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
     angleDegWith(vec: Vector) {
         return radian2degrees(this.angleWith(vec));
@@ -1439,6 +1450,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in radians
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
     orientedAngleWith(vec: Vector) {
         return Math.atan2(this.x * vec.y - this.y * vec.x, this.x * vec.x + this.y * vec.y);
@@ -1465,6 +1477,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The angle between both vectors in radians
      * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
     orientedAngleDegWith(vec: Vector) {
         return radian2degrees(this.orientedAngleWith(vec));
