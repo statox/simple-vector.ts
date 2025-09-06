@@ -9,10 +9,16 @@ import typescript from '@rollup/plugin-typescript';
  */
 export default {
     input: 'index.ts',
-    output: {
-        file: 'dist/simple-vector.umd.js',
-        format: 'umd',
-        name: 'SimpleVector'
-    },
-    plugins: [typescript({ tsconfig: './tsconfig.json' })]
+    output: [
+        {
+            file: 'dist/simple-vector.esm.js',
+            format: 'es',
+        },
+        {
+            file: 'dist/simple-vector.umd.js',
+            format: 'umd',
+            name: 'SimpleVector'
+        }
+    ],
+    plugins: [typescript()]
 };

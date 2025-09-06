@@ -4,6 +4,13 @@
     "description": "A 2D Vector library",
     "main": "./dist/simple-vector.umd.js",
     "types": "./dist/types/index.d.ts",
+    "module": "./dist/simple-vector.esm.js",
+    "exports": {
+        ".": {
+            "require": "./dist/simple-vector.umd.js",
+            "import": "./dist/simple-vector.esm.js"
+        }
+    },
     "type": "module",
     "engines": {
         "node": "24.x"
