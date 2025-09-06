@@ -2,13 +2,14 @@
     "name": "simple-vector",
     "version": "0.0.6",
     "description": "A 2D Vector library",
-    "main": "./dist/simple-vector.umd.js",
-    "types": "./dist/types/index.d.ts",
-    "module": "./dist/simple-vector.esm.js",
+    "main": "dist/simple-vector.umd.js",
+    "types": "dist/types/index.d.ts",
+    "module": "dist/simple-vector.esm.js",
     "exports": {
         ".": {
             "require": "./dist/simple-vector.umd.js",
-            "import": "./dist/simple-vector.esm.js"
+            "import": "./dist/simple-vector.esm.js",
+            "types": "./dist/types/index.d.ts"
         }
     },
     "type": "module",
