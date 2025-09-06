@@ -7,7 +7,7 @@
     "module": "dist/simple-vector.esm.js",
     "exports": {
         ".": {
-            "require": "./dist/simple-vector.umd.js",
+            "require": "./dist/simple-vector.cjs",
             "import": "./dist/simple-vector.esm.js",
             "types": "./dist/types/index.d.ts"
         }

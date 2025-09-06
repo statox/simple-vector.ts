@@ -15,6 +15,10 @@ export default {
             format: 'es',
         },
         {
+            file: "dist/simple-vector.cjs",
+            format: "cjs"
+        },
+        {
             file: 'dist/simple-vector.umd.js',
             format: 'umd',
             name: 'SimpleVector'
