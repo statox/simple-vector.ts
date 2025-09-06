@@ -1215,7 +1215,8 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The dot product of this vector and the other one
-     * @category Product & Projection
+     * @category Product
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/product)
      */
     dot(vec: Vector) {
         return this.x * vec.x + this.y * vec.y;
@@ -1236,7 +1237,8 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return The cross product of this vector and the other one
-     * @category Product & Projection
+     * @category Product
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/product)
      */
     cross(vec: Vector) {
         return this.x * vec.y - this.y * vec.x;
@@ -1646,6 +1648,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The distance between the X axes
      * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
     distanceX(vec: Vector) {
         return this.x - vec.x;
@@ -1664,6 +1667,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The absolute distance between the X axes
      * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
     absDistanceX(vec: Vector) {
         return Math.abs(this.distanceX(vec));
@@ -1682,6 +1686,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The distance between the Y axes
      * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
     distanceY(vec: Vector) {
         return this.y - vec.y;
@@ -1700,6 +1705,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The absolute distance between the Y axes
      * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
     absDistanceY(vec: Vector) {
         return Math.abs(this.distanceY(vec));
@@ -1718,6 +1724,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The euclidean distance between the vectors
      * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
     distance(vec: Vector) {
         return Math.sqrt(this.distanceSq(vec));
@@ -1736,6 +1743,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return The squared euclidean distance between the vectors
      * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
     distanceSq(vec: Vector) {
         const dx = this.distanceX(vec);
