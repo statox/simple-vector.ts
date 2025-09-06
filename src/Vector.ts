@@ -663,6 +663,7 @@ export class Vector {
      *
      * @return `this` for chaining capabilities
      * @category Inversion
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/inversion)
      */
     invertX() {
         this.x *= -1;
@@ -681,6 +682,7 @@ export class Vector {
      *
      * @return `this` for chaining capabilities
      * @category Inversion
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/inversion)
      */
     invertY() {
         this.y *= -1;
@@ -699,6 +701,7 @@ export class Vector {
      *
      * @return `this` for chaining capabilities
      * @category Inversion
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/inversion)
      */
     invert() {
         this.x *= -1;
@@ -1851,6 +1854,7 @@ export class Vector {
      *
      * @return true if the vector is parallel to the other one
      * @category Comparison
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
     isParallelTo(vec: Vector) {
         const EPSILON = 1e-6;
@@ -1872,6 +1876,7 @@ export class Vector {
      *
      * @return true if the vector is perpendicular to the other one
      * @category Comparison
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
     isPerpendicularTo(vec: Vector) {
         const EPSILON = 1e-6;
@@ -1890,6 +1895,7 @@ export class Vector {
      *
      * @return true if the vector magnitude is 0, false otherwise
      * @category Comparison
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
     isZero() {
         return this.x === 0 && this.y === 0;
@@ -1910,6 +1916,7 @@ export class Vector {
      * @param {Vector} vec The second vector
      * @return true if the vector magnitude is 0, false otherwise
      * @category Comparison
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
     isEqualTo(vec: Vector) {
         return this.x === vec.x && this.y === vec.y;
