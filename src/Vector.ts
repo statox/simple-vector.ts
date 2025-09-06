@@ -1505,6 +1505,7 @@ export class Vector {
      * @param {number} angle The angle in radians to rotate the vector by
      * @return `this` for chaining capabilities
      * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
     rotateBy(angle: number) {
         const nx = this.x * Math.cos(angle) - this.y * Math.sin(angle);
@@ -1532,6 +1533,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
      * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
     rotateTowards(vec: Vector, maxAngle: number) {
         if (maxAngle <= 0) {
@@ -1566,6 +1568,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
      * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
     rotateTowardsDeg(vec: Vector, maxAngle: number) {
         return this.rotateTowards(vec, degrees2radian(maxAngle));
@@ -1587,6 +1590,7 @@ export class Vector {
      *
      * @return `this` for chaining capabilities
      * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
     rotateByDeg(angle: number) {
         const radAngle = degrees2radian(angle);
@@ -1610,6 +1614,7 @@ export class Vector {
      *
      * @return `this` for chaining capabilities
      * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
     rotateTo(rotation: number) {
         return this.rotateBy(rotation - this.horizontalAngle());
@@ -1632,6 +1637,7 @@ export class Vector {
      *
      * @return `this` for chaining capabilities
      * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
     rotateToDeg(rotation: number) {
         const radRotation = degrees2radian(rotation);
