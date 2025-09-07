@@ -934,6 +934,7 @@ export class Vector {
      * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/randomization)
      */
     randomizeX(topLeft: Vector, bottomRight: Vector) {
         const min = Math.min(topLeft.x, bottomRight.x);
@@ -959,6 +960,7 @@ export class Vector {
      * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/randomization)
      */
     randomizeY(topLeft: Vector, bottomRight: Vector) {
         const min = Math.min(topLeft.y, bottomRight.y);
@@ -984,6 +986,7 @@ export class Vector {
      * @param {Vector} bottomRight Second bounding vector
      * @return `this` for chaining capabilities
      * @category Randomization
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/randomization)
      */
     randomize(topLeft: Vector, bottomRight: Vector) {
         this.randomizeX(topLeft, bottomRight);
