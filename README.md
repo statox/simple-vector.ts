@@ -79,8 +79,8 @@ Note that we also added a few features we felt were missing on Victor.js or were
 - Added methods `angleWith`, `angleWithDeg`, `orientedAngleWith` and `orientedAngleDegWith` to compute angle between two vectors.
 - `.mix()` now validates the percentage value and throws an error if the percentage is `<0` or `>1`.
 - Added `resize()` ([Related issue](https://github.com/maxkueng/victor/issues/32), [Victor MR #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
-- Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one
-- Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input but also accept string representations instead of numbers.
+- Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one.
+- Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input.
 - Added `clamp` to clamp the magnitude and `clampX`, `clampY` to clamp the axes.
 - Added `fromPolar` and `toPolar` methods. ([Related issue](https://github.com/maxkueng/victor/issues/26))
 - Added `limitX` and `limitY` to go with `limit`

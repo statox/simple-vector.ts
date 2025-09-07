@@ -55,11 +55,18 @@ export class Vector {
      *
      * @param {Number} x Value of the X axis
      * @param {Number} y Value of the Y axis
+     * @throws {TypeError} TypeError if either of the arguments are not valid numbers
      * @example
      * const vec = new Vector(100, 50);
      * @category Constructor
      */
     constructor(x: number = 0, y: number = 0) {
+        if (!Number.isFinite(x)) {
+            throw new TypeError('The x argument should be a number');
+        }
+        if (!Number.isFinite(y)) {
+            throw new TypeError('The y argument should be a number');
+        }
         this.x = x;
         this.y = y;
     }
@@ -70,6 +77,8 @@ export class Vector {
      *
      * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
      * @return A new Vector instance
+     * @throws {TypeError} TypeError if either of the array length is less than 2
+     * @throws {TypeError} TypeError if either of the first 2 array members are not valid numbers
      * @example
      * const vec = Vector.fromArray([42, 21]);
      *
@@ -81,23 +90,10 @@ export class Vector {
         if (arr.length < 2) {
             throw new TypeError('The length of the argument array must be at least 2');
         }
-        if (
-            arr[0] === null ||
-            arr[0] === undefined ||
-            Number.isNaN(Number(arr[0])) ||
-            Number.isNaN(arr[0])
-        ) {
-            throw new TypeError('The length of the argument array must be at least 2');
+        if (!Number.isFinite(arr[0]) || !Number.isFinite(arr[1])) {
+            throw new TypeError('The members of the argument array must be numbers');
         }
-        if (
-            arr[1] === null ||
-            arr[1] === undefined ||
-            Number.isNaN(Number(arr[1])) ||
-            Number.isNaN(arr[1])
-        ) {
-            throw new TypeError('The length of the argument array must be at least 2');
-        }
-        return new Vector(Number(arr[0]), Number(arr[1]));
+        return new Vector(arr[0], arr[1]);
     };
 
     /**
@@ -106,6 +102,7 @@ export class Vector {
      *
      * @param {Object} obj Object with properties x and/or y
      * @return A new Vector instance
+     * @throws {TypeError} TypeError if either of the x or y objects property are not valid numbers
      * @example
      * const vec1 = Vector.fromObject({ x: 42, y: 21 });
      * const vec2 = new Vector(42, 21);
@@ -114,16 +111,13 @@ export class Vector {
      * @category Constructor
      */
     static fromObject = (obj: VectorLike) => {
-        if (obj.x === null || obj.x === undefined || obj.y === null || obj.y === undefined) {
-            throw new TypeError('The argument object must have a .x and .y properties');
-        }
-        if (Number.isNaN(Number(obj.x)) || Number.isNaN(obj.x)) {
+        if (!Number.isFinite(obj.x)) {
             throw new TypeError('The .x property of the argument object must be a number');
         }
-        if (Number.isNaN(Number(obj.y)) || Number.isNaN(obj.y)) {
+        if (!Number.isFinite(obj.y)) {
             throw new TypeError('The .y property of the argument object must be a number');
         }
-        return new Vector(Number(obj.x), Number(obj.y));
+        return new Vector(obj.x, obj.y);
     };
 
     /**
@@ -141,6 +135,12 @@ export class Vector {
      * @category Constructor
      */
     static fromPolar = (radians: number, magnitude: number) => {
+        if (!Number.isFinite(radians)) {
+            throw new TypeError('The radians argument must be a number');
+        }
+        if (!Number.isFinite(magnitude)) {
+            throw new TypeError('The magnitude argument must be a number');
+        }
         return new Vector(magnitude * Math.cos(radians), magnitude * Math.sin(radians));
     };
 

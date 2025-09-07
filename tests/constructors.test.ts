@@ -18,6 +18,13 @@ test('Other methods', () => {
             assert.strictEqual(v.x, x);
             assert.strictEqual(v.y, y);
         });
+
+        it('should throw if parameters are invalid', function () {
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => new Vector.fromArray(null, 1), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => new Vector.fromArray(1, Infinity), TypeError);
+        });
     });
 
     describe('.clone', function () {
@@ -71,13 +78,10 @@ test('Other methods', () => {
             assert.throws(() => Vector.fromArray([1, null]), TypeError);
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromArray(['a', null]), TypeError);
-        });
-
-        it('should accept array of strings representing number', function () {
             // @ts-expect-error We are testing invalid types for JS version
-            const vec = Vector.fromArray(['1', '2']);
-            assert.strictEqual(vec.x, 1);
-            assert.strictEqual(vec.y, 2);
+            assert.throws(() => Vector.fromArray(['1', 1]), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromArray([1, '1']), TypeError);
         });
     });
 
@@ -115,6 +119,8 @@ test('Other methods', () => {
             assert.throws(() => Vector.fromObject({ x: undefined, y: 1 }), TypeError);
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromObject({ x: 'a', y: 1 }), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromObject({ x: '1', y: 1 }), TypeError);
         });
 
         it('should throw if the .y property of the object is not a number', function () {
@@ -124,19 +130,34 @@ test('Other methods', () => {
             assert.throws(() => Vector.fromObject({ x: 1, y: undefined }), TypeError);
             // @ts-expect-error We are testing invalid types for JS version
             assert.throws(() => Vector.fromObject({ x: 1, y: 'a' }), TypeError);
-        });
-
-        it('should accept object with strings properties representing number', function () {
             // @ts-expect-error We are testing invalid types for JS version
-            const vec = Vector.fromObject({ x: '1', y: '2' });
-            assert.strictEqual(vec.x, 1);
-            assert.strictEqual(vec.y, 2);
+            assert.throws(() => Vector.fromObject({ x: 1, y: '1' }), TypeError);
         });
     });
 
     describe('.fromPolar', function () {
         it('should return an instance of Vector', function () {
             assert.ok(Vector.fromPolar(1, 10) instanceof Vector);
+        });
+
+        it('should throw if the angle is not a finite number', function () {
+            assert.throws(() => Vector.fromPolar(Infinity, 10), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromPolar(null, 10), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromPolar(undefined, 10), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromPolar('1', 10), TypeError);
+        });
+
+        it('should throw if the magnitude is not a finite number', function () {
+            assert.throws(() => Vector.fromPolar(1, Infinity), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromPolar(1, null), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromPolar(1, undefined), TypeError);
+            // @ts-expect-error We are testing invalid types for JS version
+            assert.throws(() => Vector.fromPolar(1, '1'), TypeError);
         });
 
         it('should create a vector without an angle', function () {
