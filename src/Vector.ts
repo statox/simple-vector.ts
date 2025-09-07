@@ -956,7 +956,7 @@ export class Vector {
     }
 
     /**
-     * Randomizes both vector axes with a value between 2 vectors
+     * Randomizes both axes of the vector with a value between 2 vectors
      *
      * @example
      * const vec = new Vector(100, 50);
@@ -982,7 +982,7 @@ export class Vector {
 
     /**
      * Randomly choses one axis and randomizes it with a value between the
-     * corresponding axes of 2 other vectors
+     * corresponding axis of 2 other vectors
      *
      * @example
      * const vec = new Vector(100, 50);
@@ -1852,9 +1852,13 @@ export class Vector {
      *
      * @param {Number} magnitude The new value of the vector's magnitude
      * @return `this` for chaining capabilities
+     * @throws {TypeError} TypeError if the `magnitude` argument is null or undefined
      * @category Magnitude
      */
     resize(magnitude: number) {
+        if (magnitude === undefined || magnitude === null) {
+            throw new TypeError('The magnitude argument must be defined');
+        }
         this.normalize();
         this.multiplyScalar(magnitude);
         return this;

@@ -249,6 +249,12 @@ test('Magnitude methods', () => {
             const ret = vec1.resize(10);
             assert.ok(ret === vec1);
         });
+        it('should throw if the magnitude is not defined', () => {
+            // @ts-expect-error We are testing an incorrect call
+            assert.throws(() => new Vector(1, 1).resize(), TypeError);
+            // @ts-expect-error We are testing an incorrect call
+            assert.throws(() => new Vector(1, 1).resize(null), TypeError);
+        });
         it('should keep the angle and change the magnitude for a positive value', function () {
             const vec1 = new Vector(12, 9);
             const originalAngle = vec1.horizontalAngle();
