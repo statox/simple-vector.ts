@@ -722,6 +722,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If the vector is zero
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
     normalize() {
         const length = this.length();
@@ -753,6 +754,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @category Magnitude
      * @throws RangeError RangeError if the `min` value is defined and larger than the max value
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
     clampX(max: number, min?: number) {
         if (min !== undefined && min !== null) {
@@ -783,6 +785,7 @@ export class Vector {
      * @return `this` for chaining capabilities
      * @category Magnitude
      * @throws RangeError RangeError if the `min` value is defined and larger than the max value
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
     clampY(max: number, min?: number) {
         if (min !== undefined && min !== null) {
@@ -816,6 +819,7 @@ export class Vector {
      * @category Magnitude
      * @throws RangeError RangeError if the `min` value is defined and larger than the max value.
      * @throws RangeError RangeError if the `min` or `max` value are negative.
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
     clamp(max: number, min?: number) {
         const currentMag = this.magnitude();
@@ -843,7 +847,7 @@ export class Vector {
      * @example
      * const vec = new Vector(100, 100);
      *
-     * vec.limit(80, 0.9);
+     * vec.limitX(80, 0.9);
      * assert.equal(vec.x, 90)
      * assert.equal(vec.y, 100)
      *
@@ -851,6 +855,7 @@ export class Vector {
      * @param {Number} factor Factor by which the axis is to be multiplied by
      * @return `this` for chaining capabilities
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
      */
     limitX(max: number, factor: number) {
         if (Math.abs(this.x) > max) {
@@ -866,7 +871,7 @@ export class Vector {
      * @example
      * const vec = new Vector(100, 100);
      *
-     * vec.limit(80, 0.9);
+     * vec.limitY(80, 0.9);
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 90)
      *
@@ -874,6 +879,7 @@ export class Vector {
      * @param {Number} factor Factor by which the axis is to be multiplied by
      * @return `this` for chaining capabilities
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
      */
     limitY(max: number, factor: number) {
         if (Math.abs(this.y) > max) {
@@ -903,6 +909,7 @@ export class Vector {
      * @param {Number} factor Factor by which the axes are to be multiplied by
      * @return `this` for chaining capabilities
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
      */
     limit(max: number, factor: number) {
         this.limitX(max, factor);
@@ -1792,6 +1799,7 @@ export class Vector {
      *
      * @return The magnitude of the vector
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
     length() {
         return Math.sqrt(this.lengthSq());
@@ -1860,6 +1868,7 @@ export class Vector {
      * @throws {TypeError} TypeError if the `magnitude` argument is null or undefined
      * @throws {@link DivisionByZeroError} If the vector is zero
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
     resize(magnitude: number) {
         if (magnitude === undefined || magnitude === null) {
