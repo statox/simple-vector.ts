@@ -720,6 +720,7 @@ export class Vector {
      * assert.equal(vec.y, 0)
      *
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the vector is zero
      * @category Magnitude
      */
     normalize() {
@@ -826,7 +827,7 @@ export class Vector {
             minBound = min;
         }
         if (min < 0 || max < 0) {
-            throw RangeError('Can\'t clamp the magnitude to a negative value');
+            throw RangeError("Can't clamp the magnitude to a negative value");
         }
 
         const newMag = Math.max(Math.min(currentMag, max), minBound);
@@ -1857,6 +1858,7 @@ export class Vector {
      * @param {Number} magnitude The new value of the vector's magnitude
      * @return `this` for chaining capabilities
      * @throws {TypeError} TypeError if the `magnitude` argument is null or undefined
+     * @throws {@link DivisionByZeroError} If the vector is zero
      * @category Magnitude
      */
     resize(magnitude: number) {
