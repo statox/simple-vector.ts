@@ -18,7 +18,9 @@ export class DivisionByZeroError extends Error {
 }
 
 /**
- * An interface for objects with x and y properties.
+ * An interface for objects with an `x` and a `y` properties.
+ * This is used by conversion methods to parse and generate objects
+ * which are not instances of the {@link Vector} class
  *
  * @property x The value of the X axis
  * @property y The value of the Y axis
@@ -29,7 +31,8 @@ export interface VectorLike {
 }
 
 /**
- * An interface representing polar coordinates
+ * An interface representing polar coordinates.
+ * This is used by conversion methods.
  *
  * @property {number} r The value of the magnitude
  * @property {number} theta The value of the angle in radians
@@ -51,11 +54,10 @@ export class Vector {
     /**
      * A simple 2D vector class
      *
-     * @example
-     * const vec = new Vector(100, 50);
-     *
      * @param {Number} x Value of the X axis
      * @param {Number} y Value of the Y axis
+     * @example
+     * const vec = new Vector(100, 50);
      * @category Constructor
      */
     constructor(x: number = 0, y: number = 0) {
@@ -67,14 +69,13 @@ export class Vector {
      * Creates a new instance from an array using first two items as x and y.
      * (The array length must be at least 2)
      *
+     * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
+     * @return A new Vector instance
      * @example
      * const vec = Vector.fromArray([42, 21]);
      *
      * vec.toString();
      * // 'x:42, y:21'
-     *
-     * @param {Array} arr Array with the x and y values at index 0 and 1 respectively
-     * @return A new Vector instance
      * @category Constructor
      */
     static fromArray = (arr: number[]) => {
@@ -104,14 +105,13 @@ export class Vector {
      * Creates a new instance from an object resembling a vector
      * (Object must have a `x: number` and a `y: number` property)
      *
+     * @param {Object} obj Object with properties x and/or y
+     * @return A new Vector instance
      * @example
      * const vec1 = Vector.fromObject({ x: 42, y: 21 });
      * const vec2 = new Vector(42, 21);
      *
      * assert.true(vec1.isEqualTo(vec2))
-     *
-     * @param {Object} obj Object with properties x and/or y
-     * @return A new Vector instance
      * @category Constructor
      */
     static fromObject = (obj: VectorLike) => {
@@ -131,15 +131,14 @@ export class Vector {
      * Creates a new instance from an angle in radians and a magnitude
      * (The angle is from the positive x axis)
      *
+     * @param {number} radians Object with properties x and/or y
+     * @param {number} magnitude Object with properties x and/or y
+     * @return A new Vector instance
      * @example
      * const vec = Vector.fromPolar(Math.PI / 2, 100);
      *
      * assert.equal(vec1.x, 0)
      * assert.equal(vec1.y, 100)
-     *
-     * @param {number} radians Object with properties x and/or y
-     * @param {number} magnitude Object with properties x and/or y
-     * @return A new Vector instance
      * @category Constructor
      */
     static fromPolar = (radians: number, magnitude: number) => {
@@ -149,6 +148,8 @@ export class Vector {
     /**
      * Adds the X axis of another vector to this one
      *
+     * @param {Vector} vec The other vector you want to add to this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 30);
@@ -156,9 +157,6 @@ export class Vector {
      * vec1.addX(vec2);
      * assert.equal(vec1.x, 30)
      * assert.equal(vec1.y, 10)
-     *
-     * @param {Vector} vec The other vector you want to add to this one
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     addX(vec: Vector) {
@@ -169,6 +167,8 @@ export class Vector {
     /**
      * Adds the Y axis of another vector to this one
      *
+     * @param {Vector} vec The other vector you want to add to this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 30);
@@ -176,9 +176,6 @@ export class Vector {
      * vec1.addY(vec2);
      * assert.equal(vec1.x, 10)
      * assert.equal(vec1.y, 40)
-     *
-     * @param {Vector} vec The other vector you want to add to this one
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     addY(vec: Vector) {
@@ -189,6 +186,8 @@ export class Vector {
     /**
      * Adds another vector to this one
      *
+     * @param {Vector} vec The other vector you want to add to this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 30);
@@ -196,8 +195,6 @@ export class Vector {
      * vec1.add(vec2);
      * assert.equal(vec1.x, 30)
      * assert.equal(vec1.y, 40)
-     * @param {Vector} vec The other vector you want to add to this one
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     add(vec: Vector) {
@@ -209,15 +206,14 @@ export class Vector {
     /**
      * Adds the given scalar to both vector axes
      *
+     * @param {Number} scalar The scalar to add
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.addScalar(2);
      * assert.equal(vec.x, 12)
      * assert.equal(vec.y, 22)
-     *
-     * @param {Number} scalar The scalar to add
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     addScalar(scalar: number) {
@@ -229,15 +225,14 @@ export class Vector {
     /**
      * Adds the given scalar to the X axis
      *
+     * @param {Number} scalar The scalar to add
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.addScalarX(2);
      * assert.equal(vec.x, 12)
      * assert.equal(vec.y, 20)
-     *
-     * @param {Number} scalar The scalar to add
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     addScalarX(scalar: number) {
@@ -248,15 +243,14 @@ export class Vector {
     /**
      * Adds the given scalar to the Y axis
      *
+     * @param {Number} scalar The scalar to add
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.addScalarY(2);
      * assert.equal(vec.x, 10)
      * assert.equal(vec.y, 22)
-     *
-     * @param {Number} scalar The scalar to add
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     addScalarY(scalar: number) {
@@ -267,6 +261,8 @@ export class Vector {
     /**
      * Subtracts the X axis of another vector from this one
      *
+     * @param {Vector} vec The other vector you want to subtract from this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(30, 30);
      * const vec2 = new Vector(10, 20);
@@ -274,9 +270,6 @@ export class Vector {
      * vec1.subtractX(vec2);
      * assert.equal(vec1.x, 20)
      * assert.equal(vec1.y, 30)
-     *
-     * @param {Vector} vec The other vector you want to subtract from this one
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     subtractX(vec: Vector) {
@@ -287,6 +280,8 @@ export class Vector {
     /**
      * Subtracts the Y axis of another vector from this one
      *
+     * @param {Vector} vec The other vector you want to subtract from this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(30, 30);
      * const vec2 = new Vector(10, 20);
@@ -294,9 +289,6 @@ export class Vector {
      * vec1.subtractY(vec2);
      * assert.equal(vec1.x, 30)
      * assert.equal(vec1.y, 10)
-     *
-     * @param {Vector} vec The other vector you want to subtract from this one
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     subtractY(vec: Vector) {
@@ -307,6 +299,8 @@ export class Vector {
     /**
      * Subtracts another vector from this one
      *
+     * @param {Vector} vec The other vector you want to subtract from this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(30, 30);
      * const vec2 = new Vector(10, 20);
@@ -314,8 +308,6 @@ export class Vector {
      * vec1.subtract(vec2);
      * assert.equal(vec1.x, 20)
      * assert.equal(vec1.y, 10)
-     * @param {Vector} vec The other vector you want to subtract from this one
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     subtract(vec: Vector) {
@@ -327,15 +319,14 @@ export class Vector {
     /**
      * Subtracts the given scalar from both axes
      *
+     * @param {Number} scalar The scalar to subtract
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.subtractScalar(2);
      * assert.equal(vec.x, 8)
      * assert.equal(vec.y, 18)
-     *
-     * @param {Number} scalar The scalar to subtract
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     subtractScalar(scalar: number) {
@@ -347,15 +338,14 @@ export class Vector {
     /**
      * Subtracts the given scalar from the X axis
      *
+     * @param {Number} scalar The scalar to subtract
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.subtractScalarX(2);
      * assert.equal(vec.x, 8)
      * assert.equal(vec.y, 20)
-     *
-     * @param {Number} scalar The scalar to subtract
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     subtractScalarX(scalar: number) {
@@ -366,15 +356,14 @@ export class Vector {
     /**
      * Subtracts the given scalar from the Y axis
      *
+     * @param {Number} scalar The scalar to subtract
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.subtractScalarY(2);
      * assert.equal(vec.x, 10)
      * assert.equal(vec.y, 18)
-     *
-     * @param {Number} scalar The scalar to subtract
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     subtractScalarY(scalar: number) {
@@ -385,6 +374,9 @@ export class Vector {
     /**
      * Divides the X axis of this vector by the X axis of another one
      *
+     * @param {Vector} vec The other vector you want divide by
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the X axis of the argument vector is 0
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 0);
@@ -392,10 +384,6 @@ export class Vector {
      * vec1.divideX(vec2);
      * assert.equal(vec1.x, 50)
      * assert.equal(vec1.y, 50)
-     *
-     * @param {Vector} vec The other vector you want divide by
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If the X axis of the argument vector is 0
      * @category Arithmetic operations
      */
     divideX(vec: Vector) {
@@ -410,6 +398,9 @@ export class Vector {
     /**
      * Divides the Y axis of this vector by the Y axis of another one
      *
+     * @param {Vector} vec The other vector you want divide by
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the Y axis of the argument vector is 0
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(0, 2);
@@ -417,10 +408,6 @@ export class Vector {
      * vec1.divideY(vec2);
      * assert.equal(vec1.x, 100)
      * assert.equal(vec1.y, 25)
-     *
-     * @param {Vector} vec The other vector you want divide by
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If the Y axis of the argument vector is 0
      * @category Arithmetic operations
      */
     divideY(vec: Vector) {
@@ -435,6 +422,9 @@ export class Vector {
     /**
      * Divides both axes of this vector by those of another one
      *
+     * @param {Vector} vec The vector to divide by
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If any axis of the argument vector is 0
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 2);
@@ -442,10 +432,6 @@ export class Vector {
      * vec1.divide(vec2);
      * assert.equal(vec1.x, 50)
      * assert.equal(vec1.y, 25)
-     *
-     * @param {Vector} vec The vector to divide by
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If any axis of the argument vector is 0
      * @category Arithmetic operations
      */
     divide(vec: Vector) {
@@ -461,16 +447,15 @@ export class Vector {
     /**
      * Divides both vector axes by the given scalar
      *
+     * @param {Number} scalar The scalar to divide by
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the argument scalar is 0
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.divideScalar(2);
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 25)
-     *
-     * @param {Number} scalar The scalar to divide by
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If the argument scalar is 0
      * @category Arithmetic operations
      */
     divideScalar(scalar: number) {
@@ -487,16 +472,15 @@ export class Vector {
     /**
      * Divides the X axis by the given scalar
      *
+     * @param {Number} scalar The scalar to divide by
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.divideScalarX(2);
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 50)
-     *
-     * @param {Number} scalar The scalar to divide by
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
      * @category Arithmetic operations
      */
     divideScalarX(scalar: number) {
@@ -511,16 +495,15 @@ export class Vector {
     /**
      * Divides the Y axis by the given scalar
      *
+     * @param {Number} scalar The scalar to divide by
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.divideScalarY(2);
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 25)
-     *
-     * @param {Number} scalar The scalar to divide by
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If x axis of argument vector is 0
      * @category Arithmetic operations
      */
     divideScalarY(scalar: number) {
@@ -535,6 +518,8 @@ export class Vector {
     /**
      * Multiplies the X axis of this vector by the X axis of another one
      *
+     * @param {Vector} vec The other vector you want multiply by
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 0);
@@ -542,9 +527,6 @@ export class Vector {
      * vec1.multiplyX(vec2);
      * assert.equal(vec1.x, 200)
      * assert.equal(vec1.y, 50)
-     *
-     * @param {Vector} vec The other vector you want multiply by
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     multiplyX(vec: Vector) {
@@ -555,6 +537,8 @@ export class Vector {
     /**
      * Multiplies the Y axis of this vector by the Y axis of another one
      *
+     * @param {Vector} vec The other vector you want multiply by
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(0, 2);
@@ -562,9 +546,6 @@ export class Vector {
      * vec1.multiplyY(vec2);
      * assert.equal(vec1.x, 100)
      * assert.equal(vec1.y, 100)
-     *
-     * @param {Vector} vec The other vector you want multiply by
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     multiplyY(vec: Vector) {
@@ -575,6 +556,8 @@ export class Vector {
     /**
      * Multiplies both axes of this vector by those of another one
      *
+     * @param {Vector} vec The vector to multiply by
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(2, 2);
@@ -582,9 +565,6 @@ export class Vector {
      * vec1.multiply(vec2);
      * assert.equal(vec1.x, 200)
      * assert.equal(vec1.y, 100)
-     *
-     * @param {Vector} vec The vector to multiply by
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     multiply(vec: Vector) {
@@ -596,15 +576,14 @@ export class Vector {
     /**
      * Multiplies both vector axes by the given scalar
      *
+     * @param {Number} scalar The scalar to multiply by
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.multiplyScalar(2);
      * assert.equal(vec.x, 200)
      * assert.equal(vec.y, 100)
-     *
-     * @param {Number} scalar The scalar to multiply by
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     multiplyScalar(scalar: number) {
@@ -616,15 +595,14 @@ export class Vector {
     /**
      * Multiplies the X axis by the given scalar
      *
+     * @param {Number} scalar The scalar to multiply by
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.multiplyScalarX(2);
      * assert.equal(vec.x, 200)
      * assert.equal(vec.y, 50)
-     *
-     * @param {Number} scalar The scalar to multiply by
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     multiplyScalarX(scalar: number) {
@@ -635,15 +613,14 @@ export class Vector {
     /**
      * Multiplies the Y axis by the given scalar
      *
+     * @param {Number} scalar The scalar to multiply by
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.multiplyScalarY(2);
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 100)
-     *
-     * @param {Number} scalar The scalar to multiply by
-     * @return `this` for chaining capabilities
      * @category Arithmetic operations
      */
     multiplyScalarY(scalar: number) {
@@ -652,16 +629,15 @@ export class Vector {
     }
 
     /**
-     * Inverts the X axis
+     * Multiplies the X axis by `-1`
      *
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.invertX();
      * assert.equal(vec.x, -100)
      * assert.equal(vec.y, 50)
-     *
-     * @return `this` for chaining capabilities
      * @category Inversion
      * @see [Try it live](https://statox.github.io/simple-vector-examples/inversion)
      */
@@ -671,16 +647,15 @@ export class Vector {
     }
 
     /**
-     * Inverts the Y axis
+     * Multiplies the Y axis by `-1`
      *
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.invertY();
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, -50)
-     *
-     * @return `this` for chaining capabilities
      * @category Inversion
      * @see [Try it live](https://statox.github.io/simple-vector-examples/inversion)
      */
@@ -690,16 +665,15 @@ export class Vector {
     }
 
     /**
-     * Inverts both axes
+     * Multiplies both axes by `-1`
      *
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
      * vec.invert();
      * assert.equal(vec.x, -100)
      * assert.equal(vec.y, -50)
-     *
-     * @return `this` for chaining capabilities
      * @category Inversion
      * @see [Try it live](https://statox.github.io/simple-vector-examples/inversion)
      */
@@ -710,17 +684,16 @@ export class Vector {
     }
 
     /**
-     * Normalize the vector. (Keep direction but reduce length to 1)
+     * Normalize the vector (Keep the direction but change the length to 1)
      *
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the vector is zero
      * @example
      * const vec = new Vector(10, 0);
      *
      * vec.normalize();
      * assert.equal(vec.x, 1)
      * assert.equal(vec.y, 0)
-     *
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If the vector is zero
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
@@ -732,28 +705,25 @@ export class Vector {
 
     /**
      * Alias for {@link Vector.normalize}
-     *
-     * @return `this` for chaining capabilities
      * @category Magnitude
      */
     norm = this.normalize;
 
     /**
-     * Clamp the value of the x axis to a maximum value.
+     * Clamp the value of the X axis to a maximum value.
      * Also clamp to a minimum value if a second argument is specified
      *
+     * @param {Number} max The maximum value for the X axis
+     * @param {Number} min (optional) The maximum value for the X axis
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if the `min` value is defined and larger than the max value
      * @example
      * const vec = new Vector(100, 100);
      *
      * vec.clampX(50)
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 100)
-     *
-     * @param {Number} max The maximum value for the X axis
-     * @param {Number} min (optional) The maximum value for the X axis
-     * @return `this` for chaining capabilities
      * @category Magnitude
-     * @throws RangeError RangeError if the `min` value is defined and larger than the max value
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
     clampX(max: number, min?: number) {
@@ -773,18 +743,17 @@ export class Vector {
      * Clamp the value of the y axis to a maximum value.
      * Also clamp to a minimum value if a second argument is specified
      *
+     * @param {Number} max The maximum value for the Y axis
+     * @param {Number} min (optional) The maximum value for the Y axis
+     * @return `this` for chaining capabilities
+     * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value
      * @example
      * const vec = new Vector(100, 100);
      *
      * vec.clampY(50)
      * assert.equal(vec.y, 50)
      * assert.equal(vec.y, 100)
-     *
-     * @param {Number} max The maximum value for the Y axis
-     * @param {Number} min (optional) The maximum value for the Y axis
-     * @return `this` for chaining capabilities
      * @category Magnitude
-     * @throws RangeError RangeError if the `min` value is defined and larger than the max value
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
     clampY(max: number, min?: number) {
@@ -806,19 +775,18 @@ export class Vector {
      *
      * This preserves the angle of the vector.
      *
-     * @example
-     * const vec = new Vector(100, 100);
-     *
-     * vec.clampY(50)
-     * assert.equal(vec.y, 50)
-     * assert.equal(vec.y, 100)
-     *
      * @param {Number} max The maximum value for the Y axis
      * @param {Number} min (optional) The maximum value for the Y axis
      * @return `this` for chaining capabilities
+     * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value.
+     * @throws { RangeError } RangeError if the `min` or `max` value are negative.
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.clamp(50)
+     * assert.equal(vec.magnitude(), 50)
+     * assert.equal(vec.x, vec.y)
      * @category Magnitude
-     * @throws RangeError RangeError if the `min` value is defined and larger than the max value.
-     * @throws RangeError RangeError if the `min` or `max` value are negative.
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
     clamp(max: number, min?: number) {
@@ -844,16 +812,15 @@ export class Vector {
      * If the absolute value of the X axis is greater than `max`,
      * multiplies its value by `factor`
      *
+     * @param {Number} max The maximum value for the X axis
+     * @param {Number} factor Factor by which the axis is to be multiplied by
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 100);
      *
      * vec.limitX(80, 0.9);
      * assert.equal(vec.x, 90)
      * assert.equal(vec.y, 100)
-     *
-     * @param {Number} max The maximum value for the X axis
-     * @param {Number} factor Factor by which the axis is to be multiplied by
-     * @return `this` for chaining capabilities
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
      */
@@ -868,16 +835,15 @@ export class Vector {
      * If the absolute value of the Y axis is greater than `max`,
      * multiplies its value by `factor`
      *
+     * @param {Number} max The maximum value for the Y axes
+     * @param {Number} factor Factor by which the axis is to be multiplied by
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 100);
      *
      * vec.limitY(80, 0.9);
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 90)
-     *
-     * @param {Number} max The maximum value for the Y axes
-     * @param {Number} factor Factor by which the axis is to be multiplied by
-     * @return `this` for chaining capabilities
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
      */
@@ -892,6 +858,9 @@ export class Vector {
      * If the absolute value of the axes is greater than `max`,
      * multiplies the axis by `factor`
      *
+     * @param {Number} max The maximum value for both X and Y axes
+     * @param {Number} factor Factor by which the axes are to be multiplied by
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(100, 50);
      *
@@ -904,10 +873,6 @@ export class Vector {
      * vec2.limit(80, 0.9);
      * assert.equal(vec2.x, 90)
      * assert.equal(vec2.y, 90)
-     *
-     * @param {Number} max The maximum value for both X and Y axes
-     * @param {Number} factor Factor by which the axes are to be multiplied by
-     * @return `this` for chaining capabilities
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
      */
@@ -920,6 +885,9 @@ export class Vector {
     /**
      * Randomizes the X axis with a value between the X axes of 2 others vectors
      *
+     * @param {Vector} topLeft First bounding vector
+     * @param {Vector} bottomRight Second bounding vector
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -929,10 +897,6 @@ export class Vector {
      * vec.randomizeX(topLeft, bottomRight);
      * assert.equal(vec.x, 67.17186656753522)
      * assert.equal(vec.y, 50)
-     *
-     * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bounding vector
-     * @return `this` for chaining capabilities
      * @category Randomization
      * @see [Try it live](https://statox.github.io/simple-vector-examples/randomization)
      */
@@ -946,6 +910,9 @@ export class Vector {
     /**
      * Randomizes the Y axis with a value between the Y axes of 2 others vectors
      *
+     * @param {Vector} topLeft First bounding vector
+     * @param {Vector} bottomRight Second bounding vector
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -955,10 +922,6 @@ export class Vector {
      * vec.randomizeY(topLeft, bottomRight);
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 73.933542831865296)
-     *
-     * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bounding vector
-     * @return `this` for chaining capabilities
      * @category Randomization
      * @see [Try it live](https://statox.github.io/simple-vector-examples/randomization)
      */
@@ -972,6 +935,9 @@ export class Vector {
     /**
      * Randomizes both axes of the vector with a value between 2 vectors
      *
+     * @param {Vector} topLeft First bounding vector
+     * @param {Vector} bottomRight Second bounding vector
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -981,10 +947,6 @@ export class Vector {
      * vec.randomize(topLeft, bottomRight);
      * assert.equal(vec.x, 67.17186656753522)
      * assert.equal(vec.y, 73.933542831865296)
-     *
-     * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bounding vector
-     * @return `this` for chaining capabilities
      * @category Randomization
      * @see [Try it live](https://statox.github.io/simple-vector-examples/randomization)
      */
@@ -999,6 +961,9 @@ export class Vector {
      * Randomly choses one axis and randomizes it with a value between the
      * corresponding axis of 2 other vectors
      *
+     * @param {Vector} topLeft First bounding vector
+     * @param {Vector} bottomRight Second bounding vector
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100, 50);
      *
@@ -1008,10 +973,6 @@ export class Vector {
      * vec.randomizeAny(topLeft, bottomRight);
      * assert.equal(vec.x, 67.17186656753522)
      * assert.equal(vec.y, 50)
-     *
-     * @param {Vector} topLeft First bounding vector
-     * @param {Vector} bottomRight Second bounding vector
-     * @return `this` for chaining capabilities
      * @category Randomization
      */
     randomizeAny(topLeft: Vector, bottomRight: Vector) {
@@ -1026,14 +987,13 @@ export class Vector {
     /**
      * Rounds both axes to an integer value using Math.round()
      *
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100.2, 50.9);
      *
      * vec.unfloat();
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 51)
-     *
-     * @return `this` for chaining capabilities
      * @category Precision
      */
     unfloat() {
@@ -1046,15 +1006,14 @@ export class Vector {
      * Fix both axes to a certain precision using {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed Number.toFixed()}
      * on each axis
      *
+     * @param {Number} precision (default: 8)
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(100.2345, 50.9876);
      *
      * vec.fixPrecision(2);
      * assert.equal(vec.x, 100.23)
      * assert.equal(vec.y, 50.99)
-     *
-     * @param {Number} precision (default: 8)
-     * @return `this` for chaining capabilities
      * @category Precision
      */
     fixPrecision(precision: number = 8) {
@@ -1066,7 +1025,10 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the X axis towards another vector.
      *
-     *
+     * @param {Vector} vec The other vector
+     * @param {Number} mixFactor The blend amount [0, 1] (optional, default: 0.5)
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -1074,11 +1036,6 @@ export class Vector {
      * vec1.mixX(vec2, 0.5);
      * assert.equal(vec1.x, 150)
      * assert.equal(vec1.y, 100)
-     *
-     * @param {Vector} vec The other vector
-     * @param {Number} mixFactor The blend amount [0, 1] (optional, default: 0.5)
-     * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @category Interpolation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
@@ -1093,6 +1050,10 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the Y axis towards another vector
      *
+     * @param {Vector} vec The other vector
+     * @param {Number} mixFactor The blend amount (optional, default: 0.5)
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -1100,11 +1061,6 @@ export class Vector {
      * vec1.mixY(vec2, 0.5);
      * assert.equal(vec1.x, 100)
      * assert.equal(vec1.y, 150)
-     *
-     * @param {Vector} vec The other vector
-     * @param {Number} mixFactor The blend amount (optional, default: 0.5)
-     * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @category Interpolation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
@@ -1119,6 +1075,10 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation towards another vector
      *
+     * @param {Vector} vec The other vector
+     * @param {Number} mixFactor The blend amount (optional, default: 0.5)
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(200, 200);
@@ -1126,11 +1086,6 @@ export class Vector {
      * vec1.mix(vec2, 0.5);
      * assert.equal(vec1.x, 150)
      * assert.equal(vec1.y, 150)
-     *
-     * @param {Vector} vec The other vector
-     * @param {Number} mixFactor The blend amount (optional, default: 0.5)
-     * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `mixFactor` is not between 0 and 1
      * @category Interpolation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
@@ -1146,14 +1101,13 @@ export class Vector {
     /**
      * Creates a clone of this vector
      *
+     * @return The instance of the newly created vector
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = vec1.clone();
      *
      * assert.equal(vec2.x, vec1.x)
      * assert.equal(vec2.y, vec1.y)
-     *
-     * @return The instance of the newly created vector
      * @category Constructor
      */
     clone() {
@@ -1163,6 +1117,8 @@ export class Vector {
     /**
      * Copies the X axis of another vector to this one
      *
+     * @param {Vector} vec The other vector you want to copy to this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 20);
@@ -1170,9 +1126,6 @@ export class Vector {
      * vec1.copyX(vec2);
      * assert.equal(vec1.x, 20)
      * assert.equal(vec1.y, 10)
-     *
-     * @param {Vector} vec The other vector you want to copy to this one
-     * @return `this` for chaining capabilities
      * @category Copy
      */
     copyX(vec: Vector) {
@@ -1183,6 +1136,8 @@ export class Vector {
     /**
      * Copies the Y axis of another vector to this one
      *
+     * @param {Vector} vec The other vector you want to copy to this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 20);
@@ -1190,9 +1145,6 @@ export class Vector {
      * vec1.copyY(vec2);
      * assert.equal(vec1.x, 10)
      * assert.equal(vec1.y, 20)
-     *
-     * @param {Vector} vec The other vector you want to copy to this one
-     * @return `this` for chaining capabilities
      * @category Copy
      */
     copyY(vec: Vector) {
@@ -1201,8 +1153,10 @@ export class Vector {
     }
 
     /**
-     * Copies vector axes to this one
+     * Copies the X and Y axes of another vector to this one
      *
+     * @param {Vector} vec The other vector you want to copy to this one
+     * @return `this` for chaining capabilities
      * @example
      * const vec1 = new Vector(10, 10);
      * const vec2 = new Vector(20, 20);
@@ -1210,9 +1164,6 @@ export class Vector {
      * vec1.copy(vec2);
      * assert.equal(vec1.x, 20)
      * assert.equal(vec1.y, 20)
-     *
-     * @param {Vector} vec The other vector you want to copy to this one
-     * @return `this` for chaining capabilities
      * @category Copy
      */
     copy(vec: Vector) {
@@ -1224,15 +1175,14 @@ export class Vector {
     /**
      * Calculates the dot product of this vector and another
      *
+     * @param {Vector} vec The second vector
+     * @return The dot product of this vector and the other one
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
      * const dp = vec1.dot(vec2);
      * assert.equal(dp, 23000)
-     *
-     * @param {Vector} vec The second vector
-     * @return The dot product of this vector and the other one
      * @category Product
      * @see [Try it live](https://statox.github.io/simple-vector-examples/product)
      */
@@ -1244,17 +1194,16 @@ export class Vector {
      * Calculates the cross product of this vector and another.
      *
      * Note that the resulting scalar value is due to considering
-     * the z axes as 0 https://stackoverflow.com/a/243977
+     * the Z axes as 0. See {@link https://stackoverflow.com/a/243977 stackoverflow.com}
      *
+     * @param {Vector} vec The second vector
+     * @return The cross product of this vector and the other one
      * @example
      * const vec1 = new Vector(100, 100);
      * const vec2 = new Vector(500, 200);
      *
      * const cp = vec1.cross(vec2);
      * assert.equal(dp, -30000)
-     *
-     * @param {Vector} vec The second vector
-     * @return The cross product of this vector and the other one
      * @category Product
      * @see [Try it live](https://statox.github.io/simple-vector-examples/product)
      */
@@ -1263,8 +1212,11 @@ export class Vector {
     }
 
     /**
-     * Projects a vector onto the direction of another vector.
+     * Projects a vector onto the direction of another vector
      *
+     * @param {Vector} vec The second vector
+     * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the vector to project onto is zero. This prevents `NaN` results.
      * @example
      * const vec1 = new Vector(100, 0);
      * const vec2 = new Vector(100, 100);
@@ -1272,10 +1224,6 @@ export class Vector {
      * vec1.projectOnto(vec2);
      * assert.equal(vec1.x, 50)
      * assert.equal(vec1.y, 50)
-     *
-     * @param {Vector} vec The second vector
-     * @return `this` for chaining capabilities
-     * @throws {@link DivisionByZeroError} If the vector to project onto is zero. This prevents `NaN` results.
      * @category Interpolation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
@@ -1297,13 +1245,12 @@ export class Vector {
      *
      * Caution: The direction is not the same as `verticalAngle()`
      *
+     * @return The angle in radians
      * @example
      * assert.equal(0,          (new Vector(10, 0)).horizontalAngle());
      * assert.equal(Math.PI/2,  (new Vector(0, 10)).horizontalAngle());
      * assert.equal(Math.PI,    (new Vector(-10, 0)).horizontalAngle());
      * assert.equal(-Math.PI/2, (new Vector(0, -10)).horizontalAngle());
-     *
-     * @return The angle in radians
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
@@ -1319,13 +1266,12 @@ export class Vector {
      *
      * Caution: The direction is not the same as verticalAngleDeg()
      *
+     * @return The angle in degrees
      * @example
      * assert.equal(0,    (new Vector(10, 0)).horizontalAngleDeg());
      * assert.equal(90,   (new Vector(0, 10)).horizontalAngleDeg());
      * assert.equal(180,  (new Vector(-10, 0)).horizontalAngleDeg());
      * assert.equal(-90,  (new Vector(0, -10)).horizontalAngleDeg());
-     *
-     * @return The angle in degrees
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
@@ -1339,13 +1285,12 @@ export class Vector {
      *
      * Caution: The direction is not the same as horizontalAngle()
      *
+     * @return The angle in radians
      * @example
      * assert.equal(0,          (new Vector(0, 10)).verticalAngle());
      * assert.equal(-Math.PI/2, (new Vector(-10, 0)).verticalAngle());
      * assert.equal(Math.PI/,   (new Vector(0, 10)).verticalAngle());
      * assert.equal(Math.PI/2,  (new Vector(10, 0)).verticalAngle());
-     *
-     * @return The angle in degrees
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
@@ -1359,13 +1304,12 @@ export class Vector {
      *
      * Caution: The direction is not the same as horizontalAngleDeg()
      *
+     * @return The angle in degrees
      * @example
      * assert.equal(0,   (new Vector(0, 10)).verticalAngleDeg());
      * assert.equal(-90, (new Vector(-10, 0)).verticalAngleDeg());
      * assert.equal(180, (new Vector(0, 10)).verticalAngleDeg());
      * assert.equal(90,  (new Vector(10, 0)).verticalAngleDeg());
-     *
-     * @return The angle in degrees
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
      */
@@ -1403,6 +1347,8 @@ export class Vector {
     /**
      * Gets the angle in radian (0 < θ <= π) between this vector and another one
      *
+     * @param {Vector} vec The second vector
+     * @return The angle between both vectors in radians
      * @example
      * const vec1 = new Vector(1, 0);
      *
@@ -1414,9 +1360,6 @@ export class Vector {
      * assert.equal(a, Math.PI / 4)
      * a = vec1.angleWith(new Vector(-1, 0));
      * assert.equal(a, Math.PI)
-     *
-     * @param {Vector} vec The second vector
-     * @return The angle between both vectors in radians
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
@@ -1443,20 +1386,19 @@ export class Vector {
      *
      * If both vectors are null the method returns NaN
      *
+     * @param {Vector} vec The second vector
+     * @return The angle between both vectors in degrees
      * @example
      * const vec1 = new Vector(1, 0);
      *
-     * a = vec1.angleWith(new Vector(1, 0));
+     * a = vec1.angleDegWith(new Vector(1, 0));
      * assert.equal(a, 0)
-     * a = vec1.angleWith(new Vector(1, 1));
+     * a = vec1.angleDegWith(new Vector(1, 1));
      * assert.equal(a, 45)
-     * a = vec1.angleWith(new Vector(1, -1));
+     * a = vec1.angleDegWith(new Vector(1, -1));
      * assert.equal(a, 45)
-     * a = vec1.angleWith(new Vector(-1, 0));
+     * a = vec1.angleDegWith(new Vector(-1, 0));
      * assert.equal(a, 180)
-     *
-     * @param {Vector} vec The second vector
-     * @return The angle between both vectors in degrees
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
@@ -1470,6 +1412,8 @@ export class Vector {
      *
      * This method is roughly 20% slower than this.angleWith()
      *
+     * @param {Vector} vec The second vector
+     * @return The angle between both vectors in radians
      * @example
      * const vec1 = new Vector(1, 0);
      *
@@ -1481,9 +1425,6 @@ export class Vector {
      * assert.equal(a, -Math.PI / 4)
      * a = vec1.orientedAngleWith(new Vector(-1, 0));
      * assert.equal(a, Math.PI)
-     *
-     * @param {Vector} vec The second vector
-     * @return The angle between both vectors in radians
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
@@ -1497,20 +1438,19 @@ export class Vector {
      *
      * This method is roughly 20% slower than this.angleDegWith()
      *
+     * @param {Vector} vec The second vector
+     * @return The angle between both vectors in degrees
      * @example
      * const vec1 = new Vector(1, 0);
      *
-     * a = vec1.orientedAngleWith(new Vector(1, 0));
+     * a = vec1.orientedAngleDegWith(new Vector(1, 0));
      * assert.equal(a, 0)
-     * a = vec1.orientedAngleWith(new Vector(1, 1));
+     * a = vec1.orientedAngleDegWith(new Vector(1, 1));
      * assert.equal(a, 45)
-     * a = vec1.orientedAngleWith(new Vector(1, -1));
+     * a = vec1.orientedAngleDegWith(new Vector(1, -1));
      * assert.equal(a, -45)
-     * a = vec1.orientedAngleWith(new Vector(-1, 0));
+     * a = vec1.orientedAngleDegWith(new Vector(-1, 0));
      * assert.equal(a, 180)
-     *
-     * @param {Vector} vec The second vector
-     * @return The angle between both vectors in radians
      * @category Angle
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
@@ -1521,19 +1461,17 @@ export class Vector {
     /**
      * Rotate the vector counter-clockwise by an angle in radians
      *
+     * @param {number} angle The angle in radians to rotate the vector by
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 0);
      * assert.equal(0, vec.horizontalAngleDeg())
      *
-     * vec.rotate(Math.PI)
+     * vec.rotateBy(Math.PI)
      * assert.equal(180, vec.horizontalAngleDeg())
      *
-     * vec.rotate(Math.PI / 2)
-     * // π + π / 2 => -π/2
-     * assert.equal(-90, vec.horizontalAngleDeg())
-     *
-     * @param {number} angle The angle in radians to rotate the vector by
-     * @return `this` for chaining capabilities
+     * vec.rotateBy(Math.PI / 2)
+     * assert.equal(-90, vec.horizontalAngleDeg()) // π + π/2 => -π/2
      * @category Rotation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
@@ -1548,20 +1486,40 @@ export class Vector {
     }
 
     /**
-     * Rotate towards another vector limiting the rotation to a max
-     * angle θ in radians (θ > 0) .
+     * Rotate the vector counter-clockwise by an angle in degrees
      *
+     * @return `this` for chaining capabilities
+     * @example
+     * const vec = new Vector(10, 0);
+     * assert.equal(0, vec.horizontalAngleDeg())
+     *
+     * vec.rotateByDeg(180)
+     * assert.equal(180, vec.horizontalAngleDeg())
+     *
+     * vec.rotateByDeg(90)
+     * assert.equal(-90, vec.horizontalAngleDeg()) // 180 + 90 => -90
+     * @category Rotation
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
+     */
+    rotateByDeg(angle: number) {
+        const radAngle = degrees2radian(angle);
+        return this.rotateBy(radAngle);
+    }
+
+    /**
+     * Rotate towards another vector limiting the rotation to a max
+     * angle θ in radians (θ > 0)
+     *
+     * @param {Vector} vec The vector steering the current vector
+     * @param {number} maxAngle The max angle in radians to rotate the vector by
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
      * @example
      * const vec1 = new Vector(10, 0);
      * const vec2 = new Vector(0, 10);
      *
      * vec1.rotateTowards(vec2, Math.PI / 4);
      * assert.equal(vec1.horizontalAngle(), Math.PI / 4)
-     *
-     * @param {Vector} vec The vector steering the current vector
-     * @param {number} maxAngle The max angle in radians to rotate the vector by
-     * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
      * @category Rotation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
@@ -1584,19 +1542,18 @@ export class Vector {
 
     /**
      * Rotate towards another vector limiting the rotation to a max
-     * angle θ in degrees (θ > 0) .
+     * angle θ in degrees (θ > 0)
      *
+     * @param {Vector} vec The vector steering the current vector
+     * @param {number} maxAngle The max angle in degrees to rotate the vector by
+     * @return `this` for chaining capabilities
+     * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
      * @example
      * const vec1 = new Vector(10, 0);
      * const vec2 = new Vector(0, 10);
      *
      * vec1.rotateTowardsDeg(vec2, 2);
      * assert.equal(vec1.horizontalAngleDeg(), 2)
-     *
-     * @param {Vector} vec The vector steering the current vector
-     * @param {number} maxAngle The max angle in degrees to rotate the vector by
-     * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if `maxAngle` equal or less than zero
      * @category Rotation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
@@ -1605,32 +1562,11 @@ export class Vector {
     }
 
     /**
-     * Rotate the vector counter-clockwise by an angle in degrees
-     *
-     * @example
-     * const vec = new Vector(10, 0);
-     * assert.equal(0, vec.horizontalAngleDeg())
-     *
-     * vec.rotateDeg(180)
-     * assert.equal(180, vec.horizontalAngleDeg())
-     *
-     * vec.rotateDeg(90)
-     * // 180 + 90 => -90
-     * assert.equal(-90, vec.horizontalAngleDeg())
-     *
-     * @return `this` for chaining capabilities
-     * @category Rotation
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
-     */
-    rotateByDeg(angle: number) {
-        const radAngle = degrees2radian(angle);
-        return this.rotateBy(radAngle);
-    }
-
-    /**
      * Rotate the vector to an angle in radians using the positive
      * X axis as origin, move counter-clockwise
      *
+     * @param {number} rotation The angle in radians to rotate the vector to
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 0);
      *
@@ -1641,8 +1577,6 @@ export class Vector {
      * v.rotateTo(-Math.PI/2);
      * assert.equal(v.x, 0);
      * assert.equal(v.y, -10);
-     *
-     * @return `this` for chaining capabilities
      * @category Rotation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
@@ -1654,6 +1588,8 @@ export class Vector {
      * Rotate the vector to an angle in degrees using the positive
      * X axis as origin, move counter-clockwise
      *
+     * @param {number} rotation The angle in degrees to rotate the vector to
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 0);
      *
@@ -1664,8 +1600,6 @@ export class Vector {
      * v.rotateTo(-90);
      * assert.equal(v.x, 0);
      * assert.equal(v.y, -10);
-     *
-     * @return `this` for chaining capabilities
      * @category Rotation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/rotation)
      */
@@ -1675,17 +1609,16 @@ export class Vector {
     }
 
     /**
-     * Calculates the distance between the X axis of this vector the X axis of another
+     * Calculates the distance from the X axis of another vector to the X axis of this one
      *
+     * @param {Vector} vec The second vector
+     * @return The distance between the X axes
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
      * const d = vec1.distanceX(vec2);
      * assert.equal(d, -100)
-     *
-     * @param {Vector} vec The second vector
-     * @return The distance between the X axes
      * @category Distance
      * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
@@ -1694,13 +1627,13 @@ export class Vector {
     }
 
     /**
-     * Same as `distanceX()` but always returns an absolute number
+     * Same as {@link distanceX} but always returns an absolute number
      *
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
-     * const d = vec1.distanceX(vec2);
+     * const d = vec1.absDistanceX(vec2);
      * assert.equal(d, 100)
      *
      * @param {Vector} vec The second vector
@@ -1713,17 +1646,16 @@ export class Vector {
     }
 
     /**
-     * Calculates the distance between the X axis of this vector the X axis of another
+     * Calculates the distance from the Y axis of another vector to the Y axis of this one
      *
+     * @param {Vector} vec The second vector
+     * @return The distance between the Y axes
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
      * const d = vec1.distanceY(vec2);
      * assert.equal(d, -10)
-     *
-     * @param {Vector} vec The second vector
-     * @return The distance between the Y axes
      * @category Distance
      * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
@@ -1732,13 +1664,13 @@ export class Vector {
     }
 
     /**
-     * Same as `distanceY()` but always returns an absolute number
+     * Same as {@link distanceY} but always returns an absolute number
      *
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
-     * const d = vec1.distanceY(vec2);
+     * const d = vec1.absDistanceY(vec2);
      * assert.equal(d, 10)
      *
      * @param {Vector} vec The second vector
@@ -1751,17 +1683,16 @@ export class Vector {
     }
 
     /**
-     * Calculates the euclidean distance between this vector and another
+     * Calculates the euclidean distance between this vector and another one
      *
+     * @param {Vector} vec The second vector
+     * @return The euclidean distance between the vectors
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
      * const d = vec1.distance(vec2);
      * assert.equal(d, 100.4987562112089)
-     *
-     * @param {Vector} vec The second vector
-     * @return The euclidean distance between the vectors
      * @category Distance
      * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
@@ -1770,17 +1701,18 @@ export class Vector {
     }
 
     /**
-     * Calculates the squared euclidean distance between this vector and another
+     * Calculates the squared euclidean distance between this vector and another.
      *
+     * This is faster than {@link distance} because we don't use `Math.sqrt`.
+     *
+     * @param {Vector} vec The second vector
+     * @return The squared euclidean distance between the vectors
      * @example
      * const vec1 = new Vector(100, 50);
      * const vec2 = new Vector(200, 60);
      *
      * const d = vec1.distanceSq(vec2);
      * assert.equal(d, 10100)
-     *
-     * @param {Vector} vec The second vector
-     * @return The squared euclidean distance between the vectors
      * @category Distance
      * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
      */
@@ -1792,15 +1724,14 @@ export class Vector {
     }
 
     /**
-     * Calculates the length or magnitude of the vector
+     * Calculates the length (or magnitude) of the vector
      *
+     * @return The magnitude of the vector
      * @example
      * const vec = new Vector(100, 50);
      *
      * const m = vec.length()
      * assert.equal(m, 111.80339887498948)
-     *
-     * @return The magnitude of the vector
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
@@ -1809,7 +1740,7 @@ export class Vector {
     }
 
     /**
-     * Alias for .length()
+     * Alias for {@link length}
      *
      * @return The magnitude of the vector
      * @category Magnitude
@@ -1817,7 +1748,9 @@ export class Vector {
     magnitude = this.length;
 
     /**
-     * Calculates the squared length or squared magnitude of the vector
+     * Calculates the squared length (or squared magnitude) of the vector
+     *
+     * This is faster than {@link length} because we don't use `Math.sqrt`.
      *
      * @example
      * const vec = new Vector(100, 50);
@@ -1835,14 +1768,13 @@ export class Vector {
     /**
      * Sets the vector axes to zero (0,0)
      *
+     * @return `this` for chaining capabilities
      * @example
      * const vec = new Vector(10, 10);
      *
      * vec.zero();
      * assert.equal(vec1.x, 0)
      * assert.equal(vec1.y, 0)
-     *
-     * @return `this` for chaining capabilities
      * @category Magnitude
      */
     zero() {
@@ -1852,10 +1784,14 @@ export class Vector {
     }
 
     /**
-     * Resize the vector so that its direction is not changed but it's
+     * Resizes the vector so that its direction is not changed but its
      * magnitude is set to the new value. If the `magnitude` argument is
      * negative, the angle of the resulting vector is rotated by 180 degrees.
      *
+     * @param {Number} magnitude The new value of the vector's magnitude
+     * @return `this` for chaining capabilities
+     * @throws {TypeError} TypeError if the `magnitude` argument is null or undefined
+     * @throws {@link DivisionByZeroError} If the vector is zero
      * @example
      * const vec1 = new Vector(0, 1);
      * vec1.resize(10);
@@ -1865,11 +1801,6 @@ export class Vector {
      * vec1.resize(-2);
      * assert.equal(vec1.horizontalAngle(), -90);
      * assert.equal(vec1.magnitude(), 2);
-     *
-     * @param {Number} magnitude The new value of the vector's magnitude
-     * @return `this` for chaining capabilities
-     * @throws {TypeError} TypeError if the `magnitude` argument is null or undefined
-     * @throws {@link DivisionByZeroError} If the vector is zero
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
@@ -1885,17 +1816,16 @@ export class Vector {
     /**
      * Returns true if this vector is parallel to another one.
      *
-     * This method has a small tolerance so that vector which seems almost parallel
+     * This method has a small tolerance so that vectors which seems almost parallel
      * are considered parallel. This is to avoid rounding errors inherent to floating
-     * point programming. (For example v.isParallelTo(v.rotateBy(2 * Math.PI)) would be
-     * likely to be false without this small tolerance).
+     * point programming. (For example `v.isParallelTo(v.rotateBy(2 * Math.PI))` would be
+     * likely to be `false` without this small tolerance).
      *
+     * @return `true` if the vector is parallel to the other one
      * @example
      * const vec1 = new Vector(1, 1);
      * const vec2 = new Vector(-2, -2);
      * assert.true(vec1.isParallelTo(vec2))
-     *
-     * @return true if the vector is parallel to the other one
      * @category Comparison
      * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
@@ -1907,17 +1837,16 @@ export class Vector {
     /**
      * Returns true if this vector is perpendicular to another one.
      *
-     * This method has a small tolerance so that vector which seems almost perpendicular
+     * This method has a small tolerance so that vectors which seems almost perpendicular
      * are considered perpendicular. This is to avoid rounding errors inherent to floating
-     * point programming. (For example v.isParallelTo(v.rotateBy(Math.PI / 2)) would be
-     * likely to be false without this small tolerance).
+     * point programming. (For example `v.isParallelTo(v.isPerpendicularTo(Math.PI / 2))` would be
+     * likely to be `false` without this small tolerance).
      *
+     * @return true if the vector is perpendicular to the other one
      * @example
      * const vec1 = new Vector(1, 0);
      * const vec2 = new Vector(0, -2);
      * assert.true(vec1.isPerpendicularTo(vec2))
-     *
-     * @return true if the vector is perpendicular to the other one
      * @category Comparison
      * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
@@ -1927,16 +1856,15 @@ export class Vector {
     }
 
     /**
-     * Returns true if vector is (0, 0)
+     * Returns true if vector is exactly (0, 0)
      *
+     * @return true if the vector magnitude is 0, false otherwise
      * @example
      * const vec = new Vector(100, 50);
      * assert.false(vec.isZero())
      *
      * vec.zero();
      * assert.true(vec.isZero())
-     *
-     * @return true if the vector magnitude is 0, false otherwise
      * @category Comparison
      * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
@@ -1945,8 +1873,13 @@ export class Vector {
     }
 
     /**
-     * Returns true if this vector axes values are the same as another
+     * Returns true if this vector axes values are exactly the same as another.
      *
+     * Be cautious with floating point errors. If vectors are close but not exactly
+     * the same this method returns `false`
+     *
+     * @param {Vector} vec The second vector
+     * @return true if the vector magnitude is 0, false otherwise
      * @example
      * const vec1 = new Vector(100, 50);
      *
@@ -1955,9 +1888,6 @@ export class Vector {
      *
      * const vec3 = new Vector(0, 0);
      * assert.false(vec1.isEqualTo(vec3);
-     *
-     * @param {Vector} vec The second vector
-     * @return true if the vector magnitude is 0, false otherwise
      * @category Comparison
      * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
@@ -1968,12 +1898,11 @@ export class Vector {
     /**
      * Returns a string representation of the vector
      *
+     * @return A string representing the vector's axes
      * @example
      * const vec = new Vector(10, 20);
      * const s = vec.toString();
      * assert.equal(s, "x:10, y:20")
-     *
-     * @return A string representing the vector's axes
      * @category Constructor
      */
     toString() {
@@ -1983,13 +1912,12 @@ export class Vector {
     /**
      * Returns an array representation of the vector
      *
+     * @return An array representation of the vector
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.toArray();
      * // [10, 20]
-     *
-     * @return An array representation of the vector
      * @category Constructor
      */
     toArray() {
@@ -1999,13 +1927,12 @@ export class Vector {
     /**
      * Returns an object representation of the vector
      *
+     * @return An object representation of the vector
      * @example
      * const vec = new Vector(10, 20);
      *
      * vec.toObject();
      * // { x: 10, y: 20 }
-     *
-     * @return An object representation of the vector
      * @category Constructor
      */
     toObject(): VectorLike {
@@ -2015,13 +1942,12 @@ export class Vector {
     /**
      * Returns a polar representation of the vector.
      *
+     * @return A polar representation of the vector
      * @example
      * const vec = new Vector(1, 1);
      *
      * vec.toPolar();
      * // { theta: Math.PI/ 4, r: Math.sqrt(2) }
-     *
-     * @return A polar representation of the vector
      * @category Constructor
      */
     toPolar(): Polar {
