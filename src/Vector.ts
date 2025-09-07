@@ -751,7 +751,7 @@ export class Vector {
      * @param {Number} min (optional) The maximum value for the X axis
      * @return `this` for chaining capabilities
      * @category Magnitude
-     * @throws RangeError RangeError if the min value is defined and larger than the max value
+     * @throws RangeError RangeError if the `min` value is defined and larger than the max value
      */
     clampX(max: number, min?: number) {
         if (min !== undefined && min !== null) {
@@ -781,7 +781,7 @@ export class Vector {
      * @param {Number} min (optional) The maximum value for the Y axis
      * @return `this` for chaining capabilities
      * @category Magnitude
-     * @throws RangeError RangeError if the min value is defined and larger than the max value
+     * @throws RangeError RangeError if the `min` value is defined and larger than the max value
      */
     clampY(max: number, min?: number) {
         if (min !== undefined && min !== null) {
@@ -813,16 +813,20 @@ export class Vector {
      * @param {Number} min (optional) The maximum value for the Y axis
      * @return `this` for chaining capabilities
      * @category Magnitude
-     * @throws RangeError RangeError if the min value is defined and larger than the max value
+     * @throws RangeError RangeError if the `min` value is defined and larger than the max value.
+     * @throws RangeError RangeError if the `min` or `max` value are negative.
      */
     clamp(max: number, min?: number) {
         const currentMag = this.magnitude();
-        let minBound = Number.MIN_VALUE;
+        let minBound = 0;
         if (min !== undefined && min !== null) {
             if (min > max) {
                 throw RangeError('min must be smaller than max');
             }
             minBound = min;
+        }
+        if (min < 0 || max < 0) {
+            throw RangeError('Can\'t clamp the magnitude to a negative value');
         }
 
         const newMag = Math.max(Math.min(currentMag, max), minBound);

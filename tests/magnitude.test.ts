@@ -153,6 +153,16 @@ test('Magnitude methods', () => {
             assert.throws(() => vec.clamp(10, 100), RangeError);
         });
 
+        it('should throw if max is negative', function () {
+            const vec = new Vector(100, 100);
+            assert.throws(() => vec.clamp(-1), RangeError);
+        });
+
+        it('should throw if min is negative', function () {
+            const vec = new Vector(100, 100);
+            assert.throws(() => vec.clamp(1, -1), RangeError);
+        });
+
         it('should not change value if its in range', function () {
             const vec = new Vector(10, 10);
             vec.clamp(16, 13);
