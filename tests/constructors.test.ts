@@ -162,6 +162,42 @@ test('Other methods', () => {
             assertCloseTo(vec.x, -2);
             assertCloseTo(vec.y, 0);
         });
+
+        it('should create a vector in the 4 quadrants - Positive angle', function () {
+            const v1 = Vector.fromPolar(Math.PI / 4, 2);
+            assertCloseTo(v1.x, Math.sqrt(2));
+            assertCloseTo(v1.y, Math.sqrt(2));
+
+            const v2 = Vector.fromPolar((3 * Math.PI) / 4, 2);
+            assertCloseTo(v2.x, -Math.sqrt(2));
+            assertCloseTo(v2.y, Math.sqrt(2));
+
+            const v3 = Vector.fromPolar((5 * Math.PI) / 4, 2);
+            assertCloseTo(v3.x, -Math.sqrt(2));
+            assertCloseTo(v3.y, -Math.sqrt(2));
+
+            const v4 = Vector.fromPolar((7 * Math.PI) / 4, 2);
+            assertCloseTo(v4.x, Math.sqrt(2));
+            assertCloseTo(v4.y, -Math.sqrt(2));
+        });
+
+        it('should create a vector in the 4 quadrants - Negative angle', function () {
+            const v1 = Vector.fromPolar(-Math.PI / 4, 2);
+            assertCloseTo(v1.x, Math.sqrt(2));
+            assertCloseTo(v1.y, -Math.sqrt(2));
+
+            const v2 = Vector.fromPolar((-3 * Math.PI) / 4, 2);
+            assertCloseTo(v2.x, -Math.sqrt(2));
+            assertCloseTo(v2.y, -Math.sqrt(2));
+
+            const v3 = Vector.fromPolar((-5 * Math.PI) / 4, 2);
+            assertCloseTo(v3.x, -Math.sqrt(2));
+            assertCloseTo(v3.y, Math.sqrt(2));
+
+            const v4 = Vector.fromPolar((-7 * Math.PI) / 4, 2);
+            assertCloseTo(v4.x, Math.sqrt(2));
+            assertCloseTo(v4.y, Math.sqrt(2));
+        });
     });
 
     describe('.toString', function () {
