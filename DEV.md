@@ -20,10 +20,12 @@ Features:
 
 - [ ] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
 - [ ] Add `.manhattanDistance(other: Vector)`
+- [ ] Add `.slope()`
 
 Dev tasks:
 
 - [ ] Look into how changelogs are generated and decide if I want to do something with commit names.
+- [ ] Generate minified files in the build
 - [ ] Add an `epsilon` property to `Vector` to improve computations stability?
 - [ ] Find a way to validate docs (make sure all required tags are used, maybe make sure the documented method is used in the `@example` tag)
 - [ ] In the README add a word about immutability https://github.com/maxkueng/victor/issues/18
