@@ -13,8 +13,16 @@ Things I want to review before considering the library ready to be officially pu
 - [x] Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change. **Won't do I would make more sense to use `vec1.subtract(v2).angle()`.**
 - [x] Create a dedicated section for dev workflow documentation.
 - [x] Use spellcheck to avoid typos in code and docs.
-- [ ] Create interactive example of the different methods to make the discoverability easier.
-- [ ] Look into UMD to allow import from `<script>` without `type="module"`
+- [x] Create interactive example of the different methods to make the discoverability easier.
+- [x] Look into UMD to allow import from `<script>` without `type="module"`
+
+Features:
+
+- [ ] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
+- [ ] Add `.manhattanDistance(other: Vector)`
+
+Dev tasks:
+
 - [ ] Look into how changelogs are generated and decide if I want to do something with commit names.
 - [ ] Add an `epsilon` property to `Vector` to improve computations stability?
 - [ ] Find a way to validate docs (make sure all required tags are used, maybe make sure the documented method is used in the `@example` tag)
