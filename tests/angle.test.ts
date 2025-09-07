@@ -110,6 +110,26 @@ test('Angle methods', () => {
             assert.ok(Number.isNaN(angle) === false);
             assertCloseTo(angle, 0);
         });
+
+        it('should be resilient to the first vector being zero', () => {
+            const v1 = new Vector(0, 0);
+            const v2 = new Vector(1, 0);
+
+            const angle = v1.angleWith(v2);
+
+            assert.ok(Number.isNaN(angle) === false);
+            assertCloseTo(angle, 0);
+        });
+
+        it('should be resilient to the second vector being zero', () => {
+            const v1 = new Vector(0, 1);
+            const v2 = new Vector(0, 0);
+
+            const angle = v1.angleWith(v2);
+
+            assert.ok(Number.isNaN(angle) === false);
+            assertCloseTo(angle, 0);
+        });
     });
 
     test('.angleDegWith', () => {

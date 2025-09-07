@@ -1402,7 +1402,7 @@ export class Vector {
      * @see [Try it live](https://statox.github.io/simple-vector-examples/angleWith)
      */
     angleWith(vec: Vector) {
-        if (this.isZero() && vec.isZero()) {
+        if (this.isZero() || vec.isZero()) {
             return 0;
         }
         /*
