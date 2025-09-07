@@ -210,22 +210,44 @@ test('Other methods', () => {
     });
 
     describe('.toPolar', function () {
-        it('should return correct values - 1', function () {
+        it('should return return zero angle and radius for a zero vector', function () {
             const { r, theta } = new Vector(0, 0).toPolar();
             assert.strictEqual(r, 0);
             assert.strictEqual(theta, 0);
         });
 
-        it('should return correct values - 2', function () {
+        it('should return an angle of 0 with a radius', function () {
             const { r, theta } = new Vector(10, 0).toPolar();
             assert.strictEqual(r, 10);
             assert.strictEqual(theta, 0);
         });
 
-        it('should return correct values - 3', function () {
-            const { r, theta } = new Vector(0, -1).toPolar();
-            assert.strictEqual(r, 1);
-            assert.strictEqual(theta, -Math.PI / 2);
+        it('should return the correct angle when X axis is zero', function () {
+            const v1 = new Vector(0, -1).toPolar();
+            assert.strictEqual(v1.r, 1);
+            assert.strictEqual(v1.theta, -Math.PI / 2);
+
+            const v2 = new Vector(0, 1).toPolar();
+            assert.strictEqual(v2.r, 1);
+            assert.strictEqual(v2.theta, Math.PI / 2);
+        });
+
+        it('should return a correct angle in all quadrants', function () {
+            const topRight = new Vector(1, 1).toPolar();
+            assert.strictEqual(topRight.r, Math.sqrt(2));
+            assert.strictEqual(topRight.theta, Math.PI / 4);
+
+            const topLeft = new Vector(-1, 1).toPolar();
+            assert.strictEqual(topLeft.r, Math.sqrt(2));
+            assert.strictEqual(topLeft.theta, (3 * Math.PI) / 4);
+
+            const bottomRight = new Vector(1, -1).toPolar();
+            assert.strictEqual(bottomRight.r, Math.sqrt(2));
+            assert.strictEqual(bottomRight.theta, -Math.PI / 4);
+
+            const bottomLeft = new Vector(-1, -1).toPolar();
+            assert.strictEqual(bottomLeft.r, Math.sqrt(2));
+            assert.strictEqual(bottomLeft.theta, (-3 * Math.PI) / 4);
         });
     });
 

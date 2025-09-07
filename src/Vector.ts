@@ -1999,7 +1999,7 @@ export class Vector {
      * @category Constructor
      */
     toPolar(): Polar {
-        const angle = Math.atan(this.y / this.x);
+        const angle = Math.atan2(this.y, this.x);
         return {
             r: Math.sqrt(this.x * this.x + this.y * this.y),
             theta: Number.isNaN(angle) ? 0 : angle
