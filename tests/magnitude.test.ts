@@ -1,7 +1,7 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { DivisionByZeroError, Vector } from '../src/Vector.ts';
 import { assertCloseTo } from './helpers.ts';
 
 test('Magnitude methods - Original tests', () => {
@@ -192,17 +192,66 @@ test('Magnitude methods', () => {
     });
 
     test('.normalize', () => {
-        const v1 = new Vector(10, 0).normalize();
-        assert.strictEqual(v1.x, 1);
-        assert.strictEqual(v1.y, 0);
+        it('Should throw when vector is zero', () => {
+            const v1 = new Vector(0, 0);
+            assert.throws(() => v1.normalize(), DivisionByZeroError);
+        });
 
-        const v2 = new Vector(0, 100).normalize();
-        assert.strictEqual(v2.x, 0);
-        assert.strictEqual(v2.y, 1);
+        it('Should work when axes are >1', () => {
+            const v1 = new Vector(10, 0).normalize();
+            assert.strictEqual(v1.x, 1);
+            assert.strictEqual(v1.y, 0);
 
-        const v3 = new Vector(-20, -20).normalize();
-        assertCloseTo(v3.x, -Math.sqrt(2) / 2);
-        assertCloseTo(v3.y, -Math.sqrt(2) / 2);
+            const v2 = new Vector(0, 100).normalize();
+            assert.strictEqual(v2.x, 0);
+            assert.strictEqual(v2.y, 1);
+
+            const v3 = new Vector(100, 100).normalize();
+            assertCloseTo(v3.x, Math.sqrt(2) / 2);
+            assertCloseTo(v3.y, Math.sqrt(2) / 2);
+        });
+
+        it('Should work when axes are ]0, 1]', () => {
+            const v1 = new Vector(0.1, 0).normalize();
+            assert.strictEqual(v1.x, 1);
+            assert.strictEqual(v1.y, 0);
+
+            const v2 = new Vector(0, 0.1).normalize();
+            assert.strictEqual(v2.x, 0);
+            assert.strictEqual(v2.y, 1);
+
+            const v3 = new Vector(0.5, 0.5).normalize();
+            assertCloseTo(v3.x, Math.sqrt(2) / 2);
+            assertCloseTo(v3.y, Math.sqrt(2) / 2);
+        });
+
+        it('Should work when axes are smaller than -1', () => {
+            const v1 = new Vector(-10, 0).normalize();
+            assert.strictEqual(v1.x, -1);
+            assert.strictEqual(v1.y, 0);
+
+            const v2 = new Vector(0, -100).normalize();
+            assert.strictEqual(v2.x, 0);
+            assert.strictEqual(v2.y, -1);
+
+            const v3 = new Vector(-20, -20).normalize();
+            assertCloseTo(v3.x, -Math.sqrt(2) / 2);
+            assertCloseTo(v3.y, -Math.sqrt(2) / 2);
+        });
+
+        it('Should work when axes are [-1, 0[', () => {
+            const v1 = new Vector(-0.1, 0).normalize();
+            assert.strictEqual(v1.x, -1);
+            assert.strictEqual(v1.y, 0);
+
+            const v2 = new Vector(0, -0.1).normalize();
+            assert.strictEqual(v2.x, 0);
+            assert.strictEqual(v2.y, -1);
+
+            const v3 = new Vector(-0.5, -0.5).normalize();
+            assertCloseTo(v3.x, -Math.sqrt(2) / 2);
+            assertCloseTo(v3.y, -Math.sqrt(2) / 2);
+        });
     });
 
     test('.norm', () => {
