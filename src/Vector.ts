@@ -1248,7 +1248,7 @@ export class Vector {
     }
 
     /**
-     * Projects a vector onto another vector, setting itself to the result.
+     * Projects a vector onto the direction of another vector.
      *
      * @example
      * const vec1 = new Vector(100, 0);
@@ -1260,10 +1260,14 @@ export class Vector {
      *
      * @param {Vector} vec The second vector
      * @return `this` for chaining capabilities
+     * @throws {@link DivisionByZeroError} If the vector to project onto is zero. This prevents `NaN` results.
      * @category Interpolation
      * @see [Try it live](https://statox.github.io/simple-vector-examples/interpolation)
      */
     projectOnto(vec: Vector) {
+        if (vec.isZero()) {
+            throw new DivisionByZeroError();
+        }
         const coeff = (this.x * vec.x + this.y * vec.y) / (vec.x * vec.x + vec.y * vec.y);
         this.x = coeff * vec.x;
         this.y = coeff * vec.y;

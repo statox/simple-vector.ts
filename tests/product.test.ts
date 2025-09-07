@@ -1,7 +1,7 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { DivisionByZeroError, Vector } from '../src/Vector.ts';
 
 test('Product and projection methods', () => {
     describe('.cross', function () {
@@ -59,6 +59,12 @@ test('Product and projection methods', () => {
 
         it('should be chainable', function () {
             assert.ok(selfRet === vec1);
+        });
+
+        it('should throw if the vector to project onto is zero', function () {
+            assert.throws(() => vec1.projectOnto(new Vector(0, 0)), DivisionByZeroError);
+            assert.strictEqual(selfRet.x, 100);
+            assert.strictEqual(selfRet.y, 0);
         });
 
         it('should project same vector onto itself without change', function () {
