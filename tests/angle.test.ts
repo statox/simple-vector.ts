@@ -100,6 +100,16 @@ test('Angle methods', () => {
         assertCloseTo(v2.angleWith(new Vector(1, 0)), (3 * Math.PI) / 4);
         assertCloseTo(v2.angleWith(new Vector(1, 1)), Math.PI / 2);
         assertCloseTo(v2.angleWith(new Vector(0, 1)), Math.PI / 4);
+
+        it('should be resilient to floating point errors', () => {
+            const v1 = new Vector(0.9992141823705266, 0.039636066273028084);
+            const v2 = new Vector(0.9992141823705266, 0.03963606627302818);
+
+            const angle = v1.angleWith(v2);
+
+            assert.ok(Number.isNaN(angle) === false);
+            assertCloseTo(angle, 0);
+        });
     });
 
     test('.angleDegWith', () => {

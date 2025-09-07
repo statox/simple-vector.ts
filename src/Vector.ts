@@ -1405,7 +1405,18 @@ export class Vector {
         if (this.isZero() && vec.isZero()) {
             return 0;
         }
-        return Math.acos((this.x * vec.x + this.y * vec.y) / (this.magnitude() * vec.magnitude()));
+        /*
+         * Math.acos() is only defined within [-1, 1] but in some cases
+         * cosTheta can get slightly out of this range because of floating point errors.
+         * This is the case e.g. for:
+         *  const v1 = new Vector(0.9992141823705266, 0.039636066273028084);
+         *  const v2 = new Vector(0.9992141823705266, 0.03963606627302818);
+         * when this happens cosTheta is 1.0000000000000002 and Math.acos() becomes NaN
+         * So we need to clamp cosTheta to avoid this. This is covered by a test case.
+         */
+        const cosTheta = (this.x * vec.x + this.y * vec.y) / (this.magnitude() * vec.magnitude());
+        const fixedCosTheta = Math.max(-1, Math.min(1, cosTheta));
+        return Math.acos(fixedCosTheta);
     }
 
     /**
