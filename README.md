@@ -1,10 +1,9 @@
-A 2D vector math library built as a modern ECMAScript module.
+A 2D vector math library built as a modern ECMAScript module without dependencies.
 
-Check out [the website](https://statox.github.io/simple-vector.ts/) for documentation.
+Check out [the documentation](https://statox.github.io/simple-vector.ts/) and [the interactive examples](https://statox.github.io/simple-vector-examples/).
 
-The goal of this package is to be thoroughly documented, easy to use and without dependencies.
-
-The code is largely inspired from [Victor.js](https://www.npmjs.com/package/victor) adding Typescript typings, updating documentation and fixing some long running issues.
+The code is largely inspired from [Victor.js](https://www.npmjs.com/package/victor) adding Typescript typing, updating documentation, fixing some long running issues and
+adding some features.
 
 # Installation
 
@@ -42,11 +41,9 @@ const dot = v.dot(w);
 Using a CDN to include the package in a vanilla JS page
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <title>Vector Example</title>
+        <title>SimpleVector Example</title>
     </head>
     <body>
         <script src="https://unpkg.com/simple-vector/dist/simple-vector.umd.js"></script>
@@ -58,7 +55,9 @@ Using a CDN to include the package in a vanilla JS page
 
             const sum = v1.clone().add(v2);
 
-            document.body.innerHTML = `<p>${v1.toString()} + ${v2.toString()} = ${sum.toString()}</p>`;
+            const span = document.createElement('span');
+            span.innerText = `${v1.toString()} + ${v2.toString()} = ${sum.toString()}`;
+            document.body.appendChild(span);
         </script>
     </body>
 </html>
@@ -66,17 +65,17 @@ Using a CDN to include the package in a vanilla JS page
 
 # Differences with Victor.js
 
-If you are a user a Victor.js you should feel mostly at home with simple-vector. Be warned that some features have been reworked:
+If you are a user of `Victor.js` you should feel mostly at home with simple-vector. Be warned that some features have been reworked:
 
 - Removed `rotateBy` and `rotateByDeg` which seemed to be broken or not useful ([Related issue](https://github.com/maxkueng/victor/issues/37))
 - Renamed `rotate` and `rotateDeg` to `rotateBy` and `rotateByDeg` to make the name more explicit.
 - Added explicit errors when trying to divide by zero ([Related issue](https://github.com/maxkueng/victor/issues/40))
+- Added explicit errors when required parameters are missing or have invalid values.
 - `.toFixed()` was renamed to `.fixPrecision()`. Also it converted components to string so we fixed the method to keep them number ([Related issue](https://github.com/maxkueng/victor/issues/28))
 
-Note that we also added a few features we felt were missing on Victor or were requested in the project's issues:
+Note that we also added a few features we felt were missing on Victor.js or were requested in the project's issues:
 
 - Completed documentation (In particular for the remaining rotation functions)
-- Ported the original tests and added new ones.
 - Added methods `angleWith`, `angleWithDeg`, `orientedAngleWith` and `orientedAngleDegWith` to compute angle between two vectors.
 - `.mix()` now validates the percentage value and throws an error if the percentage is `<0` or `>1`.
 - Added `resize()` ([Related issue](https://github.com/maxkueng/victor/issues/32), [Victor MR #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
@@ -86,6 +85,8 @@ Note that we also added a few features we felt were missing on Victor or were re
 - Added `fromPolar` and `toPolar` methods. ([Related issue](https://github.com/maxkueng/victor/issues/26))
 - Added `limitX` and `limitY` to go with `limit`
 - Added `isParallelTo()` and `isPerpendicularTo()`. ([Victor #42](https://github.com/maxkueng/victor/pull/42) but using already existing `.dot` and `.cross` methods)
+
+We also ported the original tests and added new ones.
 
 # Development
 

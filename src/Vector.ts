@@ -1,9 +1,8 @@
 /**
- * A 2D vector math library built as a modern ECMAScript module so that you can use it seamlessly in both Node.js and modern browsers.
+ * A 2D vector math library built as a modern ECMAScript module without dependencies.
  *
- * Check out [the website](https://statox.github.io/simple-vector.ts/) for documentation.
- *
- * The goal of this package is to be thoroughly documented, easy to use and without dependencies.
+ * Check out [the documentation](https://statox.github.io/simple-vector.ts/)
+ * and [the interactive examples](https://statox.github.io/simple-vector-examples/).
  *
  * @module Vector
  */
