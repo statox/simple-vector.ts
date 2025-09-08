@@ -2,15 +2,21 @@
 
 Things I want to review before considering the library ready to be officially published:
 
-- [x] Rework categories (split angle and rotation)~
+Features:
+
 - [x] Rename `rotate` by `rotateBy`~
 - [x] Add `rotateToward(vec, maxAngle)`~
-- [x] Maybe add resize = normalize + multiplyScalar~
+- [x] Add `.resize` equivalent to `normalize() + multiplyScalar()`
 - [x] Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26`~
 - [x] Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42~
 - [x] Implement `limitX` and `limitY` and use them in `limit`.~
 - [x] Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
 - [x] Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change. **Won't do I would make more sense to use `vec1.subtract(v2).angle()`.**
+- [x] Add `.slope`
+
+Tooling:
+
+- [x] Rework categories (split angle and rotation)~
 - [x] Create a dedicated section for dev workflow documentation.
 - [x] Use spellcheck to avoid typos in code and docs.
 - [x] Create interactive example of the different methods to make the discoverability easier.
@@ -18,12 +24,18 @@ Things I want to review before considering the library ready to be officially pu
 
 Features:
 
+- [ ] Get rid of `length` and `lengthSq` to have a consistent naming `mag` and `magSq`
 - [ ] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
 - [ ] Add `.manhattanDistance(other: Vector)`
-- [ ] Add `.slope()`
+- [ ] Add `Number.isFinite()` validations on the main methods arguments.
+- [ ] Add a method equivalent to `clampX(10).clampY(10)` (which is different from `.clamp(10)`) and rename `.clamp` to `.clampMag`
+- [ ] Add a `.reflect` method inspired by `p5.Vector.reflect`
+- [ ] Add a `.random()` static method generating a random unit vector.
+- [ ] Maybe add `.wrapX(0, 100)` method to have the x property going back to `100` if it's lower than `0` and vice versa?
 
 Dev tasks:
 
+- [ ] `p5` jsdoc uses `@chainable`, check if it's a real tag and maybe use it anyway?
 - [ ] Look into how changelogs are generated and decide if I want to do something with commit names.
 - [ ] Generate minified files in the build
 - [ ] Add an `epsilon` property to `Vector` to improve computations stability?
