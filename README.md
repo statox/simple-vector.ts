@@ -87,6 +87,7 @@ Note that we also added a few features we felt were missing on Victor.js or were
 - Added `.isParallelTo` and `.isPerpendicularTo`. ([Victor #42](https://github.com/maxkueng/victor/pull/42) but using already existing `.dot` and `.cross` methods)
 - Added `.slope` to get the slope of the line passing by the vector
 - Added `.reflect` to reflect the vector against a surface's normal vector
+- Added `.randomUnitVector` to create a random vector of magnitude `1`
 
 We also ported the original tests and added new ones.
 

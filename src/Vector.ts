@@ -145,6 +145,20 @@ export class Vector {
     };
 
     /**
+     * Creates a new instance of magnitude 1 with a random angle
+     *
+     * @return A new Vector instance
+     * @example
+     * const vec = Vector.randomUnitVector();
+     *
+     * assert.equal(vec.magnitude(), 1)
+     * @category Constructor
+     */
+    static randomUnitVector = () => {
+        return new Vector(1, 0).rotateBy(Math.random() * 2 * Math.PI);
+    };
+
+    /**
      * Adds the X axis of another vector to this one
      *
      * @param {Vector} vec The other vector you want to add to this one

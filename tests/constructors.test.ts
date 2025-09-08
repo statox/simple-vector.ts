@@ -221,6 +221,22 @@ test('Other methods', () => {
         });
     });
 
+    describe('.randomUnitVector', function () {
+        let vec: Vector;
+
+        before(function () {
+            vec = Vector.randomUnitVector();
+        });
+
+        it('should return an instance of Vector', function () {
+            assert.ok(vec instanceof Vector);
+        });
+
+        it('should have a magnitude of 1', function () {
+            assert.strictEqual(vec.magnitude(), 1);
+        });
+    });
+
     describe('.toString', function () {
         let vec: Vector;
         let ret: string;
