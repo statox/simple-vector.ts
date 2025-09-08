@@ -13,6 +13,7 @@ Features:
 - [x] Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
 - [x] Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change. **Won't do I would make more sense to use `vec1.subtract(v2).angle()`.**
 - [x] Add `.slope`
+- [x] Add a `.reflect` method inspired by `p5.Vector.reflect`
 
 Tooling:
 
@@ -29,7 +30,6 @@ Features:
 - [ ] Add `.manhattanDistance(other: Vector)`
 - [ ] Add `Number.isFinite()` validations on the main methods arguments.
 - [ ] Add a method equivalent to `clampX(10).clampY(10)` (which is different from `.clamp(10)`) and rename `.clamp` to `.clampMag`
-- [ ] Add a `.reflect` method inspired by `p5.Vector.reflect`
 - [ ] Add a `.random()` static method generating a random unit vector.
 - [ ] Maybe add `.wrapX(0, 100)` method to have the x property going back to `100` if it's lower than `0` and vice versa?
 

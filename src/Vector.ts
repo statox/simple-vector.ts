@@ -683,6 +683,33 @@ export class Vector {
     }
 
     /**
+     * Reflects the vector about a line. The orientation of the line
+     * is described by the parameter `surfaceNormal` a normal vector
+     * that points away from the shape.
+     *
+     * @param {Vector} surfaceNormal The normal vector of the line to reflect about
+     * @return `this` for chaining capabilities
+     * @example
+     * // normal vector
+     * const n = new Vector(0, 1);
+     * // vector to reflect
+     * const v = new Vector(4, 6);
+     *
+     * // reflect v about n
+     * v.reflect(n)
+     *
+     * assert.equal(vec.x, 4)
+     * assert.equal(vec.y, -6)
+     *
+     * @category Reflect
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/reflect)
+     */
+    reflect(surfaceNormal: Vector) {
+        const surfaceNormalCopy = surfaceNormal.clone().normalize();
+        return this.subtract(surfaceNormalCopy.multiplyScalar(2 * this.dot(surfaceNormalCopy)));
+    }
+
+    /**
      * Normalize the vector (Keep the direction but change the length to 1)
      *
      * @return `this` for chaining capabilities
