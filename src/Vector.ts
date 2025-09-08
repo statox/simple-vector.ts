@@ -1344,6 +1344,38 @@ export class Vector {
     angleDeg = this.horizontalAngleDeg;
 
     /**
+     * Computes the slope (or gradient) of the line passing by the vector.
+     *
+     * Note that the slope is positive for vectors in quadrants I and III,
+     * negative for vectors in quadrants II and IV, `0` for horizontal vectors
+     * and `Infinity` for vertical vectors
+     *
+     * @return The slope of the line passing by the vector
+     * @example
+     * assert.equal(0,   (new Vector(1, 0)).slope());
+     * assert.equal(0,   (new Vector(-1, 0)).slope());
+     * assert.equal(1,   (new Vector(1, 1)).slope());
+     * assert.equal(1,   (new Vector(-1, -1)).slope());
+     * assert.equal(-1,   (new Vector(-1, 1)).slope());
+     * assert.equal(-1,   (new Vector(1, -1)).slope());
+     * assert.equal(±Infinity,   (new Vector(0, 1)).slope());
+     * assert.equal(±Infinity,   (new Vector(0, -1)).slope());
+     *
+     * @category Angle
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/angle)
+     */
+    slope() {
+        const m = this.y / this.x;
+        if (Object.is(m, -0)) {
+            return 0;
+        }
+        if (m === -Infinity) {
+            return Infinity;
+        }
+        return m;
+    }
+
+    /**
      * Gets the angle in radian (0 < θ <= π) between this vector and another one
      *
      * @param {Vector} vec The second vector

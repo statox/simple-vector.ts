@@ -209,4 +209,15 @@ test('Angle methods', () => {
         assertCloseTo(v2.orientedAngleDegWith(new Vector(1, 1)), -90);
         assertCloseTo(v2.orientedAngleDegWith(new Vector(0, 1)), -45);
     });
+
+    test('.slope', () => {
+        assert.strictEqual(0, new Vector(1, 0).slope());
+        assert.strictEqual(0, new Vector(-1, 0).slope());
+        assert.strictEqual(1, new Vector(1, 1).slope());
+        assert.strictEqual(1, new Vector(-1, -1).slope());
+        assert.strictEqual(-1, new Vector(-1, 1).slope());
+        assert.strictEqual(-1, new Vector(1, -1).slope());
+        assert.strictEqual(Infinity, new Vector(0, 1).slope());
+        assert.strictEqual(Infinity, new Vector(0, -1).slope());
+    });
 });
