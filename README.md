@@ -67,25 +67,26 @@ Using a CDN to include the package in a vanilla JS page
 
 If you are a user of `Victor.js` you should feel mostly at home with simple-vector. Be warned that some features have been reworked:
 
-- Removed `rotateBy` and `rotateByDeg` which seemed to be broken or not useful ([Related issue](https://github.com/maxkueng/victor/issues/37))
-- Renamed `rotate` and `rotateDeg` to `rotateBy` and `rotateByDeg` to make the name more explicit.
+- Removed `.rotateBy` and `.rotateByDeg` which seemed to be broken or not useful ([Related issue](https://github.com/maxkueng/victor/issues/37))
+- Renamed `.rotate` and `.rotateDeg` to `.rotateBy` and `.rotateByDeg` to make the name more explicit.
 - Added explicit errors when trying to divide by zero ([Related issue](https://github.com/maxkueng/victor/issues/40))
 - Added explicit errors when required parameters are missing or have invalid values.
-- `.toFixed()` was renamed to `.fixPrecision()`. Also it converted components to string so we fixed the method to keep them number ([Related issue](https://github.com/maxkueng/victor/issues/28))
+- `.toFixed` was renamed to `.fixPrecision`. Also it converted components to string so we fixed the method to keep them number ([Related issue](https://github.com/maxkueng/victor/issues/28))
 
 Note that we also added a few features we felt were missing on Victor.js or were requested in the project's issues:
 
 - Completed documentation (In particular for the remaining rotation functions)
-- Added methods `angleWith`, `angleWithDeg`, `orientedAngleWith` and `orientedAngleDegWith` to compute angle between two vectors.
-- `.mix()` now validates the percentage value and throws an error if the percentage is `<0` or `>1`.
-- Added `resize()` ([Related issue](https://github.com/maxkueng/victor/issues/32), [Victor MR #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
-- Added `rotateTowards`/`rotateTowardsDeg` to steer a vector toward another one.
+- Added methods `.angleWith`, `.angleWithDeg`, `.orientedAngleWith` and `.orientedAngleDegWith` to compute angle between two vectors.
+- `.mix` now validates the percentage value and throws an error if the percentage is `<0` or `>1`.
+- Added `.resize` ([Related issue](https://github.com/maxkueng/victor/issues/32), [Victor MR #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
+- Added `.rotateTowards`/`.rotateTowardsDeg` to steer a vector toward another one.
 - Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input.
-- Added `clamp` to clamp the magnitude and `clampX`, `clampY` to clamp the axes.
-- Added `fromPolar` and `toPolar` methods. ([Related issue](https://github.com/maxkueng/victor/issues/26))
-- Added `limitX` and `limitY` to go with `limit`
-- Added `isParallelTo()` and `isPerpendicularTo()`. ([Victor #42](https://github.com/maxkueng/victor/pull/42) but using already existing `.dot` and `.cross` methods)
-- Added `slope` to get the slope of the line passing by the vector
+- Added `.clamp` to clamp the magnitude and `.clampX`, `.clampY` to clamp the axes.
+- Added `.fromPolar` and `.toPolar` methods. ([Related issue](https://github.com/maxkueng/victor/issues/26))
+- Added `.limitX` and `.limitY` to go with `.limit`
+- Added `.isParallelTo` and `.isPerpendicularTo`. ([Victor #42](https://github.com/maxkueng/victor/pull/42) but using already existing `.dot` and `.cross` methods)
+- Added `.slope` to get the slope of the line passing by the vector
+- Added `.reflect` to reflect the vector against a surface's normal vector
 
 We also ported the original tests and added new ones.
 
