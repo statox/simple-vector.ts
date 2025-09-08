@@ -82,8 +82,8 @@ export class Vector {
      * @example
      * const vec = Vector.fromArray([42, 21]);
      *
-     * vec.toString();
-     * // 'x:42, y:21'
+     * assert.equal(vec.x, 42)
+     * assert.equal(vec.y, 21)
      * @category Constructor
      */
     static fromArray = (arr: number[]) => {
@@ -130,8 +130,8 @@ export class Vector {
      * @example
      * const vec = Vector.fromPolar(Math.PI / 2, 100);
      *
-     * assert.equal(vec1.x, 0)
-     * assert.equal(vec1.y, 100)
+     * assert.equal(vec.x, 0)
+     * assert.equal(vec.y, 100)
      * @category Constructor
      */
     static fromPolar = (radians: number, magnitude: number) => {
