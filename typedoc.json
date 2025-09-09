@@ -1,10 +1,15 @@
 {
-    "entryPoints": ["./index.ts"],
+    "entryPoints": [
+        "./index.ts"
+    ],
     "validation": {
         "notExported": true,
         "invalidLink": true,
         "rewrittenLink": true,
         "notDocumented": true,
         "unusedMergeModuleWith": true
-    }
+    },
+    "projectDocuments": [
+        "guides/guides.md"
+    ]
 }

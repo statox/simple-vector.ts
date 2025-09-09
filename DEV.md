@@ -23,6 +23,7 @@ Tooling:
 - [x] Use spellcheck to avoid typos in code and docs.
 - [x] Create interactive example of the different methods to make the discoverability easier.
 - [x] Look into UMD to allow import from `<script>` without `type="module"`
+- [x] Docs: Add instructions to let the user add a new method to the `Vector` class while making Typescript happy.
 
 Features:
 
