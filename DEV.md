@@ -15,6 +15,7 @@ Features:
 - [x] Add `.slope`
 - [x] Add a `.reflect` method inspired by `p5.Vector.reflect`
 - [x] Add a `.random()` static method generating a random unit vector.
+- [x] For `.mix` methods explain if `mixFactor` of `0` sets the value to the current vector or to the new vector (see doc of `p5.Vector.lerp` for example)
 
 Tooling:
 
@@ -33,7 +34,6 @@ Features:
 - [ ] Add `Number.isFinite()` validations on the main methods arguments.
 - [ ] Add a method equivalent to `clampX(10).clampY(10)` (which is different from `.clamp(10)`) and rename `.clamp` to `.clampMag`
 - [ ] Maybe add `.wrapX(0, 100)` method to have the x property going back to `100` if it's lower than `0` and vice versa?
-- [ ] For `.mix` methods explain if `mixFactor` of `0` sets the value to the current vector or to the new vector (see doc of `p5.Vector.lerp` for example)
 
 Dev tasks:
 

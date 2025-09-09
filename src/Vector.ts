@@ -1065,6 +1065,10 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the X axis towards another vector.
      *
+     * The `mixFactor` parameter is the amount to interpolate between this vector and
+     * the other vector. 0.0 keeps the X axis equal to this vector's, 0.5 is
+     * halfway between, and 1.0 sets the X axis equal to the other vector's.
+     *
      * @param {Vector} vec The other vector
      * @param {Number} mixFactor The blend amount [0, 1] (optional, default: 0.5)
      * @return `this` for chaining capabilities
@@ -1090,6 +1094,10 @@ export class Vector {
     /**
      * Performs a linear blend / interpolation of the Y axis towards another vector
      *
+     * The `mixFactor` parameter is the amount to interpolate between this vector and
+     * the other vector. 0.0 keeps the Y axis equal to this vector's, 0.5 is
+     * halfway between, and 1.0 sets the Y axis equal to the other vector's.
+     *
      * @param {Vector} vec The other vector
      * @param {Number} mixFactor The blend amount (optional, default: 0.5)
      * @return `this` for chaining capabilities
@@ -1114,6 +1122,10 @@ export class Vector {
 
     /**
      * Performs a linear blend / interpolation towards another vector
+     *
+     * The `mixFactor` parameter is the amount to interpolate between this vector and
+     * the other vector. 0.0 keeps the axes equal to this vector's, 0.5 is
+     * halfway between, and 1.0 sets the axes equal to the other vector's.
      *
      * @param {Vector} vec The other vector
      * @param {Number} mixFactor The blend amount (optional, default: 0.5)
