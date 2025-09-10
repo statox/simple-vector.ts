@@ -18,6 +18,7 @@ Features:
 - [x] Add a `.random` static method generating a random unit vector.
 - [x] For `.mix` methods explain if `mixFactor` of `0` sets the value to the current vector or to the new vector (see doc of `p5.Vector.lerp` for example)
 - [x] Get rid of `.length` and `.lengthSq` to have a consistent naming `.mag` and `.magSq`
+- [x] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
 
 Tooling:
 
@@ -30,7 +31,6 @@ Tooling:
 
 Features:
 
-- [ ] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
 - [ ] Add `.manhattanDistance(other: Vector)`
 - [ ] Add `Number.isFinite()` validations on the main methods arguments.
 - [ ] Maybe add `.wrapX(0, 100)` method to have the x property going back to `100` if it's lower than `0` and vice versa?

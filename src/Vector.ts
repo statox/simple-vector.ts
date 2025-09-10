@@ -1985,10 +1985,11 @@ export class Vector {
      * Returns true if this vector axes values are exactly the same as another.
      *
      * Be cautious with floating point errors. If vectors are close but not exactly
-     * the same this method returns `false`
+     * the same this method returns `false`, in most cases you probably want to use
+     * {@link isCloseTo} instead.
      *
      * @param {Vector} vec The second vector
-     * @return true if the vector magnitude is 0, false otherwise
+     * @return true if the vector axes are equal to the other one's
      * @example
      * const vec1 = new Vector(100, 50);
      *
@@ -1997,11 +1998,47 @@ export class Vector {
      *
      * const vec3 = new Vector(0, 0);
      * assert.false(vec1.isEqualTo(vec3);
+     *
+     * // Beware when manipulating vectors
+     * const vec1Rot = vec1.clone().rotateByDeg(360)
+     * // => {x: 100.00000000000001, y: 49.99999999999998}
+     * assert.false(vec1.isEqualTo(vec1Rot));
+     *
      * @category Comparison
      * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
      */
     isEqualTo(vec: Vector) {
         return this.x === vec.x && this.y === vec.y;
+    }
+
+    /**
+     * Returns true if this vector axes values are close to the axes of the other
+     * vector, within the margin of the `epsilon` parameter.
+     *
+     * This is useful when dealing with floating point errors. You probably want
+     * to use this method rather than {@link isEqualTo}.
+     *
+     * @param {Vector} vec The second vector
+     * @param {number} epsilon (default `1e-6`) The size of the margin, you want to keep this value small
+     * @return true if the vector axes are close to the other one's within the provided margin
+     * @example
+     * const vec1 = new Vector(100, 50);
+     *
+     * const vec2 = new Vector(100.000000001, 49.99999999998);
+     * assert.false(vec1.isEqualTo(vec2);
+     * assert.true(vec1.isCloseTo(vec2);
+     *
+     * // Useful when manipulating vectors
+     * const vec1Rot = vec1.clone().rotateByDeg(360)
+     * // => {x: 100.00000000000001, y: 49.99999999999998}
+     * assert.true(vec1.isCloseTo(vec1Rot));
+     * assert.false(vec1.isEqualTo(vec1Rot));
+     *
+     * @category Comparison
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/comparison)
+     */
+    isCloseTo(vec: Vector, epsilon: number = 1e-6) {
+        return Math.abs(this.x - vec.x) <= epsilon && Math.abs(this.y - vec.y) <= epsilon;
     }
 
     /**

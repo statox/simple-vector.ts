@@ -36,6 +36,38 @@ test('Comparison methods', () => {
         });
     });
 
+    describe('.isCloseTo', function () {
+        let vec1: Vector;
+        let vec2: Vector;
+        let vec3: Vector;
+        let vec4: Vector;
+        let vec5: Vector;
+
+        before(function () {
+            vec1 = new Vector(100, 100);
+            vec2 = new Vector(100, 120);
+            vec3 = new Vector(100, 120);
+            vec4 = new Vector(100.0000000000001, 99.9999999999998);
+            vec5 = new Vector(100.0001, 99.9998);
+        });
+
+        it('should return false if the vectors are not the same', function () {
+            assert.strictEqual(vec1.isCloseTo(vec2), false);
+        });
+        it('should return true if the vectors are the same', function () {
+            assert.strictEqual(vec2.isCloseTo(vec3), true);
+        });
+        it('should return true if the vectors are close in the margin', function () {
+            assert.strictEqual(vec1.isCloseTo(vec4), true);
+        });
+        it('should return false if the vectors are close but not in the margin', function () {
+            assert.strictEqual(vec1.isCloseTo(vec5), false);
+        });
+        it('should return true if the vectors are close in the specified margin', function () {
+            assert.strictEqual(vec1.isCloseTo(vec5, 1e-3), true);
+        });
+    });
+
     describe('.isParallelTo', () => {
         it('Should have a tolerance for rounding errors', () => {
             const vec1 = new Vector(14, -23);
