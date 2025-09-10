@@ -101,4 +101,17 @@ test('Distance methods', () => {
         assert.strictEqual(new Vector(5, -5).distanceSq(new Vector(5, 5)), 100);
         assert.strictEqual(new Vector(100, 50).distanceSq(new Vector(200, 60)), 10100);
     });
+
+    test('.distanceManhattan', () => {
+        assert.strictEqual(new Vector(10, 10).distanceManhattan(new Vector(10, 10)), 0);
+
+        assert.strictEqual(new Vector(0, 0).distanceManhattan(new Vector(10, 0)), 10);
+        assert.strictEqual(new Vector(10, 0).distanceManhattan(new Vector(0, 0)), 10);
+
+        assert.strictEqual(new Vector(5, -5).distanceManhattan(new Vector(5, 5)), 10);
+        assert.strictEqual(new Vector(-5, 5).distanceManhattan(new Vector(5, 5)), 10);
+
+        assert.strictEqual(new Vector(-5, -5).distanceManhattan(new Vector(5, 5)), 20);
+        assert.strictEqual(new Vector(1, 1).distanceManhattan(new Vector(3, 4)), 5);
+    });
 });
