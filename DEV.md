@@ -10,13 +10,14 @@ Features:
 - [x] Maybe add `fromPolar` https://github.com/maxkueng/victor/issues/26`~
 - [x] Maybe `isPerpendicular`, `isParallel` https://github.com/maxkueng/victor/pull/42~
 - [x] Implement `limitX` and `limitY` and use them in `limit`.~
-- [x] Implement `clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `clampX` and `clampY`.~
+- [x] Implement `.clamp(max: number, min?: number)`: Always apply `mag = Math.max(mag, max)` and if `min` is defined `mag = Math.min(mag, min)` (handle special case for `mag === 0`. `max` and `min` must always be positive. Also implement `.clampX` and `.clampY`.~
 - [x] Add a method equivalent to `clampX(10).clampY(10)` (which is different from `.clamp(10)`) and rename `.clamp` to `.clampMag`
 - [x] Maybe integrate the code from [this issue](https://github.com/maxkueng/victor/issues/30). After testing I realized the proposed function computes the angle between the vector created between the 2 input vectors and the x axis. The name proposed in the issue needs to change. **Won't do I would make more sense to use `vec1.subtract(v2).angle()`.**
 - [x] Add `.slope`
 - [x] Add a `.reflect` method inspired by `p5.Vector.reflect`
-- [x] Add a `.random()` static method generating a random unit vector.
+- [x] Add a `.random` static method generating a random unit vector.
 - [x] For `.mix` methods explain if `mixFactor` of `0` sets the value to the current vector or to the new vector (see doc of `p5.Vector.lerp` for example)
+- [x] Get rid of `.length` and `.lengthSq` to have a consistent naming `.mag` and `.magSq`
 
 Tooling:
 
@@ -29,7 +30,6 @@ Tooling:
 
 Features:
 
-- [ ] Get rid of `length` and `lengthSq` to have a consistent naming `mag` and `magSq`
 - [ ] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
 - [ ] Add `.manhattanDistance(other: Vector)`
 - [ ] Add `Number.isFinite()` validations on the main methods arguments.

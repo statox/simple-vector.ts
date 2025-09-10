@@ -67,8 +67,8 @@ test('Rotation methods - Original tests', () => {
         });
 
         it('should keep the length', function () {
-            assert.strictEqual(retX.length(), 100);
-            assert.strictEqual(retY.length(), 100);
+            assert.strictEqual(retX.mag(), 100);
+            assert.strictEqual(retY.mag(), 100);
         });
     });
 
@@ -90,7 +90,7 @@ test('Rotation methods - Original tests', () => {
         });
 
         it('should keep the length', function () {
-            assert.strictEqual(ret.length(), 100);
+            assert.strictEqual(ret.mag(), 100);
         });
     });
 });

@@ -24,13 +24,13 @@ test('Magnitude methods - Original tests', () => {
         });
     });
 
-    describe('.length', function () {
+    describe('.mag', function () {
         let vec: Vector;
         let ret: number;
 
         before(function () {
             vec = new Vector(100, 100);
-            ret = vec.length();
+            ret = vec.mag();
         });
 
         it('should return the length of the vector', function () {
@@ -73,10 +73,22 @@ test('Magnitude methods - Original tests', () => {
 });
 
 test('Magnitude methods', () => {
-    test('.length', () => {
-        assert.strictEqual(new Vector(100, 0).length(), 100);
-        assert.strictEqual(new Vector(0, 100).length(), 100);
-        assert.strictEqual(new Vector(100, 50).length(), 111.80339887498948);
+    test('.mag', () => {
+        assert.strictEqual(new Vector(100, 0).mag(), 100);
+        assert.strictEqual(new Vector(0, 100).mag(), 100);
+        assert.strictEqual(new Vector(100, 50).mag(), Math.sqrt(12500));
+    });
+
+    test('.magnitude', () => {
+        assert.strictEqual(new Vector(100, 0).magnitude(), 100);
+        assert.strictEqual(new Vector(0, 100).magnitude(), 100);
+        assert.strictEqual(new Vector(100, 50).magnitude(), Math.sqrt(12500));
+    });
+
+    test('.magSq', () => {
+        assert.strictEqual(new Vector(100, 0).magSq(), 10000);
+        assert.strictEqual(new Vector(0, 100).magSq(), 10000);
+        assert.strictEqual(new Vector(100, 50).magSq(), 12500);
     });
 
     test('.normalize', () => {

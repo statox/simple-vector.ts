@@ -724,7 +724,7 @@ export class Vector {
     }
 
     /**
-     * Normalize the vector (Keep the direction but change the length to 1)
+     * Normalize the vector (Keep the direction but change the magnitude to 1)
      *
      * @return `this` for chaining capabilities
      * @throws {@link DivisionByZeroError} If the vector is zero
@@ -738,9 +738,7 @@ export class Vector {
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
     normalize() {
-        const length = this.length();
-        this.divideScalar(length);
-        return this;
+        return this.divideScalar(this.magnitude());
     }
 
     /**
@@ -1835,44 +1833,44 @@ export class Vector {
     }
 
     /**
-     * Calculates the length (or magnitude) of the vector
+     * Calculates the magnitude (or length) of the vector
      *
      * @return The magnitude of the vector
      * @example
      * const vec = new Vector(100, 50);
      *
-     * const m = vec.length()
+     * const m = vec.mag()
      * assert.equal(m, 111.80339887498948)
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
      */
-    length() {
-        return Math.sqrt(this.lengthSq());
+    mag() {
+        return Math.sqrt(this.magSq());
     }
 
     /**
-     * Alias for {@link length}
+     * Alias for {@link mag}
      *
      * @return The magnitude of the vector
      * @category Magnitude
      */
-    magnitude = this.length;
+    magnitude = this.mag;
 
     /**
      * Calculates the squared length (or squared magnitude) of the vector
      *
-     * This is faster than {@link length} because we don't use `Math.sqrt`.
+     * This is faster than {@link mag} because we don't use `Math.sqrt`.
      *
      * @example
      * const vec = new Vector(100, 50);
      *
-     * const m = vec.lengthSq()
+     * const m = vec.magSq()
      * assert.equal(m, 12500)
      *
      * @return The squared magnitude of the vector
      * @category Magnitude
      */
-    lengthSq() {
+    magSq() {
         return this.x * this.x + this.y * this.y;
     }
 

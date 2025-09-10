@@ -71,6 +71,7 @@ If you are a user of `Victor.js` you should feel mostly at home with simple-vect
 
 - Removed `.rotateBy` and `.rotateByDeg` which seemed to be broken or not useful ([Related issue](https://github.com/maxkueng/victor/issues/37))
 - Renamed `.rotate` and `.rotateDeg` to `.rotateBy` and `.rotateByDeg` to make the name more explicit.
+- Renamed `.length` and `.lengthSq` to `.mag` and `.magSq` for personal preferences, because it's more consistent with method names like `clampMag` and the vocabulary used in several places in the doc.
 - Added explicit errors when trying to divide by zero ([Related issue](https://github.com/maxkueng/victor/issues/40))
 - Added explicit errors when required parameters are missing or have invalid values.
 - `.toFixed` was renamed to `.fixPrecision`. Also it converted components to string so we fixed the method to keep them number ([Related issue](https://github.com/maxkueng/victor/issues/28))
