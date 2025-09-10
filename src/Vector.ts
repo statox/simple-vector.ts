@@ -763,8 +763,8 @@ export class Vector {
      * vec.clampX(50)
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 100)
-     * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
+     * @category Clamp
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
     clampX(max: number, min?: number) {
         if (min !== undefined && min !== null) {
@@ -793,8 +793,8 @@ export class Vector {
      * vec.clampY(50)
      * assert.equal(vec.y, 50)
      * assert.equal(vec.y, 100)
-     * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
+     * @category Clamp
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
     clampY(max: number, min?: number) {
         if (min !== undefined && min !== null) {
@@ -826,8 +826,8 @@ export class Vector {
      * vec.clampMag(50)
      * assert.equal(vec.magnitude(), 50)
      * assert.equal(vec.x, vec.y)
-     * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
+     * @category Clamp
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
     clampMag(max: number, min?: number) {
         const currentMag = this.magnitude();
@@ -864,8 +864,8 @@ export class Vector {
      * vec.clampAxes(50)
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 50)
-     * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
+     * @category Clamp
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
     clampAxes(max: number, min?: number) {
         if (min !== undefined && min !== null && min > max) {
