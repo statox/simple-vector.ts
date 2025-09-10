@@ -754,7 +754,7 @@ export class Vector {
      * Also clamp to a minimum value if a second argument is specified
      *
      * @param {Number} max The maximum value for the X axis
-     * @param {Number} min (optional) The maximum value for the X axis
+     * @param {Number} min (optional) The minimum value for the X axis
      * @return `this` for chaining capabilities
      * @throws {RangeError} RangeError if the `min` value is defined and larger than the max value
      * @example
@@ -784,7 +784,7 @@ export class Vector {
      * Also clamp to a minimum value if a second argument is specified
      *
      * @param {Number} max The maximum value for the Y axis
-     * @param {Number} min (optional) The maximum value for the Y axis
+     * @param {Number} min (optional) The minimum value for the Y axis
      * @return `this` for chaining capabilities
      * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value
      * @example
@@ -815,8 +815,8 @@ export class Vector {
      *
      * This preserves the angle of the vector.
      *
-     * @param {Number} max The maximum value for the Y axis
-     * @param {Number} min (optional) The maximum value for the Y axis
+     * @param {Number} max The maximum value for the magnitude
+     * @param {Number} min (optional) The minimum value for the magnitude
      * @return `this` for chaining capabilities
      * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value.
      * @throws { RangeError } RangeError if the `min` or `max` value are negative.
