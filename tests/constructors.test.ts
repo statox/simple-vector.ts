@@ -21,9 +21,8 @@ test('Other methods', () => {
 
         it('should throw if parameters are invalid', function () {
             // @ts-expect-error We are testing invalid types for JS version
-            assert.throws(() => new Vector.fromArray(null, 1), TypeError);
-            // @ts-expect-error We are testing invalid types for JS version
-            assert.throws(() => new Vector.fromArray(1, Infinity), TypeError);
+            assert.throws(() => new Vector(null, 1), TypeError);
+            assert.throws(() => new Vector(1, Infinity), TypeError);
         });
     });
 
