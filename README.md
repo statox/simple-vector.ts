@@ -2,10 +2,10 @@ A 2D vector math library built as a modern module without dependencies.
 
 Check out [the documentation](https://statox.github.io/simple-vector.ts/) and [the interactive examples](https://statox.github.io/simple-vector-examples/).
 
-The code is largely inspired from [Victor.js](https://www.npmjs.com/package/victor) adding Typescript typing, updating documentation, fixing some long running issues and
+The code is largely inspired from [Victor.js](https://www.npmjs.com/package/victor) adding TypeScript typing, updating documentation, fixing some long running issues and
 adding some features.
 
-The published [package on npm](https://www.npmjs.com/package/simple-vector) contains CommonJS, ECMAScript and UMD modules. So you should be able to use this package anywhere from nodeJS or deno backends to frontent applications using vanilla Javascript or your favorite frontend framework like Svelte or React.
+The published [package on npm](https://www.npmjs.com/package/simple-vector) contains CommonJS, ECMAScript and UMD modules. So you should be able to use this package anywhere from nodeJS or deno backends to frontent applications using vanilla JavaScript or your favorite frontend framework like Svelte or React.
 
 # Installation
 
@@ -100,4 +100,4 @@ We also ported the original tests and added new ones.
 
 [DEV.md](https://github.com/statox/simple-vector.ts/blob/main/DEV.md) has some notes about how to setup the repo for development.
 
-I don't expect anyone to contribute to this repo anytime soon, if I'm wrong don't hesitate to create an [issue on Github](https://github.com/statox/simple-vector.ts/issues).
+I don't expect anyone to contribute to this repo anytime soon, if I'm wrong don't hesitate to create an [issue on GitHub](https://github.com/statox/simple-vector.ts/issues).
