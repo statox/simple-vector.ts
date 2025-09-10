@@ -83,7 +83,7 @@ Note that we also added a few features we felt were missing on Victor.js or were
 - Added `.resize` ([Related issue](https://github.com/maxkueng/victor/issues/32), [Victor MR #39](https://github.com/maxkueng/victor/pull/39) but with a ~10x faster implementation than the proposed code)
 - Added `.rotateTowards`/`.rotateTowardsDeg` to steer a vector toward another one.
 - Updated `.fromArray` and `.fromObject` to explicitly fail on invalid input.
-- Added `.clamp` to clamp the magnitude and `.clampX`, `.clampY` to clamp the axes.
+- Added `.clampMag` to clamp the magnitude, also `.clampX`, `.clampY` and `.clampAxes` to clamp the axes.
 - Added `.fromPolar` and `.toPolar` methods. ([Related issue](https://github.com/maxkueng/victor/issues/26))
 - Added `.limitX` and `.limitY` to go with `.limit`
 - Added `.isParallelTo` and `.isPerpendicularTo`. ([Victor #42](https://github.com/maxkueng/victor/pull/42) but using already existing `.dot` and `.cross` methods)

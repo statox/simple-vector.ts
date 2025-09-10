@@ -849,6 +849,33 @@ export class Vector {
     }
 
     /**
+     * Clamp the value of both axes to a maximum value.
+     * Also clamp to a minimum value if a second argument is specified.
+     *
+     * This is equivalent to calling `.clampX(max, min).clampY(max, min)`
+     *
+     * @param {Number} max The maximum value for the axes
+     * @param {Number} min (optional) The minimum value for the axes
+     * @return `this` for chaining capabilities
+     * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value.
+     * @example
+     * const vec = new Vector(100, 100);
+     *
+     * vec.clampAxes(50)
+     * assert.equal(vec.x, 50)
+     * assert.equal(vec.y, 50)
+     * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
+     */
+    clampAxes(max: number, min?: number) {
+        if (min !== undefined && min !== null && min > max) {
+            throw RangeError('min must be smaller than max');
+        }
+
+        return this.clampX(max, min).clampY(max, min);
+    }
+
+    /**
      * If the absolute value of the X axis is greater than `max`,
      * multiplies its value by `factor`
      *
