@@ -823,13 +823,13 @@ export class Vector {
      * @example
      * const vec = new Vector(100, 100);
      *
-     * vec.clamp(50)
+     * vec.clampMag(50)
      * assert.equal(vec.magnitude(), 50)
      * assert.equal(vec.x, vec.y)
      * @category Magnitude
      * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_clamp)
      */
-    clamp(max: number, min?: number) {
+    clampMag(max: number, min?: number) {
         const currentMag = this.magnitude();
         let minBound = 0;
         if (min !== undefined && min !== null) {

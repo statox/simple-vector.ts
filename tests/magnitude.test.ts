@@ -141,38 +141,38 @@ test('Magnitude methods', () => {
         });
     });
 
-    describe('.clamp', function () {
+    describe('.clampMag', function () {
         it('should be chainable', function () {
             const vec = new Vector(100, 100);
-            const ret = vec.clamp(10);
+            const ret = vec.clampMag(10);
             assert.ok(ret === vec);
         });
 
         it('should throw if min is larger than max', function () {
             const vec = new Vector(100, 100);
-            assert.throws(() => vec.clamp(10, 100), RangeError);
+            assert.throws(() => vec.clampMag(10, 100), RangeError);
         });
 
         it('should throw if max is negative', function () {
             const vec = new Vector(100, 100);
-            assert.throws(() => vec.clamp(-1), RangeError);
+            assert.throws(() => vec.clampMag(-1), RangeError);
         });
 
         it('should throw if min is negative', function () {
             const vec = new Vector(100, 100);
-            assert.throws(() => vec.clamp(1, -1), RangeError);
+            assert.throws(() => vec.clampMag(1, -1), RangeError);
         });
 
         it('should not change value if its in range', function () {
             const vec = new Vector(10, 10);
-            vec.clamp(16, 13);
+            vec.clampMag(16, 13);
             assert.strictEqual(vec.x, 10);
             assert.strictEqual(vec.y, 10);
         });
 
         it('should clamp the magnitude to the max value', function () {
             const vec = new Vector(10, 10);
-            vec.clamp(Math.sqrt(2));
+            vec.clampMag(Math.sqrt(2));
             assertCloseTo(vec.x, 1);
             assertCloseTo(vec.y, 1);
             assert.strictEqual(vec.magnitude(), Math.sqrt(2));
@@ -180,7 +180,7 @@ test('Magnitude methods', () => {
 
         it('should clamp the magnitude to the min value', function () {
             const vec = new Vector(10, 10);
-            vec.clamp(1000, 100 * Math.sqrt(2));
+            vec.clampMag(1000, 100 * Math.sqrt(2));
             assert.strictEqual(vec.x, 100);
             assert.strictEqual(vec.y, 100);
         });
