@@ -19,7 +19,7 @@ Features:
 - [x] For `.mix` methods explain if `mixFactor` of `0` sets the value to the current vector or to the new vector (see doc of `p5.Vector.lerp` for example)
 - [x] Get rid of `.length` and `.lengthSq` to have a consistent naming `.mag` and `.magSq`
 - [x] Add `.isCloseTo(other: Vector, epsilon=1e-6)` because `.isEqual()` might not always to do the trick with floating point errors
-- [x] Add `.manhattanDistance(other: Vector)`
+- [x] Add `.manhattanDistance(other: Vector)` and `distanceChebyshev(vec: Vector)`
 
 Tooling:
 

@@ -92,6 +92,7 @@ Note that we also added a few features we felt were missing on Victor.js or were
 - Added `.reflect` to reflect the vector against a surface's normal vector
 - Added `.randomUnitVector` to create a random vector of magnitude `1`
 - Added `.isEqualTo` and `.isCloseTo` to compare vectors axes
+- Added `.manhattanDistance(other: Vector)` and `distanceChebyshev(vec: Vector)` to compute different distances between vectors.
 
 We also ported the original tests and added new ones.
 

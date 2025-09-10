@@ -114,4 +114,12 @@ test('Distance methods', () => {
         assert.strictEqual(new Vector(-5, -5).distanceManhattan(new Vector(5, 5)), 20);
         assert.strictEqual(new Vector(1, 1).distanceManhattan(new Vector(3, 4)), 5);
     });
+
+    test('.distanceChebyshev', () => {
+        assert.strictEqual(new Vector(10, 10).distanceManhattan(new Vector(10, 10)), 0);
+
+        assert.strictEqual(new Vector(1, 1).distanceChebyshev(new Vector(3, 4)), 3);
+
+        assert.strictEqual(new Vector(-1, 1).distanceChebyshev(new Vector(3, 4)), 4);
+    });
 });

@@ -41,7 +41,7 @@ export default [
                 'warn',
                 {
                     cspell: {
-                        words: ['stackoverflow', 'seedable', 'unfloat', 'scal', 'coeff']
+                        words: ['chebyshev', 'stackoverflow', 'seedable', 'unfloat', 'scal', 'coeff']
                     }
                 }
             ]

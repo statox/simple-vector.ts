@@ -1854,6 +1854,27 @@ export class Vector {
     }
 
     /**
+     * Calculates the Chebyshev distance between this vector and another.
+     * This is the greatest absolute difference between the respective coordinates
+     * of the vectors.
+     *
+     * @param {Vector} vec The second vector
+     * @return The Chebyshev distance between the vectors
+     * @example
+     * const vec1 = new Vector(1, 1);
+     * const vec2 = new Vector(3, 4);
+     *
+     * const d = vec1.distanceChebyshev(vec2);
+     * assert.equal(d, 3)
+     * @category Distance
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/distance)
+     * @see [Wikipedia definition](https://en.wikipedia.org/wiki/Chebyshev_distance)
+     */
+    distanceChebyshev(vec: Vector) {
+        return Math.max(Math.abs(this.x - vec.x), Math.abs(this.y - vec.y));
+    }
+
+    /**
      * Calculates the magnitude (or length) of the vector
      *
      * @return The magnitude of the vector
