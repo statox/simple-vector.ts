@@ -734,8 +734,8 @@ export class Vector {
      * vec.normalize();
      * assert.equal(vec.x, 1)
      * assert.equal(vec.y, 0)
-     * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
+     * @category Resize
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/resize)
      */
     normalize() {
         return this.divideScalar(this.magnitude());
@@ -1952,8 +1952,8 @@ export class Vector {
      * vec1.resize(-2);
      * assert.equal(vec1.horizontalAngle(), -90);
      * assert.equal(vec1.magnitude(), 2);
-     * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
+     * @category Resize
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/resize)
      */
     resize(magnitude: number) {
         if (magnitude === undefined || magnitude === null) {
