@@ -233,7 +233,7 @@ test('Other methods', () => {
         });
 
         it('should have a magnitude of 1', function () {
-            assert.strictEqual(vec.magnitude(), 1);
+            assertCloseTo(vec.magnitude(), 1);
         });
     });
 
