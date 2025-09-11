@@ -887,7 +887,7 @@ export class Vector {
      * assert.equal(vec.x, 90)
      * assert.equal(vec.y, 100)
      * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/limit)
      */
     limitX(max: number, factor: number) {
         if (Math.abs(this.x) > max) {
@@ -910,7 +910,7 @@ export class Vector {
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 90)
      * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/limit)
      */
     limitY(max: number, factor: number) {
         if (Math.abs(this.y) > max) {
@@ -939,7 +939,7 @@ export class Vector {
      * assert.equal(vec2.x, 90)
      * assert.equal(vec2.y, 90)
      * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_limit)
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/limit)
      */
     limit(max: number, factor: number) {
         this.limitX(max, factor);
@@ -1887,7 +1887,7 @@ export class Vector {
      * const m = vec.mag()
      * assert.equal(m, 111.80339887498948)
      * @category Magnitude
-     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude_length)
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude)
      */
     mag() {
         return Math.sqrt(this.magSq());
@@ -1914,6 +1914,7 @@ export class Vector {
      *
      * @return The squared magnitude of the vector
      * @category Magnitude
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/magnitude)
      */
     magSq() {
         return this.x * this.x + this.y * this.y;
