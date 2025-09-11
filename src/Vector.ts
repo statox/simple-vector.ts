@@ -2095,6 +2095,7 @@ export class Vector {
      * const s = vec.toString();
      * assert.equal(s, "x:10, y:20")
      * @category Constructor
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/constructors)
      */
     toString() {
         return `x:${this.x}, y:${this.y}`;
@@ -2110,6 +2111,7 @@ export class Vector {
      * vec.toArray();
      * // [10, 20]
      * @category Constructor
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/constructors)
      */
     toArray() {
         return [this.x, this.y];
@@ -2125,6 +2127,7 @@ export class Vector {
      * vec.toObject();
      * // { x: 10, y: 20 }
      * @category Constructor
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/constructors)
      */
     toObject(): VectorLike {
         return { x: this.x, y: this.y };
@@ -2140,6 +2143,7 @@ export class Vector {
      * vec.toPolar();
      * // { theta: Math.PI/ 4, r: Math.sqrt(2) }
      * @category Constructor
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/constructors)
      */
     toPolar(): Polar {
         const angle = Math.atan2(this.y, this.x);
