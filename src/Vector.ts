@@ -715,7 +715,7 @@ export class Vector {
      * assert.equal(vec.x, 4)
      * assert.equal(vec.y, -6)
      *
-     * @category Reflect
+     * @category Reflection
      * @see [Try it live](https://statox.github.io/simple-vector-examples/reflect)
      */
     reflect(surfaceNormal: Vector) {
@@ -886,7 +886,7 @@ export class Vector {
      * vec.limitX(80, 0.9);
      * assert.equal(vec.x, 90)
      * assert.equal(vec.y, 100)
-     * @category Magnitude
+     * @category Limit
      * @see [Try it live](https://statox.github.io/simple-vector-examples/limit)
      */
     limitX(max: number, factor: number) {
@@ -909,7 +909,7 @@ export class Vector {
      * vec.limitY(80, 0.9);
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 90)
-     * @category Magnitude
+     * @category Limit
      * @see [Try it live](https://statox.github.io/simple-vector-examples/limit)
      */
     limitY(max: number, factor: number) {
@@ -938,7 +938,7 @@ export class Vector {
      * vec2.limit(80, 0.9);
      * assert.equal(vec2.x, 90)
      * assert.equal(vec2.y, 90)
-     * @category Magnitude
+     * @category Limit
      * @see [Try it live](https://statox.github.io/simple-vector-examples/limit)
      */
     limit(max: number, factor: number) {
@@ -1050,7 +1050,7 @@ export class Vector {
     }
 
     /**
-     * Rounds both axes to an integer value using Math.round()
+     * Rounds both axes to an integer value using `Math.round()`
      *
      * @return `this` for chaining capabilities
      * @example
