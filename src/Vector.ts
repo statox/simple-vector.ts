@@ -1176,7 +1176,9 @@ export class Vector {
     }
 
     /**
-     * Creates a clone of this vector
+     * Creates a clone of this vector with the same properties. This is particularly
+     * useful when you need to apply the method which modifies the vector but keep
+     * the original vector untouched
      *
      * @return The instance of the newly created vector
      * @example
@@ -1185,6 +1187,7 @@ export class Vector {
      *
      * assert.equal(vec2.x, vec1.x)
      * assert.equal(vec2.y, vec1.y)
+     * assert.notEqual(vec1, vec2)
      * @category Constructor
      */
     clone() {
