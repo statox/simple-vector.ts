@@ -779,7 +779,7 @@ export class Vector {
      * @param {Number} max The maximum value for the X axis
      * @param {Number} min The minimum value for the X axis
      * @return `this` for chaining capabilities
-     * @throws {TypeError} TypeError If the `min` value is defined and not of the same type as the `max` value
+     * @throws {TypeError} TypeError If the second parameter is defined and not of the same type as the first parameter
      * @throws {InvalidNumberError} InvalidNumberError If one of the number parameter is invalid
      * @example
      * const vec = new Vector(100, 100);
@@ -845,7 +845,7 @@ export class Vector {
      * @param {Number} max The maximum value for the Y axis
      * @param {Number} min The minimum value for the Y axis
      * @return `this` for chaining capabilities
-     * @throws {TypeError} TypeError If the `min` value is defined and not of the same type as the `max` value
+     * @throws {TypeError} TypeError If the second parameter is defined and not of the same type as the first parameter
      * @throws {InvalidNumberError} InvalidNumberError If one of the number parameter is invalid
      * @example
      * const vec = new Vector(100, 100);
@@ -937,15 +937,14 @@ export class Vector {
     }
 
     /**
-     * Clamp the value of both axes to a maximum value.
-     * Also clamp to a minimum value if a second argument is specified.
+     * Enforce the value of both axes to be between a max and min value.
+     * See {@link clampX} and {@link clampY} for details.
      *
-     * This is equivalent to calling `.clampX(max, min).clampY(max, min)`
+     * This is equivalent to calling `.clampX(min, max).clampY(min, max)`
      *
-     * @param {Number} max The maximum value for the axes
-     * @param {Number} min (optional) The minimum value for the axes
      * @return `this` for chaining capabilities
-     * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value.
+     * @throws {TypeError} TypeError If the `min` value is defined and not of the same type as the `max` value
+     * @throws {InvalidNumberError} InvalidNumberError If one of the number parameter is invalid
      * @example
      * const vec = new Vector(100, 100);
      *
@@ -955,12 +954,31 @@ export class Vector {
      * @category Clamp
      * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
-    clampAxes(max: number, min?: number) {
-        if (min !== undefined && min !== null && min > max) {
-            throw RangeError('min must be smaller than max');
-        }
+    clampAxes(min: number, max: number): Vector;
+    /**
+     * Use the axes of two vectors to enforce the bounds of the axes of this vector.
+     *
+     * @param {Vector} minVector The vector defining the minimum value for the axes
+     * @param {Vector} maxVector The vector defining the maximum value for the axes
+     */
+    clampAxes(minVector: Vector, maxVector: Vector): Vector;
+    /**
+     * Use a number to enforce the max value of the axes of this vector.
+     *
+     * @param {Number} max The maximum value for the axes
+     */
+    clampAxes(max: number): Vector;
+    /**
+     * Use the axes of a vector to enforce the max value of the axes of this vector.
+     *
+     * @param {Vector} maxVector The vector defining the maximum value for the axes
+     */
+    clampAxes(maxVector: Vector): Vector;
 
-        return this.clampX(max, min).clampY(max, min);
+    clampAxes(max: number | Vector, min?: number | Vector) {
+        // We add `as number` to avoid having to do the type checking here as
+        // it is done in .clampX and .clampY
+        return this.clampX(max as number, min as number).clampY(max as number, min as number);
     }
 
     /**

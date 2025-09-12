@@ -278,23 +278,86 @@ test('Clamp methods', () => {
 
     describe('.clampAxes', function () {
         it('should be chainable', function () {
-            const vec = new Vector(100, 100);
-            const ret = vec.clampAxes(10);
-            assert.ok(ret === vec);
+            let vec: Vector;
+            let ret: Vector;
+
+            beforeEach(() => (vec = new Vector(100, 100)));
+            afterEach(() => {
+                assert.ok(ret === vec);
+            });
+
+            it('with a single number param', () => {
+                ret = vec.clampAxes(1);
+            });
+            it('with a single Vector param', () => {
+                ret = vec.clampAxes(new Vector());
+            });
+            it('with two number params', () => {
+                ret = vec.clampAxes(1, 10);
+            });
+            it('with two Vector params', () => {
+                ret = vec.clampAxes(new Vector(), new Vector());
+            });
         });
 
-        it('should throw if min is larger than max', function () {
-            const vec = new Vector(100, 100);
-            assert.throws(() => vec.clampAxes(10, 100), RangeError);
+        it('should throw', function () {
+            it('If the parameters are not of the same type', function () {
+                const vec = new Vector(100, 100);
+                // @ts-expect-error We are testing invalid parameters
+                assert.throws(() => vec.clampAxes(200, new Vector()), TypeError);
+                // @ts-expect-error We are testing invalid parameters
+                assert.throws(() => vec.clampAxes(new Vector(), 200), TypeError);
+            });
+
+            it('If the number parameters are invalid', function () {
+                const vec = new Vector(100, 100);
+                it('First param is undefined', () => {
+                    // @ts-expect-error We are testing invalid parameters
+                    assert.throws(() => vec.clampAxes(undefined, 200), TypeError);
+                });
+                it('First param is not a number', () => {
+                    // @ts-expect-error We are testing invalid parameters
+                    assert.throws(() => vec.clampAxes('foo'), InvalidNumberError);
+                });
+            });
         });
 
-        it('should not change the axes if they are in range', function () {
-            const vec = new Vector(100, 100);
-            vec.clampAxes(150, 50);
-            assert.strictEqual(vec.x, 100);
-            assert.strictEqual(vec.y, 100);
+        it('should not change value if its in range', function () {
+            let vec: Vector;
+            const max = 150;
+            const min = 50;
+            const maxVec = new Vector(max, max);
+            const minVec = new Vector(min, min);
+            beforeEach(() => (vec = new Vector(100, 100)));
+            afterEach(() => {
+                assert.strictEqual(vec.x, 100);
+                assert.strictEqual(vec.y, 100);
+            });
+
+            it('with a single number param', () => {
+                vec.clampX(max);
+            });
+            it('with a single Vector param', () => {
+                vec.clampX(maxVec);
+            });
+            it('with ordered number params', () => {
+                vec.clampX(min, max);
+            });
+            it('with ordered Vector params', () => {
+                vec.clampX(minVec, maxVec);
+            });
+            it('with reversed number params', () => {
+                vec.clampX(max, min);
+            });
+            it('with reversed Vector params', () => {
+                vec.clampX(maxVec, minVec);
+            });
         });
 
+        /*
+         * We have a light suite of test than in .clampX and .clampY because
+         * we rely on the test suites of these methods to validate the behavior
+         */
         it('should clamp both axes to the max value', function () {
             const vec = new Vector(100, 100);
             vec.clampAxes(50);
