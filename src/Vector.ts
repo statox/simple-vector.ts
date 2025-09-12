@@ -7,6 +7,8 @@
  * @module Vector
  */
 
+import { getClampedValue, validateNumber } from './utils.ts';
+
 /**
  * An exception thrown by some methods when a division by zero is attempted.
  */
@@ -40,6 +42,22 @@ export interface Polar {
     r: number;
     theta: number;
 }
+
+/**
+ * A type guard function for the {@link Vector} class
+ *
+ * @param {unknown} obj The variable we want to check if it is a Vector or not
+ */
+export const isVector = (obj: unknown): obj is Vector => {
+    return (
+        obj !== null &&
+        typeof obj === 'object' &&
+        'x' in obj &&
+        'y' in obj &&
+        typeof (obj as Vector).x === 'number' &&
+        typeof (obj as Vector).y === 'number'
+    );
+};
 
 /**
  * A simple 2D vector class
@@ -748,62 +766,134 @@ export class Vector {
     norm = this.normalize;
 
     /**
-     * Clamp the value of the X axis to a maximum value.
-     * Also clamp to a minimum value if a second argument is specified
+     * Enforce the value of the X axis to be between a max and min value.
+     *
+     * If only one value is provided, it is used as the max bound and no
+     * min bound is enforced.
+     *
+     * If two values are provided the method will sort them to use the largest
+     * one as the max bound and the smallest one as the min bound.
+     * These values must be of the same type (either two {@link Vector} or two
+     * `number`)
      *
      * @param {Number} max The maximum value for the X axis
-     * @param {Number} min (optional) The minimum value for the X axis
+     * @param {Number} min The minimum value for the X axis
      * @return `this` for chaining capabilities
-     * @throws {RangeError} RangeError if the `min` value is defined and larger than the max value
+     * @throws {TypeError} TypeError If the `min` value is defined and not of the same type as the `max` value
+     * @throws {InvalidNumberError} InvalidNumberError If one of the number parameter is invalid
      * @example
      * const vec = new Vector(100, 100);
      *
-     * vec.clampX(50)
+     * vec.clampX(0, 50)
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 100)
      * @category Clamp
      * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
-    clampX(max: number, min?: number) {
-        if (min !== undefined && min !== null) {
-            if (min > max) {
-                throw RangeError('min must be smaller than max');
-            }
-            this.x = Math.max(this.x, min);
+    clampX(min: number, max: number): Vector;
+    /**
+     * Use the X axes of two vectors to enforce the bounds of the X axis of this vector.
+     *
+     * @param {Vector} minVector The vector defining the minimum value for the X axis
+     * @param {Vector} maxVector The vector defining the maximum value for the X axis
+     */
+    clampX(minVector: Vector, maxVector: Vector): Vector;
+    /**
+     * Use a number to enforce the max value of the X axis of this vector.
+     *
+     * @param {Number} max The maximum value for the X axis
+     */
+    clampX(max: number): Vector;
+    /**
+     * Use the X axis of a vector to enforce the max value of the X axis of this vector.
+     *
+     * @param {Vector} maxVector The vector defining the maximum value for the X axis
+     */
+    clampX(maxVector: Vector): Vector;
+
+    clampX(max: number | Vector, min?: number | Vector): Vector {
+        const a = isVector(max) ? max.x : max;
+
+        if (min === undefined) {
+            this.x = Math.min(this.x, validateNumber(a));
+            return this;
         }
 
-        this.x = Math.min(this.x, max);
+        if (typeof max !== typeof min) {
+            throw TypeError('Params must have the same type');
+        }
 
+        const b = isVector(min) ? min.x : min;
+        const _min = Math.min(a, b);
+        const _max = Math.max(a, b);
+
+        this.x = getClampedValue(this.x, _min, _max);
         return this;
     }
 
     /**
-     * Clamp the value of the y axis to a maximum value.
-     * Also clamp to a minimum value if a second argument is specified
+     * Enforce the value of the Y axis to be between a max and min value.
+     *
+     * If only one value is provided, it is used as the max bound and no
+     * min bound is enforced.
+     *
+     * If two values are provided the method will sort them to use the largest
+     * one as the max bound and the smallest one as the min bound.
+     * These values must be of the same type (either two {@link Vector} or two
+     * `number`)
      *
      * @param {Number} max The maximum value for the Y axis
-     * @param {Number} min (optional) The minimum value for the Y axis
+     * @param {Number} min The minimum value for the Y axis
      * @return `this` for chaining capabilities
-     * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value
+     * @throws {TypeError} TypeError If the `min` value is defined and not of the same type as the `max` value
+     * @throws {InvalidNumberError} InvalidNumberError If one of the number parameter is invalid
      * @example
      * const vec = new Vector(100, 100);
      *
-     * vec.clampY(50)
+     * vec.clampY(0, 50)
+     * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 50)
-     * assert.equal(vec.y, 100)
      * @category Clamp
      * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
-    clampY(max: number, min?: number) {
-        if (min !== undefined && min !== null) {
-            if (min > max) {
-                throw RangeError('min must be smaller than max');
-            }
-            this.y = Math.max(this.y, min);
+    clampY(min: number, max: number): Vector;
+    /**
+     * Use the Y axes of two vectors to enforce the bounds of the Y axis of this vector.
+     *
+     * @param {Vector} minVector The vector defining the minimum value for the Y axis
+     * @param {Vector} maxVector The vector defining the maximum value for the Y axis
+     */
+    clampY(minVector: Vector, maxVector: Vector): Vector;
+    /**
+     * Use a number to enforce the max value of the Y axis of this vector.
+     *
+     * @param {Number} max The maximum value for the Y axis
+     */
+    clampY(max: number): Vector;
+    /**
+     * Use the Y axis of a vector to enforce the max value of the Y axis of this vector.
+     *
+     * @param {Vector} maxVector The vector defining the maximum value for the Y axis
+     */
+    clampY(maxVector: Vector): Vector;
+
+    clampY(max: number | Vector, min?: number | Vector): Vector {
+        const a = isVector(max) ? max.y : max;
+
+        if (min === undefined) {
+            this.y = Math.min(this.y, validateNumber(a));
+            return this;
         }
 
-        this.y = Math.min(this.y, max);
+        if (typeof max !== typeof min) {
+            throw TypeError('Params must have the same type');
+        }
 
+        const b = isVector(min) ? min.y : min;
+        const _min = Math.min(a, b);
+        const _max = Math.max(a, b);
+
+        this.y = getClampedValue(this.y, _min, _max);
         return this;
     }
 
