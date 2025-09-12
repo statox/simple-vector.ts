@@ -7,7 +7,7 @@ export class InvalidNumberError extends Error {
     }
 }
 
-const validateNumber = (val: unknown): number => {
+export const validateNumber = (val: unknown): number => {
     if (typeof val !== 'number' || !Number.isFinite(val)) {
         throw new InvalidNumberError(val);
     }
