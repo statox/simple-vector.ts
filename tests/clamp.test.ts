@@ -389,46 +389,160 @@ test('Clamp methods', () => {
 
     describe('.clampMag', function () {
         it('should be chainable', function () {
-            const vec = new Vector(100, 100);
-            const ret = vec.clampMag(10);
-            assert.ok(ret === vec);
+            let vec: Vector;
+            let ret: Vector;
+
+            beforeEach(() => (vec = new Vector(100, 100)));
+            afterEach(() => {
+                assert.ok(ret === vec);
+            });
+
+            it('with a single number param', () => {
+                ret = vec.clampMag(1);
+            });
+            it('with a single Vector param', () => {
+                ret = vec.clampMag(new Vector());
+            });
+            it('with two number params', () => {
+                ret = vec.clampMag(1, 10);
+            });
+            it('with two Vector params', () => {
+                ret = vec.clampMag(new Vector(), new Vector());
+            });
         });
 
-        it('should throw if min is larger than max', function () {
-            const vec = new Vector(100, 100);
-            assert.throws(() => vec.clampMag(10, 100), RangeError);
-        });
-
-        it('should throw if max is negative', function () {
-            const vec = new Vector(100, 100);
-            assert.throws(() => vec.clampMag(-1), RangeError);
-        });
-
-        it('should throw if min is negative', function () {
-            const vec = new Vector(100, 100);
-            assert.throws(() => vec.clampMag(1, -1), RangeError);
+        it('should throw', function () {
+            it('should throw if max is negative', function () {
+                const vec = new Vector(100, 100);
+                assert.throws(() => vec.clampMag(-1), RangeError);
+            });
+            it('should throw if min is negative', function () {
+                const vec = new Vector(100, 100);
+                assert.throws(() => vec.clampMag(1, -1), RangeError);
+            });
+            it('If the parameters are not of the same type', function () {
+                const vec = new Vector(100, 100);
+                // @ts-expect-error We are testing invalid parameters
+                assert.throws(() => vec.clampMag(200, new Vector()), TypeError);
+                // @ts-expect-error We are testing invalid parameters
+                assert.throws(() => vec.clampMag(new Vector(), 200), TypeError);
+            });
+            it('If the number parameters are invalid', function () {
+                const vec = new Vector(100, 100);
+                it('First param is undefined', () => {
+                    // @ts-expect-error We are testing invalid parameters
+                    assert.throws(() => vec.clampMag(undefined, 200), InvalidNumberError);
+                });
+                it('First param is not a number', () => {
+                    // @ts-expect-error We are testing invalid parameters
+                    assert.throws(() => vec.clampMag('foo'), InvalidNumberError);
+                });
+            });
         });
 
         it('should not change value if its in range', function () {
-            const vec = new Vector(10, 10);
-            vec.clampMag(16, 13);
-            assert.strictEqual(vec.x, 10);
-            assert.strictEqual(vec.y, 10);
+            let vec: Vector;
+            let originalAngle: number;
+            const maxVec = new Vector(20, 20);
+            const minVec = new Vector(5, 5);
+            const max = maxVec.mag();
+            const min = minVec.mag();
+            beforeEach(() => {
+                vec = new Vector(10, 10);
+                originalAngle = vec.horizontalAngle();
+            });
+            afterEach(() => {
+                assert.strictEqual(vec.x, 10);
+                assert.strictEqual(vec.y, 10);
+                assert.strictEqual(vec.horizontalAngle(), originalAngle);
+            });
+
+            it('with a single number param', () => {
+                vec.clampMag(max);
+            });
+            it('with a single Vector param', () => {
+                vec.clampMag(maxVec);
+            });
+            it('with ordered number params', () => {
+                vec.clampMag(min, max);
+            });
+            it('with ordered Vector params', () => {
+                vec.clampMag(minVec, maxVec);
+            });
+            it('with reversed number params', () => {
+                vec.clampMag(max, min);
+            });
+            it('with reversed Vector params', () => {
+                vec.clampMag(maxVec, minVec);
+            });
         });
 
         it('should clamp the magnitude to the max value', function () {
-            const vec = new Vector(10, 10);
-            vec.clampMag(Math.sqrt(2));
-            assertCloseTo(vec.x, 1);
-            assertCloseTo(vec.y, 1);
-            assert.strictEqual(vec.magnitude(), Math.sqrt(2));
+            let vec: Vector;
+            let originalAngle: number;
+            const maxVec = new Vector(10, 10);
+            const minVec = new Vector(5, 5);
+            const max = maxVec.mag();
+            const min = minVec.mag();
+            beforeEach(() => {
+                vec = new Vector(20, 20);
+                originalAngle = vec.horizontalAngle();
+            });
+            afterEach(() => {
+                assert.strictEqual(vec.x, 10);
+                assert.strictEqual(vec.y, 10);
+                assert.strictEqual(vec.horizontalAngle(), originalAngle);
+            });
+
+            it('with a single number param', () => {
+                vec.clampMag(max);
+            });
+            it('with a single Vector param', () => {
+                vec.clampMag(maxVec);
+            });
+            it('with ordered number params', () => {
+                vec.clampMag(min, max);
+            });
+            it('with ordered Vector params', () => {
+                vec.clampMag(minVec, maxVec);
+            });
+            it('with reversed number params', () => {
+                vec.clampMag(max, min);
+            });
+            it('with reversed Vector params', () => {
+                vec.clampMag(maxVec, minVec);
+            });
         });
 
         it('should clamp the magnitude to the min value', function () {
-            const vec = new Vector(10, 10);
-            vec.clampMag(1000, 100 * Math.sqrt(2));
-            assert.strictEqual(vec.x, 100);
-            assert.strictEqual(vec.y, 100);
+            let vec: Vector;
+            let originalAngle: number;
+            const maxVec = new Vector(10, 10);
+            const minVec = new Vector(5, 5);
+            const max = maxVec.mag();
+            const min = minVec.mag();
+            beforeEach(() => {
+                vec = new Vector(1, 1);
+                originalAngle = vec.horizontalAngle();
+            });
+            afterEach(() => {
+                assert.strictEqual(vec.x, 5);
+                assert.strictEqual(vec.y, 5);
+                assert.strictEqual(vec.horizontalAngle(), originalAngle);
+            });
+
+            it('with ordered number params', () => {
+                vec.clampMag(min, max);
+            });
+            it('with ordered Vector params', () => {
+                vec.clampMag(minVec, maxVec);
+            });
+            it('with reversed number params', () => {
+                vec.clampMag(max, min);
+            });
+            it('with reversed Vector params', () => {
+                vec.clampMag(maxVec, minVec);
+            });
         });
     });
 });

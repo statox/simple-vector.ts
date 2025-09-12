@@ -898,41 +898,84 @@ export class Vector {
     }
 
     /**
-     * Resize the vector to clamp the magnitude to the max value.
-     * Also clamp to a minimum value if a second argument is specified.
+     * Resize the vector to enforce its magnitude to be between and max and a min value.
+     *
+     * If only one value is provided, it is used as the max bound and no
+     * min bound is enforced.
+     *
+     * If two values are provided the method will sort them to use the largest
+     * one as the max bound and the smallest one as the min bound.
+     * These values must be of the same type (either two {@link Vector} or two
+     * `number`)
      *
      * This preserves the angle of the vector.
      *
      * @param {Number} max The maximum value for the magnitude
-     * @param {Number} min (optional) The minimum value for the magnitude
+     * @param {Number} min  The minimum value for the magnitude
      * @return `this` for chaining capabilities
-     * @throws { RangeError } RangeError if the `min` value is defined and larger than the max value.
-     * @throws { RangeError } RangeError if the `min` or `max` value are negative.
+     * @throws { RangeError } RangeError if one of the parameter is a negative number
+     * @throws {TypeError} TypeError If the second parameter is defined and not of the same type as the first parameter
+     * @throws {InvalidNumberError} InvalidNumberError If one of the number parameter is invalid
      * @example
      * const vec = new Vector(100, 100);
+     * const angle = vec.horizontalAngle();
      *
      * vec.clampMag(50)
      * assert.equal(vec.magnitude(), 50)
-     * assert.equal(vec.x, vec.y)
+     * assert.equal(vec.horizontalAngle(), angle)
      * @category Clamp
      * @see [Try it live](https://statox.github.io/simple-vector-examples/clamp)
      */
-    clampMag(max: number, min?: number) {
-        const currentMag = this.magnitude();
-        let minBound = 0;
-        if (min !== undefined && min !== null) {
-            if (min > max) {
-                throw RangeError('min must be smaller than max');
-            }
-            minBound = min;
-        }
-        if (min < 0 || max < 0) {
+    clampMag(min: number, max: number): Vector;
+    /**
+     * Use the magnitudes of two vectors to enforce the bounds of the magnitude of this vector.
+     *
+     * @param {Vector} minVector The vector defining the minimum value for magnitude
+     * @param {Vector} maxVector The vector defining the maximum value for magnitude
+     */
+    clampMag(minVector: Vector, maxVector: Vector): Vector;
+    /**
+     * Use a number to enforce the max value of the magnitude of this vector.
+     *
+     * @param {Number} max The maximum value for the magnitude
+     */
+    clampMag(max: number): Vector;
+    /**
+     * Use the magnitude of a vector to enforce the max value of the magnitude of this vector.
+     *
+     * @param {Vector} maxVector The vector defining the maximum value for the magnitude of this vector
+     */
+    clampMag(maxVector: Vector): Vector;
+
+    clampMag(max: number | Vector, min?: number | Vector) {
+        const currentMag = this.mag();
+        const a = isVector(max) ? max.mag() : validateNumber(max);
+
+        if (a < 0) {
             throw RangeError("Can't clamp the magnitude to a negative value");
         }
 
-        const newMag = Math.max(Math.min(currentMag, max), minBound);
-        this.resize(newMag);
+        if (min === undefined) {
+            if (currentMag > a) {
+                this.resize(a);
+            }
+            return this;
+        }
 
+        if (typeof max !== typeof min) {
+            throw TypeError('Params must have the same type');
+        }
+
+        const b = isVector(min) ? min.mag() : validateNumber(min);
+        if (b < 0) {
+            throw RangeError("Can't clamp the magnitude to a negative value");
+        }
+        const _minMag = Math.min(a, b);
+        const _maxMag = Math.max(a, b);
+        const clampedMag = getClampedValue(currentMag, _minMag, _maxMag);
+        if (currentMag !== clampedMag) {
+            this.resize(clampedMag);
+        }
         return this;
     }
 
