@@ -812,10 +812,10 @@ export class Vector {
     clampX(maxVector: Vector): Vector;
 
     clampX(max: number | Vector, min?: number | Vector): Vector {
-        const a = isVector(max) ? max.x : max;
+        const a = isVector(max) ? max.x : validateNumber(max);
 
         if (min === undefined) {
-            this.x = Math.min(this.x, validateNumber(a));
+            this.x = Math.min(this.x, a);
             return this;
         }
 
@@ -823,7 +823,7 @@ export class Vector {
             throw TypeError('Params must have the same type');
         }
 
-        const b = isVector(min) ? min.x : min;
+        const b = isVector(min) ? min.x : validateNumber(min);
         const _min = Math.min(a, b);
         const _max = Math.max(a, b);
 
@@ -878,10 +878,10 @@ export class Vector {
     clampY(maxVector: Vector): Vector;
 
     clampY(max: number | Vector, min?: number | Vector): Vector {
-        const a = isVector(max) ? max.y : max;
+        const a = isVector(max) ? max.y : validateNumber(max);
 
         if (min === undefined) {
-            this.y = Math.min(this.y, validateNumber(a));
+            this.y = Math.min(this.y, a);
             return this;
         }
 
@@ -889,7 +889,7 @@ export class Vector {
             throw TypeError('Params must have the same type');
         }
 
-        const b = isVector(min) ? min.y : min;
+        const b = isVector(min) ? min.y : validateNumber(min);
         const _min = Math.min(a, b);
         const _max = Math.max(a, b);
 

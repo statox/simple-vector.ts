@@ -43,7 +43,7 @@ test('Clamp methods', () => {
                 const vec = new Vector(100, 100);
                 it('First param is undefined', () => {
                     // @ts-expect-error We are testing invalid parameters
-                    assert.throws(() => vec.clampX(undefined, 200), TypeError);
+                    assert.throws(() => vec.clampX(undefined, 200), InvalidNumberError);
                 });
                 it('First param is not a number', () => {
                     // @ts-expect-error We are testing invalid parameters
@@ -178,7 +178,7 @@ test('Clamp methods', () => {
                 const vec = new Vector(100, 100);
                 it('First param is undefined', () => {
                     // @ts-expect-error We are testing invalid parameters
-                    assert.throws(() => vec.clampY(undefined, 200), TypeError);
+                    assert.throws(() => vec.clampY(undefined, 200), InvalidNumberError);
                 });
                 it('First param is not a number', () => {
                     // @ts-expect-error We are testing invalid parameters
@@ -313,7 +313,7 @@ test('Clamp methods', () => {
                 const vec = new Vector(100, 100);
                 it('First param is undefined', () => {
                     // @ts-expect-error We are testing invalid parameters
-                    assert.throws(() => vec.clampAxes(undefined, 200), TypeError);
+                    assert.throws(() => vec.clampAxes(undefined, 200), InvalidNumberError);
                 });
                 it('First param is not a number', () => {
                     // @ts-expect-error We are testing invalid parameters
