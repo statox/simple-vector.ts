@@ -1,8 +1,8 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
-import { assertCloseTo } from './helpers.ts';
+import { Vector } from '../../src/Vector.ts';
+import { assertCloseTo } from '../helpers.ts';
 
 test('Rotation methods - Original tests', () => {
     describe('.rotateBy', function () {

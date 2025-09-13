@@ -1,7 +1,7 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { Vector } from '../../src/Vector.ts';
 
 test('Transformation methods', () => {
     describe('.invertX', () => {

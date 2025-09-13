@@ -1,7 +1,7 @@
 import { before, describe, it, test } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { Vector } from '../../src/Vector.ts';
 
 test('Subtraction methods - Original tests', () => {
     describe('.subtractX', function () {

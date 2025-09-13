@@ -1,7 +1,7 @@
 import { test, it } from 'node:test';
 
-import { Vector } from '../src/Vector.ts';
-import { assertCloseTo } from './helpers.ts';
+import { Vector } from '../../src/Vector.ts';
+import { assertCloseTo } from '../helpers.ts';
 
 test('.reflect', () => {
     it('Should reflect a vector parallel to the normal', () => {

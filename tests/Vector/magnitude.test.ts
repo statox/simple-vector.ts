@@ -1,8 +1,8 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { DivisionByZeroError, Vector } from '../src/Vector.ts';
-import { assertCloseTo } from './helpers.ts';
+import { DivisionByZeroError, Vector } from '../../src/Vector.ts';
+import { assertCloseTo } from '../helpers.ts';
 
 test('Magnitude methods - Original tests', () => {
     describe('.limit', function () {

@@ -1,7 +1,7 @@
 import { test, describe, it } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { Vector } from '../../src/Vector.ts';
 
 /**
  * TODO Use a different RNG because Math.random() is not seedable so tests

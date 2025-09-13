@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
+import { Vector } from '../../src/Vector.ts';
 
 test('Copy methods', () => {
     test('.copyX', () => {

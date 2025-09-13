@@ -1,7 +1,7 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { DivisionByZeroError, Vector } from '../src/Vector.ts';
+import { DivisionByZeroError, Vector } from '../../src/Vector.ts';
 
 test('Division methods - Original tests', () => {
     describe('.divideX', function () {

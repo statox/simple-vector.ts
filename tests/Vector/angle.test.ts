@@ -1,8 +1,8 @@
 import { before, describe, it, test } from 'node:test';
 import assert from 'node:assert';
 
-import { Vector } from '../src/Vector.ts';
-import { assertCloseTo } from './helpers.ts';
+import { Vector } from '../../src/Vector.ts';
+import { assertCloseTo } from '../helpers.ts';
 
 test('Angle methods - Original tests', () => {
     describe('.horizontalAngle', function () {
