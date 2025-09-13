@@ -1,4 +1,4 @@
-import { InvalidNumberError } from "./errors.ts";
+import { InvalidNumberError } from './errors.ts';
 
 export const validateNumber = (val: unknown): number => {
     if (typeof val !== 'number' || !Number.isFinite(val)) {
