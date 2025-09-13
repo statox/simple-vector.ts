@@ -1,6 +1,6 @@
 {
     "name": "simple-vector",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "description": "A 2D Vector library",
     "main": "dist/simple-vector.umd.js",
     "types": "dist/types/index.d.ts",
