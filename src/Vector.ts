@@ -7,16 +7,8 @@
  * @module Vector
  */
 
+import { DivisionByZeroError } from './errors.ts';
 import { getClampedValue, validateNumber } from './utils.ts';
-
-/**
- * An exception thrown by some methods when a division by zero is attempted.
- */
-export class DivisionByZeroError extends Error {
-    constructor() {
-        super('Tried to divide by 0');
-    }
-}
 
 /**
  * An interface for objects with an `x` and a `y` properties.

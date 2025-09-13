@@ -1,7 +1,8 @@
 import { test, describe, it, before } from 'node:test';
 import assert from 'node:assert';
 
-import { DivisionByZeroError, Vector } from '../../src/Vector.ts';
+import { Vector } from '../../src/Vector.ts';
+import { DivisionByZeroError } from '../../src/errors.ts';
 
 test('Interpolation methods - Original tests', () => {
     describe('.mixX', function () {

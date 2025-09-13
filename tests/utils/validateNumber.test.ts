@@ -1,7 +1,8 @@
 import { afterEach, describe, it } from 'node:test';
 import assert from 'node:assert';
 
-import { InvalidNumberError, validateNumber } from '../../src/utils.ts';
+import { validateNumber } from '../../src/utils.ts';
+import { InvalidNumberError } from '../../src/errors.ts';
 
 describe('validateNumber', () => {
     it('Should return input if it is a number', () => {

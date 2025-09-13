@@ -2,7 +2,7 @@ import { test, describe, it, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert';
 
 import { Vector } from '../../src/Vector.ts';
-import { InvalidNumberError } from '../../src/utils.ts';
+import { InvalidNumberError } from '../../src/errors.ts';
 
 test('Clamp methods', () => {
     describe('.clampX', function () {

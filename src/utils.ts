@@ -1,11 +1,4 @@
-/**
- * An exception thrown by some methods when an expected number is invalid.
- */
-export class InvalidNumberError extends Error {
-    constructor(val: unknown) {
-        super('Expected a number, instead got', val);
-    }
-}
+import { InvalidNumberError } from "./errors.ts";
 
 export const validateNumber = (val: unknown): number => {
     if (typeof val !== 'number' || !Number.isFinite(val)) {
