@@ -181,6 +181,7 @@ export class Vector {
      * assert.equal(vec1.x, 30)
      * assert.equal(vec1.y, 10)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/add)
      */
     addX(vec: Vector) {
         this.x += vec.x;
@@ -200,6 +201,7 @@ export class Vector {
      * assert.equal(vec1.x, 10)
      * assert.equal(vec1.y, 40)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/add)
      */
     addY(vec: Vector) {
         this.y += vec.y;
@@ -219,6 +221,7 @@ export class Vector {
      * assert.equal(vec1.x, 30)
      * assert.equal(vec1.y, 40)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/add)
      */
     add(vec: Vector) {
         this.x += vec.x;
@@ -238,6 +241,7 @@ export class Vector {
      * assert.equal(vec.x, 12)
      * assert.equal(vec.y, 22)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/add)
      */
     addScalar(scalar: number) {
         this.x += scalar;
@@ -257,6 +261,7 @@ export class Vector {
      * assert.equal(vec.x, 12)
      * assert.equal(vec.y, 20)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/add)
      */
     addScalarX(scalar: number) {
         this.x += scalar;
@@ -275,6 +280,7 @@ export class Vector {
      * assert.equal(vec.x, 10)
      * assert.equal(vec.y, 22)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/add)
      */
     addScalarY(scalar: number) {
         this.y += scalar;
@@ -294,6 +300,7 @@ export class Vector {
      * assert.equal(vec1.x, 20)
      * assert.equal(vec1.y, 30)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/subtract)
      */
     subtractX(vec: Vector) {
         this.x -= vec.x;
@@ -313,6 +320,7 @@ export class Vector {
      * assert.equal(vec1.x, 30)
      * assert.equal(vec1.y, 10)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/subtract)
      */
     subtractY(vec: Vector) {
         this.y -= vec.y;
@@ -332,6 +340,7 @@ export class Vector {
      * assert.equal(vec1.x, 20)
      * assert.equal(vec1.y, 10)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/subtract)
      */
     subtract(vec: Vector) {
         this.x -= vec.x;
@@ -351,6 +360,7 @@ export class Vector {
      * assert.equal(vec.x, 8)
      * assert.equal(vec.y, 18)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/subtract)
      */
     subtractScalar(scalar: number) {
         this.x -= scalar;
@@ -370,6 +380,7 @@ export class Vector {
      * assert.equal(vec.x, 8)
      * assert.equal(vec.y, 20)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/subtract)
      */
     subtractScalarX(scalar: number) {
         this.x -= scalar;
@@ -388,6 +399,7 @@ export class Vector {
      * assert.equal(vec.x, 10)
      * assert.equal(vec.y, 18)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/subtract)
      */
     subtractScalarY(scalar: number) {
         this.y -= scalar;
@@ -408,6 +420,7 @@ export class Vector {
      * assert.equal(vec1.x, 50)
      * assert.equal(vec1.y, 50)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/divide)
      */
     divideX(vec: Vector) {
         if (vec.x === 0) {
@@ -432,6 +445,7 @@ export class Vector {
      * assert.equal(vec1.x, 100)
      * assert.equal(vec1.y, 25)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/divide)
      */
     divideY(vec: Vector) {
         if (vec.y === 0) {
@@ -456,6 +470,7 @@ export class Vector {
      * assert.equal(vec1.x, 50)
      * assert.equal(vec1.y, 25)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/divide)
      */
     divide(vec: Vector) {
         if (vec.x === 0 || vec.y === 0) {
@@ -480,6 +495,7 @@ export class Vector {
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 25)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/divide)
      */
     divideScalar(scalar: number) {
         if (scalar === 0) {
@@ -505,6 +521,7 @@ export class Vector {
      * assert.equal(vec.x, 50)
      * assert.equal(vec.y, 50)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/divide)
      */
     divideScalarX(scalar: number) {
         if (scalar === 0) {
@@ -528,6 +545,7 @@ export class Vector {
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 25)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/divide)
      */
     divideScalarY(scalar: number) {
         if (scalar === 0) {
@@ -551,6 +569,7 @@ export class Vector {
      * assert.equal(vec1.x, 200)
      * assert.equal(vec1.y, 50)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/multiply)
      */
     multiplyX(vec: Vector) {
         this.x *= vec.x;
@@ -570,6 +589,7 @@ export class Vector {
      * assert.equal(vec1.x, 100)
      * assert.equal(vec1.y, 100)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/multiply)
      */
     multiplyY(vec: Vector) {
         this.y *= vec.y;
@@ -589,6 +609,7 @@ export class Vector {
      * assert.equal(vec1.x, 200)
      * assert.equal(vec1.y, 100)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/multiply)
      */
     multiply(vec: Vector) {
         this.x *= vec.x;
@@ -608,6 +629,7 @@ export class Vector {
      * assert.equal(vec.x, 200)
      * assert.equal(vec.y, 100)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/multiply)
      */
     multiplyScalar(scalar: number) {
         this.x *= scalar;
@@ -627,6 +649,7 @@ export class Vector {
      * assert.equal(vec.x, 200)
      * assert.equal(vec.y, 50)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/multiply)
      */
     multiplyScalarX(scalar: number) {
         this.x *= scalar;
@@ -645,6 +668,7 @@ export class Vector {
      * assert.equal(vec.x, 100)
      * assert.equal(vec.y, 100)
      * @category Arithmetic operations
+     * @see [Try it live](https://statox.github.io/simple-vector-examples/arithmetic/multiply)
      */
     multiplyScalarY(scalar: number) {
         this.y *= scalar;
