@@ -55,7 +55,7 @@
         "prettier": "^3.6.2",
         "rollup": "^4.50.0",
         "typedoc": "^0.28.10",
-        "typescript": "^5.9.2"
+        "typescript": "^6.0.2"
     },
     "repository": {
         "type": "git",
