@@ -42,7 +42,7 @@
         "serve:doc": "npx serve docs/"
     },
     "devDependencies": {
-        "@cspell/eslint-plugin": "^9.2.1",
+        "@cspell/eslint-plugin": "^10.0.0",
         "@eslint/eslintrc": "^3.3.1",
         "@eslint/js": "^10.0.1",
         "@rollup/plugin-typescript": "^12.1.4",
